@@ -1,0 +1,5 @@
+[[main]]
+  identifier = "AWS"
+  name = "AWS"
+  url = "AWS"
+  weight = 1
