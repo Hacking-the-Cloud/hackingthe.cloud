@@ -1,10 +1,6 @@
 baseURL = "http://example.org"
-title = "Hugo Zdoc Theme"
+title = "Hacking the Cloud"
 theme = "zdoc"
-
-defaultContentLanguage = "en"
-defaultContentLanguageInSubdir = false
-hasCJKLanguage = false
 
 copyright = "&copy;{year}, All Rights Reserved"
 timeout = 10000
