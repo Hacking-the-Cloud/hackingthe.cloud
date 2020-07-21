@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v2
         
       - name: Install Hugo
-        run: wget https://github.com/gohugoio/hugo/releases/download/v0.74.1/hugo_0.74.1_Linux-64bit.tar.gz && tar -xvf hugo_0.74.1_Linux-64bit.tar.gz
+        run: wget https://github.com/gohugoio/hugo/releases/download/v0.74.2/hugo_extended_0.74.2_Linux-64bit.tar.gz && tar -xvf hugo_extended_0.74.2_Linux-64bit.tar.gz
         
       - name: Build Website
         run: ./hugo --minify
