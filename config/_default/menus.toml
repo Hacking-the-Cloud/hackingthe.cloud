@@ -15,9 +15,3 @@
   name = "GCP"
   url = "gcp"
   weight = 3
-
-[[main]]
-  identifier = "About"
-  name = "About"
-  url = "about"
-  weight = 4
