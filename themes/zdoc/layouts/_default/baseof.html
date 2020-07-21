@@ -17,6 +17,11 @@
         var localTheme = localStorage.getItem('theme');
         if (localTheme) {
             document.getElementById('root').className = `theme__${localTheme}`;
+            if (localTheme == "dark") {
+                document.body.style.background = "#212121";
+            } else if (localTheme == "light") {    
+                document.body.style.background = "#f7f8f9";
+            }
         }        
     </script>
     
