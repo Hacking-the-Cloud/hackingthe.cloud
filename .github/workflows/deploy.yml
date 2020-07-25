@@ -26,5 +26,6 @@ jobs:
         personal_token: ${{ secrets.TOKEN }}
         external_repository: Hacking-the-Cloud/github_pages
         publish_dir: ./public
+        publish_branch: master
         user_name: hacking-cloud-bot
         user_email: ${{ secrets.EMAIL }}
