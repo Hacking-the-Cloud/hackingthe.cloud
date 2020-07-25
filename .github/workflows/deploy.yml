@@ -26,3 +26,4 @@ jobs:
         personal_token: ${{ secrets.TOKEN }}
         publish_dir: ./public
         user_name: hacking-cloud-bot
+        user_email: ${{ secrets.EMAIL }}
