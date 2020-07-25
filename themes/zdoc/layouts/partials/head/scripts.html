@@ -18,6 +18,8 @@
 <script defer src="{{ $getParents.RelPermalink }}"></script>
 {{ $fadeinout := resources.Get "js/helper/fadeinout.js" | resources.Minify | resources.Fingerprint }}
 <script defer src="{{ $fadeinout.RelPermalink }}"></script>
+{{ $matomo := resources.Get "js/matomo.min.js" | resources.Minify | resources.Fingerprint }}
+<script defer src="{{ $matomo.RelPermalink }}"></script
 
 <script>
   "use strict";
