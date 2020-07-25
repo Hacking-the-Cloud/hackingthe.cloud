@@ -27,5 +27,6 @@ jobs:
         external_repository: Hacking-the-Cloud/github_pages
         publish_dir: ./public
         publish_branch: master
+        cname: hackingthe.cloud
         user_name: hacking-cloud-bot
         user_email: ${{ secrets.EMAIL }}
