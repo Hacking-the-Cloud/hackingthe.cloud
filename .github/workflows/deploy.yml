@@ -24,6 +24,7 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       with:
         personal_token: ${{ secrets.TOKEN }}
+        external_repository: Hacking-the-Cloud/github_pages
         publish_dir: ./public
         user_name: hacking-cloud-bot
         user_email: ${{ secrets.EMAIL }}
