@@ -5,13 +5,17 @@
 <meta name="keywords" content="{{ delimit .Keywords "," }}">
 <meta name="created" content="{{ .Date.Format "2006-01-02T15:04:05-0700" }}">
 <meta name="modified" content="{{ .Lastmod.Format "2006-01-02T15:04:05-0700" }}">
+<meta name="twitter:image" content="{{ "/logo.png" }}"> 
+<meta name="title" content="{{ .Title }}">
+<meta name="twitter:title" content="{{ .Title }}">
+<meta name="twitter:description" content="{{if .IsHome}}{{ $.Site.Params.description }}{{else}}{{.Description}}{{end}}">
 {{ with $.Param "author" }}<meta name="author" content="{{ . }}">{{ end }}
-{{ with $.Param "contact" }}<meta name="contact" content="{{ . }}">{{ end }}
 <meta property="og:site_name" content="{{ .Site.Title }}">
+<meta name="twitter:card" content="summary">
 <meta property="og:title" content="{{ .Title }}">
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
-{{ with $.Param "image" }}<meta property="og:image" content="{{ . | absURL }}">{{ end }}
+<meta property="og:image" content="{{ "/logo.png" }}">
 {{ hugo.Generator }}
 <meta name="msapplication-TileColor" content="{{ $.Param "themecolor" | default "#ffffff" }}">
 <meta name="theme-color" content="{{ $.Param "themecolor" | default "#ffffff" }}">
@@ -27,13 +31,11 @@
   <link rel="apple-touch-icon" sizes="144x144" href="{{ "favicon/apple-icon-144x144.png" | relURL }}">
   <link rel="apple-touch-icon" sizes="152x152" href="{{ "favicon/apple-icon-152x152.png" | relURL }}">
   <link rel="apple-touch-icon" sizes="180x180" href="{{ "favicon/apple-icon-180x180.png" | relURL }}">
-  <link rel="icon" type="image/png" sizes="192x192" href="{{ "favicon/android-icon-192x192.png" | relURL }}">
-  <link rel="icon" type="image/png" sizes="192x192" href="{{ "favicon/android-icon-512x512.png" | relURL }}">
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon/favicon-32x32.png" | relURL }}">
+  <link rel="icon" type="image/png" sizes="192x192" href="{{ "favicon/android-chrome-192x192.png" | relURL }}">
+  <link rel="icon" type="image/png" sizes="192x192" href="{{ "favicon/android-chrome-512x512.png" | relURL }}">
   <link rel="icon" type="image/png" sizes="96x96" href="{{ "favicon/favicon-96x96.png" | relURL }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon/favicon-32x32.png" | relURL }}">
   <link rel="icon" type="image/png" sizes="16x16" href="{{ "favicon/favicon-16x16.png" | relURL }}">
-  <meta name="msapplication-TileColor" content="#ffffff">
-  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 {{ else }}
   <link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | relURL }}">
   <link rel="shortcut icon" href="{{ "favicon.png" | relURL }}" type="image/x-icon">

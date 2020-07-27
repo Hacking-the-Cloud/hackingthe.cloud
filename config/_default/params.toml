@@ -1,7 +1,7 @@
 logo = true
 logoText = "Hacking the Cloud"
 logoType = "short" # long, short
-description = "The ZDoc theme for Hugo example site."
+description = "The Encyclopedia for Offensive Security in the Cloud"
 
 themeOptions = ["light", "dark"]
 
@@ -20,6 +20,7 @@ enableToc = true
 enableMenu = true
 enableNavbar = true
 enableFooter = true
+enableTitleBar = true
 showPoweredBy = true
 
 tocLevels = ["h2", "h3", "h4"]
