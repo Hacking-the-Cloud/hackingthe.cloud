@@ -3,7 +3,7 @@ logoText = "Hacking the Cloud"
 logoType = "short" # long, short
 description = "The Encyclopedia for Offensive Security in the Cloud"
 
-themeOptions = ["light", "dark"]
+themeOptions = ["dark", "light"]
 
 useFaviconGenerator = true # https://www.favicon-generator.org/
 

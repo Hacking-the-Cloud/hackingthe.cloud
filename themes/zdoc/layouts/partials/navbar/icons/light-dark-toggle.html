@@ -1,8 +1,8 @@
 {{ if $.Param "enableDarkMode" }}
-<button id="toggleToDark" class="navbar__icons--icon" aria-label="Toggle to dark mode">
+<button id="toggleToDark" class="hide" aria-label="Toggle to dark mode">
   {{ partial "svgs/light-mode.svg" (dict "width" 20 "height" 20) }}
 </button>
-<button id="toggleToLight" class="navbar__icons--icon" aria-label="Toggle to light mode">
+<button id="toggleToLight" class="hide" aria-label="Toggle to light mode">
   {{ partial "svgs/dark-mode.svg" (dict "width" 20 "height" 20) }}
 </button>
 <script>
@@ -10,7 +10,7 @@
   var toggleToLightBtn = document.getElementById('toggleToLight');
   var toggleToDarkBtn = document.getElementById('toggleToDark');
 
-  if (theme && theme === 'dark') {
+  if (true) {
     toggleToLightBtn.className = 'navbar__icons--icon';
     toggleToDarkBtn.className = 'hide';
   } else {
