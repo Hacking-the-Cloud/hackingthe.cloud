@@ -1,4 +1,5 @@
 <div class="top">
+  {{ if $.Param "enableTitleBar" }}
   <div class="header__wrapper bgcolor__header">
     <div class="divider">
       <div class="lmr">
@@ -6,6 +7,7 @@
       </div>
     </div>
   </div>
+  {{ end }}
 
   <div class="header__wrapper bgcolor__breadcrumb">
     <div class="divider">
