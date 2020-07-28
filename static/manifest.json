@@ -1,11 +1,11 @@
 {
   "manifest_version": 2,
-  "name": "Hugo Zdoc theme",
-  "short_name": "Hugo Zdoc theme",
+  "name": "Hacking The Cloud",
+  "short_name": "Hacking The Cloud",
   "version": "1.0.0",
   "default_locale": "en",
-  "description": "Hugo simple documentation theme",
-  "start_url": "https://themes.gohugo.io/theme/hugo-theme-zdoc/",
+  "description": "An encyclopedia for offensive security in the cloud",
+  "start_url": "https://hackingthe.cloud",
   "icons": [
     {
       "src": "favicon/android-icon-36x36.png",
@@ -50,7 +50,7 @@
       "density": "4.0"
     }
   ],
-  "theme_color": "#0071bc",
-  "background_color": "#fff",
+  "theme_color": "#212121",
+  "background_color": "#212121",
   "display": "standalone"
 }
