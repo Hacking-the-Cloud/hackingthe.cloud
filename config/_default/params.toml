@@ -7,7 +7,7 @@ themeOptions = ["dark", "light"]
 
 useFaviconGenerator = true # https://www.favicon-generator.org/
 
-enableTocSwitch = true
+enableTocSwitch = false
 enableLandingBackground = false
 enableSearch = true
 enableSearchHighlight = true
@@ -16,7 +16,7 @@ enableDarkMode = true
 enableBreadcrumb = true
 enableBlogBreadcrumb = true
 enableEditBtn = false
-enableToc = true
+enableToc = false
 enableMenu = true
 enableNavbar = true
 enableFooter = true
