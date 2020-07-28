@@ -16,47 +16,47 @@
       {{ partial "main/component/pagination-single.html" .context }}
     </article>
 
-    <section id="list-side" class="r" data-dir="{{ $.context.Param "languagedir" | default "ltr" }}">
-    </section>
+    <!-- <section id="list-side" class="r" data-dir="{{ $.context.Param "languagedir" | default "ltr" }}">
+    </section> -->
 
   </div>
 </div>
 
 <script>
-  var listSide = document.getElementById('list-side');
+  // var listSide = document.getElementById('list-side');
   var listMain = document.getElementById('list-main');
   var listMenu = document.getElementById('list-menu');
   
   enquire.register("screen and (max-width:1280px)", {
     match: function () {
-      listSide.className = 'r';
+      // listSide.className = 'r';
       listMain.className = 'm';
       listMenu.className = 'l';
     },
     unmatch: function () {
-      listSide.className = 'r';
+      // listSide.className = 'r';
       listMain.className = 'm';
       listMenu.className = 'l';
     },
   }).register("screen and (max-width:960px)", {
     match: function () {
-      listSide.className = 'hide';
+      // listSide.className = 'hide';
       listMain.className = 'mr';
       listMenu.className = 'l';
     },
     unmatch: function () {
-      listSide.className = 'r';
+      // listSide.className = 'r';
       listMain.className = 'm';
       listMenu.className = 'l';
     },
   }).register("screen and (max-width:600px)", {
     match: function () {
-      listSide.className = 'hide';
+      // listSide.className = 'hide';
       listMain.className = 'lmr';
       listMenu.className = 'hide';
     },
     unmatch: function () {
-      listSide.className = 'hide';
+      // listSide.className = 'hide';
       listMain.className = 'mr';
       listMenu.className = 'l';
     },

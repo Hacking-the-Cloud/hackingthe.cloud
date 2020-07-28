@@ -14,51 +14,51 @@
       {{ partial "comments/comments.html" . }}
     </article>
     
-    <section id="list-side" class="r" data-dir="{{ $.Param "languagedir" | default "ltr" }}">
+    <!-- <section id="list-side" class="r" data-dir="{{ $.Param "languagedir" | default "ltr" }}">
       {{ if $.Param "enableToc" }}
         {{ partial "main/component/toc.html" . }}
       {{ end }}
-    </section>
+    </section> -->
 
   </div>
 </div>
 
 {{ partial "script/single-script.html" . }}
 <script>
-  var listSide = document.getElementById('list-side');
+  // var listSide = document.getElementById('list-side');
   var listMain = document.getElementById('list-main');
   var singleMenu = document.getElementById('single-menu');
 
   enquire.register("screen and (max-width:1280px)", {
     match: function () {
-      listSide.className = 'r';
+      // listSide.className = 'r';
       listMain.className = 'm';
       singleMenu.className = 'l';
     },
     unmatch: function () {
-      listSide.className = 'r';
+      // listSide.className = 'r';
       listMain.className = 'm';
       singleMenu.className = 'l';
     },
   }).register("screen and (max-width:960px)", {
     match: function () {
-      listSide.className = 'hide';
+      // listSide.className = 'hide';
       listMain.className = 'mr';
       singleMenu.className = 'l';
     },
     unmatch: function () {
-      listSide.className = 'r';
+      // listSide.className = 'r';
       listMain.className = 'm';
       singleMenu.className = 'l';
     },
   }).register("screen and (max-width:600px)", {
     match: function () {
-      listSide.className = 'hide';
+      // listSide.className = 'hide';
       listMain.className = 'lmr';
       singleMenu.className = 'hide';
     },
     unmatch: function () {
-      listSide.className = 'hide';
+      // listSide.className = 'hide';
       listMain.className = 'mr';
       singleMenu.className = 'l';
       
