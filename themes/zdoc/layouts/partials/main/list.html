@@ -7,7 +7,7 @@
       {{ end }}
     </nav>
 
-    <article id="list-main" class="m" data-dir="{{ $.context.Param "languagedir" | default "ltr" }}">
+    <article id="list-main" class="mr" data-dir="{{ $.context.Param "languagedir" | default "ltr" }}">
       {{ partial "main/component/toggle-sidebar.html" .context }}
       {{ partial "main/sections/list-main.html" .context }}
       {{ if .section_to_display }}
