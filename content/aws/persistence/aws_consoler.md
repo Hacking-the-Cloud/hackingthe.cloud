@@ -3,7 +3,6 @@ author: "Nick Frichette"
 title: "AWS Consoler"
 description: "Leverage stolen credentials to use the AWS Console"
 ---
-Author: Nick Frichette
 Original Research: [Ian Williams](https://blog.netspi.com/gaining-aws-console-access-via-api-keys/)
 Link to Tool: [GitHub](https://github.com/NetSPI/aws_consoler)
 
