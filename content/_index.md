@@ -7,8 +7,8 @@ titleColor:
 textColor:
 spaceBetweenTitleText: 25
 enableToc: false
+enableMenu: false
 ---
-## Welcome to Hacking the Cloud!
 
 ### Work in Progress - Please Regard as Such
 

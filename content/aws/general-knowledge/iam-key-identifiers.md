@@ -5,7 +5,6 @@ description: Chart of the IAM ID Prefixes
 enableEditBtn: true
 editBaseURL: "https://github.com/Hacking-the-Cloud/hackingthe.cloud/blob/master/content"
 ---
-Author: Nick Frichette
 Last updated: 07/27/2020
 [Source](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-unique-ids)
 
