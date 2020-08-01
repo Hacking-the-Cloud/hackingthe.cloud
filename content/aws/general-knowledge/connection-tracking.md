@@ -1,7 +1,7 @@
 ---
 author: "Nick Frichette"
 title: "Connection Tracking"
-description: "Security Groups are Wacky"
+description: "Abuse security group connection tracking to maintain persistence even when security group rules are changed"
 enableEditBtn: true
 editBaseURL: "https://github.com/Hacking-the-Cloud/hackingthe.cloud/blob/master/content"
 ---
