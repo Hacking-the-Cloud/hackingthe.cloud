@@ -33,6 +33,10 @@ Another way would be to use S3 Bucket Policies. Take the following example:
 
 You would apply this policy to a bucket <ins>you</ins> own. By specifying a principal in the target account (123456789123), you can determine if that principals exists. If setting the bucket policy succeeds you know the role exists. If it fails you know the role does not.
 
+{{< notice warning "Note" >}}
+Doing either of these things will generate a lot of CloudTrail events, specifically UpdateAssumeRolePolicy or PutBucketPolicy in your account. If your intention is to be stealthy is is not advised (or required) to use a targets credentials. Instead you should use your own.
+{{< /notice >}}
+
 {{< notice success Note >}}
 While this works for both IAM users and roles, this will also work with [service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html). This will allow you to enumerate various services the account uses, such as GuardDuty or Organizations.
 {{< /notice >}}
