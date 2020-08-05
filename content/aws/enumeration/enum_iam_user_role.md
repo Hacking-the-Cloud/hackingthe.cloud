@@ -31,8 +31,25 @@ Another way would be to use S3 Bucket Policies. Take the following example:
 }
 ```
 
-By specifying a principal in the target account, you can determine if that principals exists. If setting the bucket policy succeeds you know the role exists. If it fails you know the role does not.
+You would apply this policy to a bucket <ins>you</ins> own. By specifying a principal in the target account (123456789123), you can determine if that principals exists. If setting the bucket policy succeeds you know the role exists. If it fails you know the role does not.
 
 {{< notice success Note >}}
 While this works for both IAM users and roles, this will also work with [service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html). This will allow you to enumerate various services the account uses, such as GuardDuty or Organizations.
 {{< /notice >}}
+
+To automate this process you can use the [Pacu Module](https://github.com/RhinoSecurityLabs/pacu/tree/master/modules/iam__enum_roles) or [this](https://github.com/Frichetten/enumate_iam_using_bucket_policy) which will attempt to brute force it for you.
+
+```
+usage: main.py [-h] --id ID --my_bucket MY_BUCKET [--wordlist WORDLIST] (--role | --user)
+
+Enumerate IAM/Users of an AWS account. You must provide your OWN AWS account and bucket
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --id ID               The account id of the target account
+  --my_bucket MY_BUCKET
+                        The bucket used for testing (belongs to you)
+  --wordlist WORDLIST   Wordlist containers user/role names
+  --role                Search for a IAM Role
+  --user                Search for a IAM User
+```
