@@ -15,7 +15,8 @@ There are a few ways to do this, for example, Pacu's module will attempt to chan
 
 Another way would be to use S3 Bucket Policies. Take the following example:
 
-```{
+```
+{
     "Version": "2012-10-17",
     "Statement": [
         {
