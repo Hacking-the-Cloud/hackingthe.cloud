@@ -1,6 +1,6 @@
 ---
 title: Avoid Detection
-description: Don't be Suspicious! Don't be Suspicious!
+description: Avoid being caught in an AWS environment via GuardDuty or CloudTrail. These techniques will help you keep a low profile.
 draft: false
 spaceBetweenTitleText: 25
 collapsible: true
