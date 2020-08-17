@@ -1,6 +1,6 @@
 ---
 title: Persistence
-description: Keep What You've Worked Hard For
+description: These techniques are dedicated to maintaining access in an environment after you've established the initial foothold.
 draft: false
 spaceBetweenTitleText: 25
 collapsible: true
