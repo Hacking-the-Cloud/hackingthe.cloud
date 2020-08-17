@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /*
+Sitemap: https://hackingthe.cloud/sitemap.xml
