@@ -1,7 +1,7 @@
 ---
 author: "Nick Frichette"
 title: IAM ID Identifiers
-description: Chart of the IAM ID Prefixes
+description: Chart of the IAM ID Prefixes.
 enableEditBtn: true
 editBaseURL: "https://github.com/Hacking-the-Cloud/hackingthe.cloud/blob/master/content"
 ---

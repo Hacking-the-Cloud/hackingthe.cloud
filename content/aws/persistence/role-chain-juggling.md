@@ -1,7 +1,7 @@
 ---
 author: "Nick Frichette"
 title: "Role Chain Juggling"
-description: "Keep your access by chaining assume-role calls"
+description: "Keep your access by chaining assume-role calls."
 enableEditBtn: true
 editBaseURL: https://github.com/Hacking-the-Cloud/hackingthe.cloud/blob/master/content
 ---
