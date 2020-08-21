@@ -1,7 +1,7 @@
 ---
 author: "Nick Frichette"
 title: "AWS Consoler"
-description: "Leverage stolen credentials to use the AWS Console"
+description: "Leverage stolen credentials to use the AWS Console."
 enableEditBtn: true
 editBaseURL: https://github.com/Hacking-the-Cloud/hackingthe.cloud/blob/master/content
 ---
