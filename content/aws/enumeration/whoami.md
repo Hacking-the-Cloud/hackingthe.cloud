@@ -7,7 +7,7 @@ editBaseURL: https://github.com/Hacking-the-Cloud/hackingthe.cloud/blob/master/c
 ---
 After finding or stealing IAM credentials during an assessment you will need to identify what they are used for, or if they are valid. The most common method for doing so would be to call the [get-caller-identity](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sts/get-caller-identity.html) API call. This is beneficial for a few reasons, in particular that it requires no special permissions to call.
 
-Unfortunately, because it is so simple many defenders are monitoring for these API calls. As a result we need alternatives. The good news for us is that a lot of AWS services will disclose the calling role along with the account ID as a result of an error. The following is certainly not a comprehensive list, and note that the principal needs to **NOT** have IAM permissions to make this call to return the information as an error.
+Unfortunately (while [unlikely](https://twitter.com/SpenGietz/status/1283846678194221057)) there is the possibility that this API call may be monitored for sensitive accounts. Additionally, if our goal is to be as stealthy as possible we may not want to use this. As a result we need alternatives. The good news for us is that a lot of AWS services will disclose the calling role along with the account ID as a result of an error. The following is certainly not a comprehensive list, and note that the principal needs to **NOT** have IAM permissions to make this call to return the information as an error.
 
 Not all API calls exhibit this behavior. Failed EC2 API calls, for example, will return a variant of the following.
 
