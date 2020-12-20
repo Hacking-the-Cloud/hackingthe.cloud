@@ -1,4 +1,4 @@
-# hackingthe.cloud 
+# hackingthe.cloud ![Deploy](https://github.com/Hacking-the-Cloud/hackingthe.cloud/workflows/Deploy/badge.svg) 
 Hacking the cloud is an open source encyclopedia of attacks against cloud infrastructure.
 
 ## Contributing
