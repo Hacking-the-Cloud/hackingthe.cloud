@@ -1,7 +1,7 @@
 ---
 author: "Nick Frichette"
 title: "Bypass GuardDuty Tor Client Findings"
-description: "With access to an EC2 instance you can intercept, modify, and spoof SSM communications"
+description: "Connect to the Tor network from an EC2 instance without alerting GuardDuty."
 enableEditBtn: true
 editBaseURL: https://github.com/Hacking-the-Cloud/hackingthe.cloud/blob/master/content
 ---
