@@ -6,4 +6,3 @@ spaceBetweenTitleText: 25
 collapsible: true
 weight: 2
 ---
-## Work in Progress
