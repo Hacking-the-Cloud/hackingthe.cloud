@@ -11,8 +11,35 @@
     {{ range (.Site.GetPage "section" .Type).Pages }}
       {{ template "render-menu" (dict "ctx" . "root" $root "depth" 0)}}
     {{ end }}
+    {{ if .IsHome }}
+      {{ template "render-top-menu" }}
+    {{ end }}
   </ul>
 </div>
+
+{{ define "render-top-menu" }}
+  <a href="/aws"><span class="menu__title--collapse" data-depth=0>
+    AWS
+    <span
+      class="menu__title--icon">
+      {{ partial "svgs/arrow-right.svg" (dict "width" 22 "height" 22) }}
+    </span>
+  </span></a>
+  <a href="/azure"><span class="menu__title--collapse" data-depth=0>
+    Azure
+    <span
+      class="menu__title--icon">
+      {{ partial "svgs/arrow-right.svg" (dict "width" 22 "height" 22) }}
+    </span></a>
+  </span>
+  <a href="/gcp"><span class="menu__title--collapse" data-depth=0>
+    GCP
+    <span
+      class="menu__title--icon">
+      {{ partial "svgs/arrow-right.svg" (dict "width" 22 "height" 22) }}
+    </span>
+  </span></a>
+{{ end }}
 
 {{ define "render-menu" }}
   {{ $root := .root }}
