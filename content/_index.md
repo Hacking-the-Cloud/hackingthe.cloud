@@ -17,7 +17,7 @@ All content on this site is created by volunteers. If you'd like to be one of th
 
 Topics can include offensive techniques, tools, general knowledge related to cloud security, etc. **Defensive knowledge is also welcome!** At the end of the day the primary goal is to make the cloud safer, and defenders are welcome to submit content all the same.
 
-Don't worry about submitting content in the wrong format or what section it should be a part of, we can always make improvements later :)
+Don't worry about submitting content in the wrong format or what section it should be a part of, we can always make improvements later :) When writing content: do try to credit the researcher who discovered it and link to their site/talk.
 
 ### Roadmap
 Currently the site has some material on AWS, and very little for Azure or GCP. If you have experience in any of those areas you are welcome to submit content. Even something as small as fixing grammar mistakes or adding a screenshot is appreciated! In the future I'd like to expand the site to include labs for folks to get hands-on experience with the content.
