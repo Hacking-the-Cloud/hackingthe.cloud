@@ -3,7 +3,7 @@ author: Nick Frichette
 title: Brute Force IAM Permissions
 description: Brute force the IAM permissions of a user or role to see what you have access to.
 enableEditBtn: true
-editBaseURL: https://github.com/Hacking-the-Cloud/hackingthe.cloud/blob/master/content
+editBaseURL: https://github.com/Hacking-the-Cloud/hackingthe.cloud/blob/main/content
 ---
 Link to Tool: [GitHub](https://github.com/andresriancho/enumerate-iam)
 

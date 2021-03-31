@@ -3,7 +3,7 @@ author: Nick Frichette
 title: Introduction to User Data
 description: An Introduction to User Data and how it is used.
 enableEditBtn: true
-editBaseURL: https://github.com/Hacking-the-Cloud/hackingthe.cloud/blob/master/content
+editBaseURL: https://github.com/Hacking-the-Cloud/hackingthe.cloud/blob/main/content
 ---
 [Instance user data](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-add-user-data.html) is used to run commands when an EC2 instance is started or rebooted. This can be an excellent source of information for us as attackers. It typically takes the form of a shell script that can be accessed from the EC2 instance.
 

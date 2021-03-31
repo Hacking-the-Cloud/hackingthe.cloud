@@ -3,7 +3,7 @@ author: Nick Frichette
 title: Whoami - Get Principal Name From Keys
 description: During an assessment you may find AWS IAM credentials. Use these tactics to identify the principal of the keys.
 enableEditBtn: true
-editBaseURL: https://github.com/Hacking-the-Cloud/hackingthe.cloud/blob/master/content
+editBaseURL: https://github.com/Hacking-the-Cloud/hackingthe.cloud/blob/main/content
 ---
 After finding or stealing IAM credentials during an assessment you will need to identify what they are used for, or if they are valid. The most common method for doing so would be the [get-caller-identity](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sts/get-caller-identity.html) API call. This is beneficial for a few reasons, in particular that it requires no special permissions to call.
 

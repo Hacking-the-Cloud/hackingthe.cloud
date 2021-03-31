@@ -3,7 +3,7 @@ author: Nick Frichette
 title: Introduction to the Metadata Service
 description: An Introduction to the Metadata Service and how we can use it.
 enableEditBtn: true
-editBaseURL: https://github.com/Hacking-the-Cloud/hackingthe.cloud/blob/master/content
+editBaseURL: https://github.com/Hacking-the-Cloud/hackingthe.cloud/blob/main/content
 ---
 Every EC2 instance has access to something called the instance metadata service (IMDS). This contains (surprise) metadata about that specific EC2 instance.
 
