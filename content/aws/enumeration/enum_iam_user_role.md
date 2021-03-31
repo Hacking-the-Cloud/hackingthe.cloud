@@ -3,7 +3,7 @@ author: Nick Frichette
 title: Unauthenticated Enumeration of IAM Users and Roles
 description: Leverage cross account behaviors to enumerate IAM users and roles in a different AWS account without authentication.
 enableEditBtn: true
-editBaseURL: https://github.com/Hacking-the-Cloud/hackingthe.cloud/blob/master/content
+editBaseURL: https://github.com/Hacking-the-Cloud/hackingthe.cloud/blob/main/content
 ---
 Original Research: [Spencer Gietzen](https://rhinosecuritylabs.com/aws/aws-role-enumeration-iam-p2/)
 Link to Tool: [GitHub](https://github.com/Frichetten/enumate_iam_using_bucket_policy)

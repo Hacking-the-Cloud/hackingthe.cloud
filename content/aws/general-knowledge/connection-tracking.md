@@ -3,7 +3,7 @@ author: "Nick Frichette"
 title: "Connection Tracking"
 description: "Abuse security group connection tracking to maintain persistence even when security group rules are changed."
 enableEditBtn: true
-editBaseURL: "https://github.com/Hacking-the-Cloud/hackingthe.cloud/blob/master/content"
+editBaseURL: "https://github.com/Hacking-the-Cloud/hackingthe.cloud/blob/main/content"
 ---
 Security Groups in AWS have an interesting capability known as [Connection Tracking](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-security-groups.html#security-group-connection-tracking). This allows the security groups to track information about the network traffic and allow/deny that traffic based on the Security Group rules.
 
