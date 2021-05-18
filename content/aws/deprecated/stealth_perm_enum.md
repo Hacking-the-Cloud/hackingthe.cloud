@@ -8,6 +8,10 @@ editBaseURL: https://github.com/Hacking-the-Cloud/hackingthe.cloud/blob/main/con
 Original Research: [Nick Frichette](https://frichetten.com/blog/aws-api-enum-vuln/)
 Link to Tool: [aws_stealth_perm_enum](https://github.com/Frichetten/aws_stealth_perm_enum)
 
+{{< notice warning "Deprecated" >}}
+As of 5/18/2021, this technique has been resolved and fixed by AWS. Mutating the Content-Type header when making API requests no longer can be used to enumerate permissions of a role or user. This page is maintained for historical and inspiration purposes.
+{{< /notice >}}
+
 After compromising an IAM credential while attacking AWS, your next task will be to determine what permissions that credential has scoped to them.
 
 Aside from guessing, enumerating these permissions would typically require a tool to brute force them like [enumerate-iam](https://github.com/andresriancho/enumerate-iam) (which is a fantastic tool). The problem of course is that this will generate a ton of CloudTrail logs and will alert any defender. This poses a challenge to us, how can we enumerate permissions in a stealthy manner?  
