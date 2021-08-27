@@ -39,7 +39,3 @@ This will create or update a file named bruteforce_tests.py under enumerate-iam.
 
 ### OPSEC Considerations
 One thing to note is that this tool is very noisy and will generate a ton of CloudTrail logs. This makes it very easy for a defender to spot this activity and lock you out of that role or user. Try other methods of permission enumeration first, or be willing to lose access to these credentials before resorting to brute-force. 
-
-{{< notice success Note >}}
-As of 12/20/2020 there is a bug in the AWS API that allows you to [enumerate a variety of permissions without logging to CloudTrail](/aws/enumeration/stealth_perm_enum/). Try that method first, before resorting to brute force so you can stay more stealthy.
-{{< /notice >}}
