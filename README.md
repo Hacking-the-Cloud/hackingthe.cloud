@@ -21,6 +21,7 @@ After installing Hugo, you can setup an instance of Hacking the Cloud by cloning
 
 ```
 git clone https://github.com/Hacking-the-Cloud/hackingthe.cloud.git
+cd hackingthe.cloud
 hugo server
 ```
 
