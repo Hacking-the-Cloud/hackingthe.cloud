@@ -1,7 +1,7 @@
 ---
 author: "Nick Frichette"
 title: "Assume Role Logic"
-description: "Requirements for Assume Role - Same/Cross Account"
+description: "Requirements for Assume Role - Same/Cross Account."
 enableEditBtn: true
 editBaseURL: https://github.com/Hacking-the-Cloud/hackingthe.cloud/blob/main/content
 ---
