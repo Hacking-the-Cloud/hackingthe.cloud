@@ -1,7 +1,7 @@
 ---
 author: Nick Frichette
-title: Introduction to the Metadata Service
-description: An Introduction to the Metadata Service and how we can use it.
+title: Introduction to the Instance Metadata Service
+description: An Introduction to the Instance Metadata Service and how to Access It.
 enableEditBtn: true
 editBaseURL: https://github.com/Hacking-the-Cloud/hackingthe.cloud/blob/main/content
 ---
