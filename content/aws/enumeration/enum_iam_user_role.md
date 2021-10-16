@@ -5,9 +5,10 @@ description: Leverage cross account behaviors to enumerate IAM users and roles i
 enableEditBtn: true
 editBaseURL: https://github.com/Hacking-the-Cloud/hackingthe.cloud/blob/main/content
 ---
-Original Research: [Spencer Gietzen](https://rhinosecuritylabs.com/aws/aws-role-enumeration-iam-p2/)
-Link to Tool: [GitHub](https://github.com/Frichetten/enumate_iam_using_bucket_policy)
-Link to Pacu Module: [GitHub](https://github.com/RhinoSecurityLabs/pacu/tree/master/modules/iam__enum_roles)
+Original Research: [Daniel Grzelak](https://twitter.com/0xdabbad00/status/1358554759439949825)  
+Additional Reading: [Rhino Security](https://rhinosecuritylabs.com/aws/aws-role-enumeration-iam-p2/)  
+Link to Tool: [GitHub](https://github.com/Frichetten/enumate_iam_using_bucket_policy)  
+Link to Pacu Module: [GitHub](https://github.com/RhinoSecurityLabs/pacu/tree/master/modules/iam__enum_roles)  
 
 With just the account id of a target you can enumerate the names of IAM users and roles by abusing [Resource-Based Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_resource-based).
 
