@@ -4,11 +4,11 @@ title: Metadata in Google Cloud Instances
 description: Information about the data an attacker can access via GCP's API endpoints
 enableEditBtn: true
 editBaseURL: https://github.com/Hacking-the-Cloud/hackingthe.cloud/blob/main/content
-
 ---
 
-Metadata can provide an attacker (or regular user) information about the compromised App Engine instance, such as its project ID, service accounts, and tokens used by those service accounts.
-The metadata can be accessed by a regular HTTP GET request or cURL, sans any third-party client libraries by making a request to metadata.google.internal or 160.254.169.254.  
+Metadata can provide an attacker (or regular user) information about the compromised App Engine instance, such as its project ID, service accounts, and tokens used by those service accounts.  
+
+The metadata can be accessed by a regular HTTP GET request or cURL, sans any third-party client libraries by making a request to metadata.google.internal or 169.254.169.254.  
 
 ```
 curl "http://metadata.google.internal/computeMetadata/v1/?recursive=true&alt=text" -H
@@ -42,15 +42,15 @@ curl "http://metadata.google.internal/computeMetadata/v1/instance/attributes/?re
     -H "Metadata-Flavor: Google"
 ```
 
-The following table is pulled from the Google Cloud Documentation [https://cloud.google.com/appengine/docs/standard/java/accessing-instance-metadata]
+The following table is pulled from the [Google Cloud Documentation](https://cloud.google.com/appengine/docs/standard/java/accessing-instance-metadata)
 
 | Metadata Endpoint      | Description |
 | ----------- | ----------- |
 | `/computeMetadata/v1/project/numeric-project-id`      | The project number assigned to your project.      |
-| ``/computeMetadata/v1/project/project-id`   | The project ID assigned to your project.        |
+| `/computeMetadata/v1/project/project-id`   | The project ID assigned to your project.        |
 | `/computeMetadata/v1/instance/zone`  |	The zone the instance is running in.|
 | `/computeMetadata/v1/instance/service-accounts/default/aliases`	  | |
-|`/computeMetadata/v1/instance/service-accounts/default/email` |	The default service account email assigned to your project.  |
-|`/computeMetadata/v1/instance/service-accounts/default/`       |	Lists all the default service accounts for your project.|
-|`/computeMetadata/v1/instance/service-accounts/default/scopes` |	Lists all the supported scopes for the default service accounts.|
-|`/computeMetadata/v1/instance/service-accounts/default/token` | Returns the auth token that can be used to authenticate your application to other Google Cloud APIs.|
+| `/computeMetadata/v1/instance/service-accounts/default/email` |	The default service account email assigned to your project.  |
+| `/computeMetadata/v1/instance/service-accounts/default/`       |	Lists all the default service accounts for your project.|
+| `/computeMetadata/v1/instance/service-accounts/default/scopes` |	Lists all the supported scopes for the default service accounts.|
+| `/computeMetadata/v1/instance/service-accounts/default/token` | Returns the auth token that can be used to authenticate your application to other Google Cloud APIs.|
