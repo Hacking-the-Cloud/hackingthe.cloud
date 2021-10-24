@@ -5,9 +5,10 @@ description: Leverage cross account behaviors to enumerate IAM users and roles i
 enableEditBtn: true
 editBaseURL: https://github.com/Hacking-the-Cloud/hackingthe.cloud/blob/main/content
 ---
-Original Research: [Spencer Gietzen](https://rhinosecuritylabs.com/aws/aws-role-enumeration-iam-p2/)
-Link to Tool: [GitHub](https://github.com/Frichetten/enumate_iam_using_bucket_policy)
-Link to Pacu Module: [GitHub](https://github.com/RhinoSecurityLabs/pacu/tree/master/modules/iam__enum_roles)
+Original Research: [Daniel Grzelak](https://twitter.com/0xdabbad00/status/1358554759439949825)  
+Additional Reading: [Rhino Security](https://rhinosecuritylabs.com/aws/aws-role-enumeration-iam-p2/)  
+Link to Tool: [GitHub](https://github.com/Frichetten/enumate_iam_using_bucket_policy)  
+Link to Pacu Module: [GitHub](https://github.com/RhinoSecurityLabs/pacu/tree/master/modules/iam__enum_roles)  
 
 With just the account id of a target you can enumerate the names of IAM users and roles by abusing [Resource-Based Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_resource-based).
 
@@ -35,7 +36,7 @@ Another way would be to use S3 Bucket Policies. Take the following example:
 You would apply this policy to a bucket <ins>you</ins> own. By specifying a principal in the target account (123456789123), you can determine if that principals exists. If setting the bucket policy succeeds you know the role exists. If it fails you know the role does not.
 
 {{< notice warning "Note" >}}
-Doing either of these things will generate a lot of CloudTrail events, specifically UpdateAssumeRolePolicy or PutBucketPolicy in your account. If your intention is to be stealthy is is not advised (or required) to use a targets credentials. Instead you should use your own.
+Doing either of these techniques will generate a lot of CloudTrail events, specifically UpdateAssumeRolePolicy or PutBucketPolicy in your account. If your intention is to be stealthy it is not advised (or required) to use a target's credentials. Instead you should use your own account (the CloudTrail events will be generated there).
 {{< /notice >}}
 
 {{< notice success Note >}}

@@ -7,9 +7,9 @@ editBaseURL: https://github.com/Hacking-the-Cloud/hackingthe.cloud/blob/main/con
 ---
 Link to Tool: [GitHub](https://github.com/andresriancho/enumerate-iam)
 
-When attacking AWS you may compromise credentials for an IAM user or role. This can be an excellent step to gain access to other resources, however it presents a problem for us. How do we know what we have access to? Unless these credentials have specific IAM permissions we won't be able to look them up, and we may not have enough context clues from where we found the credentials to know about them. 
+When attacking AWS you may compromise credentials for an IAM user or role. This can be an excellent step to gain access to other resources, however it presents a problem for us; How do we know what permissions we have access to? While we may have context clues based on the name of the role/user or based on where we found them, this is hardly exhaustive or thorough. 
 
-This leaves us with basically one option, brute force the permissions. To do this, we will try as many AWS API calls as possible to determine what we have access to. There are several tools to do this however here we will be covering [enumerate-iam](https://github.com/andresriancho/enumerate-iam) by Andrés Riancho.
+This leaves us with basically one option, brute force the permissions. To do this, we will try as many safe API calls as possible, seeing which ones fail and which ones succeed. Those that succeed are the permissions we have available to us. There are several tools to do this, however, here we will be covering [enumerate-iam](https://github.com/andresriancho/enumerate-iam) by Andrés Riancho.
 
 To use enumerate-iam, simply pull a copy of the tool from GitHub, provide the credentials, and watch the magic happen. All calls by enumerate-iam are non-destructive, meaning only get and list operations are used. This reduces the risk of accidentally deleting something in a client's account.
 
@@ -39,7 +39,3 @@ This will create or update a file named bruteforce_tests.py under enumerate-iam.
 
 ### OPSEC Considerations
 One thing to note is that this tool is very noisy and will generate a ton of CloudTrail logs. This makes it very easy for a defender to spot this activity and lock you out of that role or user. Try other methods of permission enumeration first, or be willing to lose access to these credentials before resorting to brute-force. 
-
-{{< notice success Note >}}
-As of 12/20/2020 there is a bug in the AWS API that allows you to [enumerate a variety of permissions without logging to CloudTrail](/aws/enumeration/stealth_perm_enum/). Try that method first, before resorting to brute force so you can stay more stealthy.
-{{< /notice >}}
