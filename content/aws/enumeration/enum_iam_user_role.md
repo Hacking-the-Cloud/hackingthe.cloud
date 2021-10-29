@@ -5,7 +5,7 @@ description: Leverage cross account behaviors to enumerate IAM users and roles i
 enableEditBtn: true
 editBaseURL: https://github.com/Hacking-the-Cloud/hackingthe.cloud/blob/main/content
 ---
-Original Research: [Daniel Grzelak](https://twitter.com/0xdabbad00/status/1358554759439949825) - [Remastered Talk by Scott Piper](https://www.youtube.com/watch?v=8ZXRw4Ry3mQ)  
+Original Research: [Daniel Grzelak](https://twitter.com/dagrz) - [Remastered Talk by Scott Piper](https://www.youtube.com/watch?v=8ZXRw4Ry3mQ)  
 Additional Reading: [Rhino Security](https://rhinosecuritylabs.com/aws/aws-role-enumeration-iam-p2/)  
 Link to Tool: [GitHub](https://github.com/Frichetten/enumate_iam_using_bucket_policy)  
 Link to Pacu Module: [GitHub](https://github.com/RhinoSecurityLabs/pacu/tree/master/modules/iam__enum_roles)  
