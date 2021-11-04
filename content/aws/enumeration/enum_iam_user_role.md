@@ -15,7 +15,7 @@ Link to Pacu Module: [GitHub](https://github.com/RhinoSecurityLabs/pacu/tree/mas
 
 You can enumerate Account IDs, root account e-mail addresses, IAM roles, IAM users, and a partial account footprint by abusing [Resource-Based Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_resource-based).
 
-There are a few ways to do this, for example, Pacu's module will attempt to change the AssumeRole policy of a role in <ins>your</ins> account and specify a role in another account. Quiet Riot offers a scalable method for enumerating each of these items with configurable wordlists per item type.
+There are a few ways to do this, for example, Pacu's module will attempt to change the AssumeRole policy of a role in <ins>your</ins> account and specify a role in another account. [Quiet Riot](https://github.com/righteousgambitresearch/quiet-riot) offers a scalable method for enumerating each of these items with configurable wordlists per item type.
 
 Another way would be to use S3 Bucket Policies. Take the following example:
 
