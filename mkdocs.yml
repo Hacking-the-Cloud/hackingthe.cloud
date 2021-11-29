@@ -1,3 +1,9 @@
 site_name: Hacking The Cloud
 theme:
   name: material
+  icon:
+    repo: fontawesome/brands/github
+
+repo_name: Hacking The Cloud
+repo_url: https://github.com/Hacking-the-Cloud/hackingthe.cloud
+edit_uri: edit/master/docs/
