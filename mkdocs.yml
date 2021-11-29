@@ -4,6 +4,9 @@ theme:
   icon:
     repo: fontawesome/brands/github
 
+extra_javascript:
+  - javascripts/matomo.min.js
+
 repo_name: Hacking The Cloud
 repo_url: https://github.com/Hacking-the-Cloud/hackingthe.cloud
 edit_uri: edit/master/docs/
