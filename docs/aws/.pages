@@ -1,0 +1,7 @@
+nav:
+    - General Knowledge: general-knowledge
+    - Enumeration: enumeration
+    - Exploitation: exploitation
+    - Avoid Detection: avoiding-detection
+    - Post Exploitation: post_exploitation
+    - Deprecated: deprecated

@@ -1,17 +1,13 @@
-# Welcome to MkDocs
+# Home
+Hacking the cloud is a encyclopedia of the attacks/tactics/techniques that offensive security professionals can use on their next cloud exploitation adventure. The goal is to share this knowledge with the security community to better defend cloud native technologies.
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+All content on this site is created by volunteers. If you'd like to be one of them, you can contribute your knowledge by submitting a [Pull Request](https://github.com/Hacking-the-Cloud/hackingthe.cloud/pulls). We are open to content from any major cloud provider and will also accept cloud-related technologies as well (Docker, Terraform, K8s, etc.). Additionally you are encouraged to update/modify/improve existing pages as well.
 
-## Commands
+Topics can include offensive techniques, tools, general knowledge related to cloud security, etc. **Defensive knowledge is also welcome!** At the end of the day the primary goal is to make the cloud safer, and defenders are welcome to submit content all the same.
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+Don't worry about submitting content in the wrong format or what section it should be a part of, we can always make improvements later :) When writing content: do try to credit the researcher who discovered it and link to their site/talk.
 
-## Project layout
+## Roadmap
+Currently the site has some material on AWS, and very little for Azure or GCP. If you have experience in any of those areas you are welcome to submit content. Even something as small as fixing grammar mistakes or adding a screenshot is appreciated! In the future I'd like to expand the site to include labs for folks to get hands-on experience with the content.
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+Please checkout the [GitHub page](https://github.com/Hacking-the-Cloud/hackingthe.cloud) for more!
