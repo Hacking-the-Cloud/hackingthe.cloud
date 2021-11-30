@@ -2,16 +2,13 @@
 author: Nick Frichette
 title: Unauthenticated Enumeration of IAM Users and Roles
 description: Leverage cross account behaviors to enumerate IAM users and roles in a different AWS account without authentication.
-enableEditBtn: true
-editBaseURL: https://github.com/Hacking-the-Cloud/hackingthe.cloud/blob/main/content
 ---
+
 Original Research: [Daniel Grzelak](https://twitter.com/dagrz) - [Remastered Talk by Scott Piper](https://www.youtube.com/watch?v=8ZXRw4Ry3mQ)  
 Additional Reading: [Rhino Security](https://rhinosecuritylabs.com/aws/aws-role-enumeration-iam-p2/)  
 Link to Quiet Riot: [Github](https://github.com/righteousgambitresearch/quiet-riot)
 Link to Tool: [GitHub](https://github.com/Frichetten/enumate_iam_using_bucket_policy)  
 Link to Pacu Module: [GitHub](https://github.com/RhinoSecurityLabs/pacu/tree/master/modules/iam__enum_roles)  
-
-
 
 You can enumerate Account IDs, root account e-mail addresses, IAM roles, IAM users, and a partial account footprint by abusing [Resource-Based Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_resource-based).
 
@@ -38,13 +35,11 @@ Another way would be to use S3 Bucket Policies. Take the following example:
 
 You would apply this policy to a bucket <ins>you</ins> own. By specifying a principal in the target account (123456789123), you can determine if that principals exists. If setting the bucket policy succeeds you know the role exists. If it fails you know the role does not.
 
-{{< notice warning "Note" >}}
-Doing either of these techniques will generate a lot of CloudTrail events, specifically UpdateAssumeRolePolicy or PutBucketPolicy in your account. If your intention is to be stealthy it is not advised (or required) to use a target's credentials. Instead you should use your own account (the CloudTrail events will be generated there).
-{{< /notice >}}
+!!! Warning
+    Doing either of these techniques will generate a lot of CloudTrail events, specifically UpdateAssumeRolePolicy or PutBucketPolicy in your account. If your intention is to be stealthy it is not advised (or required) to use a target's credentials. Instead you should use your own account (the CloudTrail events will be generated there).
 
-{{< notice success Note >}}
-While this works for both IAM users and roles, this will also work with [service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html). This will allow you to enumerate various services the account uses, such as GuardDuty or Organizations.
-{{< /notice >}}
+!!! Note
+    While this works for both IAM users and roles, this will also work with [service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html). This will allow you to enumerate various services the account uses, such as GuardDuty or Organizations.
 
 To automate this process you can use the [Pacu Module](https://github.com/RhinoSecurityLabs/pacu/tree/master/modules/iam__enum_roles) or [this](https://github.com/Frichetten/enumate_iam_using_bucket_policy) which will attempt to brute force it for you.
 

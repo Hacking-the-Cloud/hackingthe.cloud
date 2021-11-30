@@ -2,9 +2,8 @@
 author: Nick Frichette
 title: Brute Force IAM Permissions
 description: Brute force the IAM permissions of a user or role to see what you have access to.
-enableEditBtn: true
-editBaseURL: https://github.com/Hacking-the-Cloud/hackingthe.cloud/blob/main/content
 ---
+
 Link to Tool: [GitHub](https://github.com/andresriancho/enumerate-iam)
 
 When attacking AWS you may compromise credentials for an IAM user or role. This can be an excellent step to gain access to other resources, however it presents a problem for us; How do we know what permissions we have access to? While we may have context clues based on the name of the role/user or based on where we found them, this is hardly exhaustive or thorough. 

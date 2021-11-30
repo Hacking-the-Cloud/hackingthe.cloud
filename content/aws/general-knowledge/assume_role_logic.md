@@ -1,10 +1,9 @@
 ---
-author: "Nick Frichette"
-title: "Assume Role Logic"
-description: "Requirements for Assume Role - Same/Cross Account."
-enableEditBtn: true
-editBaseURL: https://github.com/Hacking-the-Cloud/hackingthe.cloud/blob/main/content
+author: Nick Frichette
+title: Assume Role Logic
+description: How Assume Role functionality works cross account and in the same account.
 ---
+
 To allow an entity to temporarily elevate their access to a different role, AWS provides the [AssumeRole](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html) action in STS. This returns an access key ID, secret key, and a session token for the specified ARN.
 
 As a Penetration Tester or Red Teamer, Assume Role can be an excellent vector to escalate privileges or move to other AWS accounts in the organization. It is worth noting however that the logic/requirements to perform Assume Role differ if you are assuming a role in the same account versus assuming a role in a different account.

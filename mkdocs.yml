@@ -1,12 +1,44 @@
 site_name: Hacking The Cloud
+
+docs_dir: content
+
 theme:
   name: material
+  logo: assets/logo.png
+  favicon: assets/logo.png
+  custom_dir: overrides
   icon:
     repo: fontawesome/brands/github
+  features:
+    - navigation.instant
+    - navigation.tabs
+  palette:
+    - scheme: slate
+      primary: red
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to Dark Mode
+    - scheme: default
+      primary: red
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to Light Mode
+
+markdown_extensions:
+  - meta
+  - attr_list
+  - md_in_html
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+
+plugins:
+  - search
+  - awesome-pages # non-standard
 
 extra_javascript:
   - javascripts/matomo.min.js
 
 repo_name: Hacking The Cloud
 repo_url: https://github.com/Hacking-the-Cloud/hackingthe.cloud
-edit_uri: edit/master/docs/
+edit_uri: edit/main/docs/

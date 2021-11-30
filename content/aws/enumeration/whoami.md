@@ -2,9 +2,8 @@
 author: Nick Frichette
 title: Whoami - Get Principal Name From Keys
 description: During an assessment you may find AWS IAM credentials. Use these tactics to identify the principal of the keys.
-enableEditBtn: true
-editBaseURL: https://github.com/Hacking-the-Cloud/hackingthe.cloud/blob/main/content
 ---
+
 After finding or stealing IAM credentials during an assessment you will need to identify what they are used for, or if they are valid. The most common method for doing so would be the [get-caller-identity](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sts/get-caller-identity.html) API call. This is beneficial for a few reasons, in particular that it requires no special permissions to call.
 
 Unfortunately (while [unlikely](https://twitter.com/SpenGietz/status/1283846678194221057)) there is the possibility that this API call may be monitored for sensitive accounts. Additionally, if our goal is to be as stealthy as possible we may not want to use this. As a result we need alternatives. The good news for us is that a lot of AWS services will disclose the calling role along with the account ID as a result of an error. The following is certainly not a comprehensive list, and note that the principal needs to **NOT** have IAM permissions to make this call to return the information as an error.
@@ -33,12 +32,5 @@ user@host:$ aws sdb list-domains --region us-east-1
 An error occurred (AuthorizationFailure) when calling the ListDomains operation: User (arn:aws:sts::123456789012:assumed-role/example_role/i-00000000000000000) does not have permission to perform (sdb:ListDomains) on resource (arn:aws:sdb:us-east-1:123456789012:domain/). Contact account owner.
 ```
 
-{{< notice warning "Note" >}}
-As of August 15, 2020 these calls are now tracked in CloudTrail ([tweet](https://twitter.com/tacertain/status/1294726441850900480)).
-{{< /notice >}}
-
-### route53 get-account-limit
-[route53 get-account-limit](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/route53/get-account-limit.html) will produce a similar result.
-
-### logs associate-kms-key
-[logs associate-kms-key](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/associate-kms-key.html) will produce a similar result.
+!!! Warning
+    As of August 15, 2020 these calls are now tracked in CloudTrail ([tweet](https://twitter.com/tacertain/status/1294726441850900480)).

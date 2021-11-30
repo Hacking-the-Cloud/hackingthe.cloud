@@ -2,15 +2,13 @@
 author: Nick Frichette
 title: Enumerate Permissions without Logging to CloudTrail
 description: Leverage a bug in the AWS API to enumerate permissions for a role without logging to CloudTrail and alerting the Blue Team.
-enableEditBtn: true
-editBaseURL: https://github.com/Hacking-the-Cloud/hackingthe.cloud/blob/main/content
 ---
-Original Research: [Nick Frichette](https://frichetten.com/blog/aws-api-enum-vuln/)
+
+Original Research: [Nick Frichette](https://frichetten.com/blog/aws-api-enum-vuln/)  
 Link to Tool: [aws_stealth_perm_enum](https://github.com/Frichetten/aws_stealth_perm_enum)
 
-{{< notice warning "Deprecated" >}}
-As of 5/18/2021, this technique has been resolved and fixed by AWS. Mutating the Content-Type header when making API requests no longer can be used to enumerate permissions of a role or user. This page is maintained for historical and inspiration purposes.
-{{< /notice >}}
+!!! Warning
+    As of 5/18/2021, this technique has been resolved and fixed by AWS. Mutating the Content-Type header when making API requests no longer can be used to enumerate permissions of a role or user. This page is maintained for historical and inspiration purposes.
 
 After compromising an IAM credential while attacking AWS, your next task will be to determine what permissions that credential has scoped to them.
 
@@ -43,13 +41,8 @@ The following services are affected, although please note, that not all actions 
 | textract | translate | 
 | workmail |
 
-{{< notice warning "Update" >}}
-As of 12/19/2020, DirectConnect is no longer affected by this bug.
-{{< /notice >}}
-
-{{< notice success "Note" >}}
-For an in depth explanation for the bug, please see the [original research](https://frichetten.com/blog/aws-api-enum-vuln/). In this article we will just discuss how to take advantage of it.
-{{< /notice >}}
+!!! Note
+    For an in depth explanation for the bug, please see the [original research](https://frichetten.com/blog/aws-api-enum-vuln/). In this article we will just discuss how to take advantage of it.
 
 There are some conditions to the enumeration, and they are defined below.
 
@@ -59,4 +52,6 @@ There are some conditions to the enumeration, and they are defined below.
 
 To perform the enumeration there is a script [here](https://github.com/Frichetten/aws_stealth_perm_enum). Setting the credentials as environment variables and then running the script will inform you what API permissions you have available to you.
 
-![Proof of Concept](/images/aws/enumeration/stealth_perm_enum/permissions.png)
+<figure markdown>
+  ![Proof of Concept](/images/aws/enumeration/stealth_perm_enum/permissions.png){ loading=lazy }
+</figure>

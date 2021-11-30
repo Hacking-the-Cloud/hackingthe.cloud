@@ -2,8 +2,8 @@
 author: Jan Slezak
 title: Metadata in Google Cloud Instances
 description: Information about the data an attacker can access via GCP's API endpoints
-enableEditBtn: true
-editBaseURL: https://github.com/Hacking-the-Cloud/hackingthe.cloud/blob/main/content
+hide:
+    - toc
 ---
 
 Metadata can provide an attacker (or regular user) information about the compromised App Engine instance, such as its project ID, service accounts, and tokens used by those service accounts.  
