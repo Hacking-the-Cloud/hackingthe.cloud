@@ -3,4 +3,4 @@ nav:
     - AWS: aws
     - Azure: azure
     - GCP: gcp
-    - blog.md
+    - Blog: blog

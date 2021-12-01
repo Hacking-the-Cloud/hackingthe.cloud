@@ -1,4 +1,5 @@
 ---
+title: GCP
 description: Hacking the Cloud - GCP
 hide:
     - toc

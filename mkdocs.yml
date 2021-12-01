@@ -1,17 +1,20 @@
 site_name: Hacking The Cloud
+site_description: The Encyclopedia for Offensive Security in the Cloud
+site_url: https://hackingthe.cloud/
 
 docs_dir: content
 
 theme:
   name: material
-  logo: assets/logo.png
-  favicon: assets/logo.png
+  logo: images/logo.png
+  favicon: images/logo.png
   custom_dir: overrides
   icon:
     repo: fontawesome/brands/github
   features:
     - navigation.instant
     - navigation.tabs
+    - navigation.indexes
   palette:
     - scheme: slate
       primary: red
@@ -31,6 +34,9 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
 
 plugins:
   - search
@@ -41,4 +47,4 @@ extra_javascript:
 
 repo_name: Hacking The Cloud
 repo_url: https://github.com/Hacking-the-Cloud/hackingthe.cloud
-edit_uri: edit/main/docs/
+edit_uri: edit/main/content/

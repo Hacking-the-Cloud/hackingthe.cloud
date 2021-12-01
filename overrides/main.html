@@ -1,5 +1,15 @@
 {% extends "base.html" %}
 
+{% block announce %}
+  <a href="https://twitter.com/Frichette_n" style="color:white">
+    For updates follow <strong>@frichette_n</strong> on
+    <span class="twemoji twitter">
+      {% include ".icons/fontawesome/brands/twitter.svg" %}
+    </span>
+    <strong>Twitter</strong>
+  </a>
+{% endblock %}
+
 {% block extrahead %}
   {% set title = config.site_name %}
   {% if page and page.meta and page.meta.title %}
@@ -16,10 +26,10 @@
   <meta property="og:title" content="{{ title }}" />
   <meta property="og:description" content="{{ description }}" />
   <meta property="og:url" content="{{ page.canonical_url }}" />
-  <meta property="og:image" content="/assets/logo.png" />
+  <meta property="og:image" content="/images/logo.png" />
   <meta property="og:image:type" content="image/png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="{{ title }}" />
   <meta name="twitter:description" content="{{ description }}" />
-  <meta name="twitter:image" content="/assets/logo.png" />
+  <meta name="twitter:image" content="/images/logo.png" />
 {% endblock %}

@@ -10,24 +10,20 @@ Don't worry about submitting content in the wrong format or what section it shou
 ## Contributing
 Want to contribute to hacking the Cloud? Awesome! Here are some tips to get started:
 
-### Setup Hugo
-Hacking the Cloud is built using [Hugo](https://gohugo.io/), which lets us write content in a simple Markdown editor. If you've not worked with Markdown before check out this handy [cheatsheet](https://www.markdownguide.org/cheat-sheet) or look to existing examples on Hacking the Cloud.
-
-**Please Note**: You do not have to install Hugo to contribute to the site. You can also use GitHub itself to create new pages (Go to the directory you'd like to add to and click "Add File" in the mid-top right). This lets you use the Markdown editor in GitHub (which is very handy).
-
-To install Hugo, please checkout [these](https://gohugo.io/getting-started/installing/) installation instructions.
-
-After installing Hugo, you can setup an instance of Hacking the Cloud by cloning the git repository and starting the Hugo server with the following commands.
+### Setting up the Environment
+Hacking the Cloud uses [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) and the [Awesome Pages Plugin](https://github.com/lukasgeiter/mkdocs-awesome-pages-plugin/). To make it easy to setup, there is a Docker file in this repository you can use to get up and running. First, build the docker container.
 
 ```
-git clone https://github.com/Hacking-the-Cloud/hackingthe.cloud.git
-cd hackingthe.cloud
-hugo server
+docker build -t mkdocs-material .
 ```
 
-In this mode, every time you modify a file Hugo will automatically update the site. This makes it easy for you to see you changes as they occur.
+To run a test server for your local environment you can run the Docker container (ensuring you expose a port and provide the local directory).
 
-To navigate to the local instance, go to http://localhost:1313 in your browser of choice.
+```
+docker run --rm -it -p 8000:8000 -v ${PWD}:/docs mkdocs-material
+```
+
+__NOTE__: You do not have to run the Docker container to contribute. You can make edits or even create new pages directly from GitHub. Go to the file you'd like to edit, or the directory you'd like to add to and click "Add File" in the mid-top right. Use the Markdown editor built into GitHub and submit your Pull Request.
 
 ### Creating a New Page
 All of the content for Hacking the Cloud is in the "content" directory. From here, you can navigate to the different sections of each cloud provider. If you aren't sure what specific section to place it in, no worries! Feel free to put it under ./content and we can find or create a home for it later.
@@ -41,14 +37,10 @@ After creating the file, please put the following at the top and fill it out.
 author: <Your Name>
 title: <Page Title>
 description: <A description of the page>
-enableEditBtn: true
-editBaseURL: https://github.com/Hacking-the-Cloud/hackingthe.cloud/blob/main/content
 ---
 ```
-
-These fields help Hugo generate the site and provide additional information for SEO. The enableEditBtn must always be set to true (in the future we may find a way to remove this attribute with the button just always enabled).
 
 From here you should be able to write your content and submit a pull request. If you have any trouble don't hesitate to reach out via our [GitHub Discussions](https://github.com/Hacking-the-Cloud/hackingthe.cloud/discussions) page.
 
 ## Roadmap
-Currently the site has some material on AWS, and very little for Azure or GCP. If you have experience in any of those areas you are welcome to submit content. Even something as small as fixing grammar mistakes or adding a screenshot is appreciated! In the future I'd like to expand the site to include labs for folks to get hands-on experience with the content.
+Currently the site has some material on AWS, and very little for Azure or GCP. If you have experience in any of those areas you are welcome to submit content. Even something as small as fixing grammar mistakes or adding a screenshot is appreciated!

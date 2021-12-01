@@ -15,6 +15,6 @@ Topics can include offensive techniques, tools, general knowledge related to clo
 Don't worry about submitting content in the wrong format or what section it should be a part of, we can always make improvements later :) When writing content: do try to credit the researcher who discovered it and link to their site/talk.
 
 ## Roadmap
-Currently the site has some material on AWS, and very little for Azure or GCP. If you have experience in any of those areas you are welcome to submit content. Even something as small as fixing grammar mistakes or adding a screenshot is appreciated! In the future I'd like to expand the site to include labs for folks to get hands-on experience with the content.
+Currently the site has some material on AWS, and very little for Azure or GCP. If you have experience in any of those areas you are welcome to submit content. Even something as small as fixing grammar mistakes or adding a screenshot is appreciated!
 
 Please checkout the [GitHub page](https://github.com/Hacking-the-Cloud/hackingthe.cloud) for more!

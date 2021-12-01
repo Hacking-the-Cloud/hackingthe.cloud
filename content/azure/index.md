@@ -1,4 +1,5 @@
 ---
+title: Azure
 description: Hacking the Cloud - Azure
 hide:
     - toc
