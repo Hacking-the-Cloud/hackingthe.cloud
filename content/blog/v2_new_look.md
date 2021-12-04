@@ -25,16 +25,18 @@ Hacking The Cloud now uses [Material for MkDocs](https://squidfunk.github.io/mkd
 ## Why the Change?
 When Hacking The Cloud was first started in mid-2020, I was primarily focused on getting the project off the ground and wasn't particularly interested in the formatting or appearance. This resulted in the choice to use a familiar technology ([Hugo](https://gohugo.io/)) and finding a freely available theme for it ([zDoc](https://github.com/zzossig/hugo-theme-zdoc)).
 
-This helped get the project up and running quickly and allowed me to work on getting the first few pages created. Over time, however, small changes were need. Increased font size, change the navigation layout, CSS tweaks, etc. Recently more time has been spent making sure things looked okay rather than actually creating content.
+This helped get the project up and running quickly and allowed me to work on getting the first few pages created. Over time, however, small changes were need. Increased font size, changes to the navigation layout, CSS tweaks, etc. Recently more time has been spent making sure things looked okay rather than actually creating content.
 
 __To be clear, the zDoc theme is excellent__, there were just some changes needed that made the theme difficult to use for our purposes. These needs, combined with the appearance that the theme is no longer actively maintained, had caused me to look for something different.
 
 ## Why Material for MkDocs?
-For the past several weeks I've been looking for a suitable replacement. My list of requirements was high. Additionally, I was looking for something simple, easy to use, and wouldn't have me constantly thinking, "does this look okay on mobile?".
+For the past several months I've been looking for a suitable replacement. My list of requirements was high. Additionally, I was looking for something simple, easy to use, and wouldn't have me constantly thinking, "does this look okay on mobile?".
 
 By pure luck, I found what I was looking for. [Kinnaird McQuade](https://twitter.com/kmcquade3) happened to [retweet](https://twitter.com/kmcquade3/status/1465024645409738760) an announcement from the Material for MkDocs project, and I was hooked. It looked great, supported Markdown, had admonitions, code blocks, produced static HTML, client-side search, and just about everything else I was looking for. 
 
 More than that, it was fun and easy to get setup.
+
+If you'd like to support Material for MkDocs you can join me in [sponsoring](https://squidfunk.github.io/mkdocs-material/insiders/#how-to-become-a-sponsor) the project.
 
 ## What Does This Mean for You?
 Honestly, not a whole lot. Hacking the Cloud will now look a lot better on desktop and mobile. This will free up time and resources to focus on what actually matters, the content.
