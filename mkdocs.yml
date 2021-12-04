@@ -41,6 +41,10 @@ markdown_extensions:
 plugins:
   - search
   - awesome-pages # non-standard
+  - minify:
+      minify_html: true
+      minify_js: true
+      minify_css: true
 
 extra_javascript:
   - javascripts/matomo.min.js
