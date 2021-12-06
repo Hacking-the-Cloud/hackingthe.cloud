@@ -1,0 +1,11 @@
+.twemoji.twitter {
+    display: inline-flex;
+    height: 1.125em;
+    vertical-align: text-top;
+}
+
+img[alt~="logo"] {
+    display: block;
+    height: 1.2rem;
+    width: 1.2rem;
+}
