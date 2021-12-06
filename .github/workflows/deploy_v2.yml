@@ -2,8 +2,7 @@ name: deploy v2
 
 on:
   push:
-    branches: 
-      - v2_material_mkdocs
+    branches: [ main ]
 
 jobs:
   deploy:

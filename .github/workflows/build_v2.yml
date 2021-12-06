@@ -1,9 +1,8 @@
 name: build v2
 
 on:
-  push:
-    branches: 
-      - v2_material_mkdocs
+  pull_request:
+    branches: [ main ]
 
 jobs:
   build:
