@@ -12,7 +12,7 @@ theme:
   icon:
     repo: fontawesome/brands/github
   features:
-    - navigation.instant
+    # - navigation.instant  Add this at a later date
     - navigation.tabs
     - navigation.indexes
   palette:
