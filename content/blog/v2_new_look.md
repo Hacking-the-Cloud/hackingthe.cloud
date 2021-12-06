@@ -34,7 +34,7 @@ For the past several months I've been looking for a suitable replacement. My lis
 
 By pure luck, I found what I was looking for. [Kinnaird McQuade](https://twitter.com/kmcquade3) happened to [retweet](https://twitter.com/kmcquade3/status/1465024645409738760) an announcement from the Material for MkDocs project, and I was hooked. It looked great, supported Markdown, had admonitions, code blocks, produced static HTML, client-side search, and just about everything else I was looking for. 
 
-More than that, it was fun and easy to get setup.
+More than that, it's fun and easy to work with.
 
 If you'd like to support Material for MkDocs you can join me in [sponsoring](https://squidfunk.github.io/mkdocs-material/insiders/#how-to-become-a-sponsor) the project.
 
