@@ -8,7 +8,7 @@ theme:
   name: material
   logo: images/logo.png
   favicon: images/logo.png
-  #custom_dir: overrides
+  custom_dir: overrides
   icon:
     repo: fontawesome/brands/github
   features:
