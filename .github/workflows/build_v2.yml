@@ -1,12 +1,11 @@
 name: build v2
 
 on:
-  push:
-    branches: 
-      - v2_material_mkdocs
+  pull_request:
+    branches: [ main ]
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -14,5 +13,6 @@ jobs:
         with:
           python-version: 3.x
       - run: pip install mkdocs-material
+      - run: pip install mkdocs-minify-plugin
       - run: pip install mkdocs-awesome-pages-plugin
       - run: mkdocs build

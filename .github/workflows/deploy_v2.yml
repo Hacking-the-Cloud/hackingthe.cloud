@@ -2,8 +2,7 @@ name: deploy v2
 
 on:
   push:
-    branches: 
-      - v2_material_mkdocs
+    branches: [ main ]
 
 jobs:
   deploy:
@@ -13,6 +12,13 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: 3.x
+      - uses: actions/cache@v2
+        with:
+          key: ${{ github.ref }}
+          path: .cache
+      - run: sudo apt-get install -y libcairo2-dev libfreetype6-dev libffi-dev libjpeg-dev libpng-dev libz-dev
       - run: pip install mkdocs-material
+      - run: pip install mkdocs-minify-plugin
       - run: pip install mkdocs-awesome-pages-plugin
-      - run: mkdocs gh-deploy --force
+      - run: pip install git+https://${{ secrets.GH_TOKEN }}@github.com/squidfunk/mkdocs-material-insiders.git
+      - run: mkdocs gh-deploy --force --config-file mkdocs.insiders.yml

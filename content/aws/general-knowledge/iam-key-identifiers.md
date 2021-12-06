@@ -1,10 +1,9 @@
 ---
-author: "Nick Frichette"
+author: Nick Frichette
 title: IAM ID Identifiers
 description: Chart of the IAM ID Prefixes.
-enableEditBtn: true
-editBaseURL: "https://github.com/Hacking-the-Cloud/hackingthe.cloud/blob/main/content"
 ---
+
 [Source](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-unique-ids)
 
 | Prefix | Entity Type                  |

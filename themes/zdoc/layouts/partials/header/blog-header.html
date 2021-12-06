@@ -1,7 +1,0 @@
-{{ if and ($.Param "blogHeaderType") (eq ($.Param "blogHeaderType") "img") }}
-    {{ partial "header/blog-header-img" . }}
-{{ else if and ($.Param "blogHeaderType") (eq ($.Param "blogHeaderType") "text") }}
-    {{ partial "header/blog-header-text" . }}
-{{ else }}
-    {{ partial "header/custom-header" . }}
-{{ end }}

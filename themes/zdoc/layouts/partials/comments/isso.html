@@ -1,6 +1,0 @@
-{{- $scriptSrc := .Site.Params.isso.scriptSrc -}}
-{{- $dataAttrs := .Site.Params.isso.dataAttrs -}}
-
-<script src='{{ $scriptSrc }}' {{- with $dataAttrs }} {{ . | safeHTMLAttr }} {{- end -}} crossorigin="anonymous"></script>
-
-<section id='isso-thread'></section>

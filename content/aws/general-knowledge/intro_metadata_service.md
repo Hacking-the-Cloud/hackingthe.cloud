@@ -2,9 +2,8 @@
 author: Nick Frichette
 title: Introduction to the Instance Metadata Service
 description: An Introduction to the Instance Metadata Service and how to Access It.
-enableEditBtn: true
-editBaseURL: https://github.com/Hacking-the-Cloud/hackingthe.cloud/blob/main/content
 ---
+
 Every EC2 instance has access to the instance metadata service (IMDS) that contains metadata and information about that specific EC2 instance. In addition, if an [IAM Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) is associated with the EC2 instance, credentials for that role will be in the metadata service. Because of this, the instance metadata service is a prime target for attackers who gain access to an EC2 instance.
 
 ## How to Access the Metadata Service
@@ -32,9 +31,8 @@ user@host:~$ curl -H "X-aws-ec2-metadata-token: $TOKEN" -v http://169.254.169.25
 
 **TTL of 1**: The default configuration of IMDSv2 is to set the Time To Live (TTL) of the TCP packet containing the session token to "1". This ensures that misconfigured network appliances (firewalls, NAT devices, routers, etc.) will not forward the packet on. This also means that Docker containers using the default networking configuration (bridge mode) will not be able to reach the instance metadata service.
 
-{{< notice success "Note" >}}
-While the default configuration of IMDSv2 will prevent a Docker container from being able to reach the metadata service, this can be configured via the "[hop limit](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html)."
-{{< /notice >}}
+!!! Note
+    While the default configuration of IMDSv2 will prevent a Docker container from being able to reach the metadata service, this can be configured via the "[hop limit](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html)."
 
 ## What Info the Metadata Service Contains
 

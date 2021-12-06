@@ -1,3 +1,2 @@
-resources/
-public/
-.vscode/
+site/
+.cache

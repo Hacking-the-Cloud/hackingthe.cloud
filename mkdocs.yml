@@ -1,0 +1,54 @@
+site_name: Hacking The Cloud
+site_description: The Encyclopedia for Offensive Security in the Cloud
+site_url: https://hackingthe.cloud/
+
+docs_dir: content
+
+theme:
+  name: material
+  logo: images/logo.png
+  favicon: images/logo.png
+  custom_dir: overrides
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.indexes
+  palette:
+    - scheme: slate
+      primary: red
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to Dark Mode
+    - scheme: default
+      primary: red
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to Light Mode
+
+markdown_extensions:
+  - meta
+  - attr_list
+  - md_in_html
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+plugins:
+  - search
+  - awesome-pages # non-standard
+  - minify:
+      minify_html: true
+      minify_js: true
+      minify_css: true
+
+extra_javascript:
+  - javascripts/matomo.min.js
+
+repo_name: Hacking The Cloud
+repo_url: https://github.com/Hacking-the-Cloud/hackingthe.cloud
+edit_uri: edit/main/content/
