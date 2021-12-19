@@ -3,4 +3,5 @@ nav:
     - AWS: aws
     - Azure: azure
     - GCP: gcp
+    - Terraform: terraform
     - Blog: blog
