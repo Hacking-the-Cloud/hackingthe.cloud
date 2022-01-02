@@ -1,6 +1,6 @@
 ---
 title: Hacking The Cloud
-description: The Encyclopedia for offensive security in the Cloud
+description: The encyclopedia for offensive security in the cloud
 hide:
     - toc
 ---
