@@ -8,6 +8,8 @@ description: Leverage a default configuration in Terraform Enterprise to steal c
 
 If Terraform Enterprise is deployed to a VM from a cloud provider we may be able to access the instance metadata service and leverage those credentials for further attacks.
 
+"By default, Terraform Enterprise does not prevent Terraform operations from accessing the instance metadata service, which may contain IAM credentials or other sensitive data" ([source](https://www.terraform.io/enterprise/system-overview/security-model#restrict-terraform-build-worker-metadata-access))
+
 ## Remote (Code) Execution
 
 For many engineers, their first experience with Terraform was locally on their workstations. When they invoked a `terraform apply` or `terraform plan` all of that activity took place on the local machine (reaching out to cloud APIs, tracking state, etc.)
@@ -21,9 +23,9 @@ This introduces an interesting opportunity; If you compromise credentials to ini
 
 ## Docker Containers and Metadata Services
 
-Aside from container escapes via [mounted Docker sockets](https://www.secureideas.com/blog/2018/05/escaping-the-whale-things-you-probably-shouldnt-do-with-docker-part-1.html) or [kernel exploits](https://www.cyberark.com/resources/threat-research-blog/the-route-to-root-container-escape-using-kernel-exploitation), running user-supplied code in a container is an interesting opportunity in a cloud context. The specifics will depend upon the cloud provider. For example, in AWS, an attacker could target the [Instance Metadata Service](https://hackingthe.cloud/aws/general-knowledge/intro_metadata_service/). This would provide the attacker IAM credentials for the IAM role associated with the EC2 instance.
+Aside from [container escapes](https://www.cyberark.com/resources/threat-research-blog/the-route-to-root-container-escape-using-kernel-exploitation), running user-supplied code in a container is an interesting opportunity in a cloud context. The specifics will depend upon the cloud provider. For example, in AWS, an attacker could target the [Instance Metadata Service](https://hackingthe.cloud/aws/general-knowledge/intro_metadata_service/). This would provide the attacker IAM credentials for the IAM role associated with the EC2 instance.
 
-Other opportunities include things such as the instance [user data](https://hackingthe.cloud/aws/general-knowledge/introduction_user_data/), which may help enumerate what software is on the host, or what integrations it has outside of it.
+Other opportunities include things such as the instance [user data](https://hackingthe.cloud/aws/general-knowledge/introduction_user_data/), which may help enumerate what software is on the host, potentially leak secrets, or reveal what the associated IAM role has access to. It is also possible to use this to pivot to other machines in the VPC/subnet which would otherwise be inaccessible, or to attempt to hit services exposed on localhost on the TFE host (hitting 172.17.0.1).
 
 ## Attack Prevention
 
