@@ -10,6 +10,9 @@ If Terraform Enterprise is deployed to a VM from a cloud provider we may be able
 
 "By default, Terraform Enterprise does not prevent Terraform operations from accessing the instance metadata service, which may contain IAM credentials or other sensitive data" ([source](https://www.terraform.io/enterprise/system-overview/security-model#restrict-terraform-build-worker-metadata-access))
 
+!!! Note
+    While the focus of this article is on targeting the metadata service, it is worth noting that gaining code execution inside a Terraform run may provide other avenues for attack. For example, environment variables could be leaked which may contain sensitive credentials.
+
 ## Remote (Code) Execution
 
 For many engineers, their first experience with Terraform was locally on their workstations. When they invoked a `terraform apply` or `terraform plan` all of that activity took place on the local machine (reaching out to cloud APIs, tracking state, etc.)
