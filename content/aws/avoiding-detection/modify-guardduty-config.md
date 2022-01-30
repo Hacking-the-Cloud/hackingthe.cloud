@@ -68,7 +68,7 @@ aws guardduty update-ip-set \
 ```
 
 ---
-### Modify Cloudwatch events rule.
+### Modify Cloudwatch events rule
 GuardDuty populates its findings to Cloudwatch Events on a 5 minute cadence.  Modifying the Event pattern or Targets for an event  may reduce GuardDuty's ability to alert and auto-remediate findings, especially where the remediation is triggered in a member account; as GuardDuty administrator protections do not extend to the Cloudwatch events in the member account. 
 
 !!! Note  
