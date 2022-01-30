@@ -2,8 +2,6 @@
 author: Ben Leembruggen
 title: Modify GuardDuty Configuration
 description: Modify existing GuardDuty configurations in the target account to hinder alerting and remediation capabilities.
-enableEditBtn: true
-editBaseURL: https://github.com/Hacking-the-Cloud/hackingthe.cloud/blob/main/content
 ---
 
 When an account has been successfully compromised, an attacker can modify threat detection services like GuardDuty to reduce the likelihood of their actions triggering an alert.  Modifying, as opposed to outright deleting, key attributes of GuardDuty may be less likely to raise alerts, and result in a similar degradation of effectiveness.  The actions available to an attacker will largely depend on the compromised permissions available to the attacker, the GuardDuty architecture and the presence of higher level controls like Service Control Policies. 
