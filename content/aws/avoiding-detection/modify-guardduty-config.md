@@ -6,7 +6,7 @@ enableEditBtn: true
 editBaseURL: https://github.com/Hacking-the-Cloud/hackingthe.cloud/blob/main/content
 ---
 
-Where an account has been successfully compromised, an attacker can modify threat detection services like GuardDuty to reduce the likelihood of their actions triggering an alert.  Whilst outright deleting services can trigger alerts, modifying key attributes of these services is less likely to raise alerts and can render them close to useless depending on the scenario.  The actions available to an attacker will largely depend on the compromised permissions available to the attacker, the AWS service architecture and the presence of higher level controls like Service Control Policies. 
+When an account has been successfully compromised, an attacker can modify threat detection services like GuardDuty to reduce the likelihood of their actions triggering an alert.  Modifying, as opposed to outright deleting, key attributes of GuardDuty may be less likely to raise alerts, and result in a similar degradation of effectiveness.  The actions available to an attacker will largely depend on the compromised permissions available to the attacker, the GuardDuty architecture and the presence of higher level controls like Service Control Policies. 
 
 ## GuardDuty
 Where GuardDuty uses a delegated admin or invite model, features like detector configurations and IP Trust lists are centrally managed, and so only able to be modified in the GuardDuty administrator account.  Where this is not the case, these features can be modified in the account that GuardDuty is running in.
@@ -69,7 +69,7 @@ aws guardduty update-ip-set \
 
 ---
 ### Modify Cloudwatch events rule
-GuardDuty populates its findings to Cloudwatch Events on a 5 minute cadence.  Modifying the Event pattern or Targets for an event  may reduce GuardDuty's ability to alert and auto-remediate findings, especially where the remediation is triggered in a member account; as GuardDuty administrator protections do not extend to the Cloudwatch events in the member account. 
+GuardDuty populates its findings to Cloudwatch Events on a 5 minute cadence.  Modifying the Event pattern or Targets for an event may reduce GuardDuty's ability to alert and trigger auto-remediation of findings, especially where the remediation is triggered in a member account - as GuardDuty administrator protections do not extend to the Cloudwatch events in the member account. 
 
 !!! Note  
 In a delegated or invitational admin GuardDuty architecture, cloudwatch events will still be created in the admin account.
