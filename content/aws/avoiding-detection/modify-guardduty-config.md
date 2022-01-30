@@ -1,7 +1,7 @@
 ---
 author: Ben Leembruggen
-title: Modify Security Services
-description: Update key AWS logging and detection services to hamper response activities.
+title: Modify GuardDuty Configuration
+description: Modify existing GuardDuty configurations in the target account to hinder alerting and remediation capabilities.
 enableEditBtn: true
 editBaseURL: https://github.com/Hacking-the-Cloud/hackingthe.cloud/blob/main/content
 ---
