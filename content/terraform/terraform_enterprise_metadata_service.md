@@ -97,7 +97,7 @@ terraform {
 With the backend configuration file created we can initialize the backend with the following command.
 
 ```
-terraform init --backend-config='token=$TFE_TOKEN'
+terraform init --backend-config="token=$TFE_TOKEN"
 ```
 
 If everything has worked as it should, you should get a `Terraform has been successfully initialized` notification. To test this, you can perform a `terraform state list` to list the various state objects.
