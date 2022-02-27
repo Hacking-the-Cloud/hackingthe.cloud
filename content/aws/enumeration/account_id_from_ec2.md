@@ -1,6 +1,6 @@
 ---
 author: Phil Massyn
-title: Enumerate AWS Account ID from an ec2 instance
+title: Enumerate AWS Account ID from an EC2 Instance
 description: With access to an ec2 instance, you will be able to identify the AWS account it runs in.
 ---
 
@@ -11,7 +11,7 @@ With shell or command line access to an EC2 instance, you will be able to determ
 By using [get-caller-identity](https://docs.aws.amazon.com/cli/latest/reference/sts/get-caller-identity.html), the EC2 instance may have an EC2 instance profile setup.
 
 ```
-[ec2-user@ip-172-26-6-225 ~]$ aws sts get-caller-identity
+user@host:$ aws sts get-caller-identity
 {
    "Account": "000000000000",
    "UserId": "AROAJIWIJQ5KCHMJX4EWI:i-00000000000000000",
@@ -19,7 +19,7 @@ By using [get-caller-identity](https://docs.aws.amazon.com/cli/latest/reference/
 }
 ```
 
-## metadata
+## Metadata
 
 By using the [metadata](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instancedata-data-retrieval.html) service, you will be able to retrieve additional information about the account, and more specifically for the EC2 instance being used.
 
