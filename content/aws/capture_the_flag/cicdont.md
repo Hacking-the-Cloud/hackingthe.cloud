@@ -10,13 +10,13 @@ Link to Project: [CI/CDon't](https://github.com/Hacking-the-Cloud/htc-ctfs/tree/
     This project will deploy intentionally vulnerable software/infrastructure to your AWS account. Please ensure there is no sensitive or irrecoverable data in the account. Attempts have been made to mitigate this however they may not be fullproof; Security Group rules only allow access to the vulnerable EC2 instance from your public IP address, and a randomly generated password is required to access it.
 
 !!! Warning
-    If you intend to play the CTF it is a good idea to read through this page carefully to ensure you have all the details (minus the walkthrough). This writeup will familiarize the player with how the CTF works, what the objective is, and what the storyline is.
+    If you intend to play the CTF it is a good idea to read through this page carefully to ensure you have all the details (minus the walkthrough). This page will familiarize the player with how the CTF works, what the objective is, and what the storyline is.
 
 ## Background
 
 This is an AWS/GitLab CI/CD themed CTF that you can run in your own AWS account. All that is required is an AWS account and Terraform [installed](https://learn.hashicorp.com/tutorials/terraform/install-cli) locally on your machine.
 
-Costs should be minimal, running this infrastructure in my own account for two hours didn't accrue a cent in the Billing Dashboard, however extended time frames may cause costs to add up.
+Costs should be minimal; running this infrastructure in my own account for three hours didn't accrue a cent in the Billing Dashboard, however extended time frames may cause costs to add up.
 
 In terms of difficulty, it would be rated low. The goal is more about having fun and working through some simple CI/CD/AWS challenges that even non-security folks would enjoy.
 
@@ -42,7 +42,7 @@ You will be prompted with two questions. The first is a consent related to the c
     It will take approximately 10 minutes for all the infrastructure to be deployed and ready. This 10 minute timer begins AFTER the Terraform apply has completed. This time is used to install all the software, create the NPCs, etc.
 
 !!! Warning
-    To be able to access the vulnerable instance, Terraform will attempt to determine your public IP address and create a security group that only that IP address can access. If you cannot access the target_ip (explained below) after 10 minutes, check the AWS console for a security group named `allow_http` and ensure that it's configuration would allow you to reach it.
+    To be able to access the vulnerable instance, Terraform will attempt to determine your public IP address and create a security group that only that IP address can access. If you cannot access the target_ip (explained below) after 10 minutes, check the AWS console for a security group named `allow_http` and ensure that its configuration would allow you to reach it.
 
 To destroy the CTF environment run the Terraform destroy command.
 
@@ -73,28 +73,28 @@ ssh <player username>@<attackbox IP>
 !!! Note
     When sshing with a player username, note that the username is case-sensitive.
 
-It will take approximately 10 minutes for all the infrastructure to finish deploying. If you'd like to test if it's finished, you can navigate to `http://<target IP>/`. If it doesn't respond, or only shows a generic GitLab log in page, then the CTF is not ready yet. If you see a message about SoftHouseIO, then everything is setup and ready.
-
-Please Note: To be able to access the vulnerable instance, Terraform will attempt to determine your public ip address and create a security group that only that ip address can access. If you cannot access the target_ip (explained below) after 10 minutes, check the AWS console for a security group named `allow_http` and ensure that it's configuration would allow you to reach it.
+It will take approximately 10 minutes for all the infrastructure to finish deploying. If you'd like to test if it's finished, you can navigate to `http://<target IP>/`. If it doesn't respond, or only shows a generic GitLab login page, then the CTF is not ready yet. If you see a message about SoftHouseIO, then everything is setup and ready.
 
 !!! Note
-    To be able to access the vulnerable instance, Terraform will attempt to determine your public IP address and create security group rules that only that IP address can access. If you cannot access the target instance after 10 minutes (likely shorter), check the AWS console for a security group named `allow_http` and ensure that ti's configuration would allow you to reach it.
+    To be able to access the vulnerable instance, Terraform will attempt to determine your public IP address and create security group rules that only that IP address can access. If you cannot access the target instance after 10 minutes (likely shorter), check the AWS console for a security group named `allow_http` and ensure that it's configuration would allow you to reach it.
 
     These security group rules apply to both the target (GitLab) and the attackbox. Additionally, the rules are configured to allow the attackbox to receive incoming traffic from the target (to catch shells).
 
-If you see any references to gamemaster, please ignore it. Those scripts are used to simulate the NPCs and have them complete their lore tasks. It is unrelated to the challenge.
+If you see any references to `gamemaster`, please ignore it. Those scripts are used to simulate the NPCs and have them complete their lore tasks. It is unrelated to the challenge.
 
 ## The Story
 
-You are <player username>, a developer at SoftHouseIO, an independent software development consultancy firm. Recently, things haven't been going your way, and you're looking for a payday.
+You are <player username\>, a developer at SoftHouseIO, an independent software development consultancy firm. While you like the company, you're thinking about making a little money on the side, perhaps through not entirely legal means. Can you say ransomware?
 
-What if you leverage your access as a developer to gain access to company resources? Can you say cryptominer?
-
-The best place to get started is probably the company GitLab server at http://<target IP>. Your username and password should you get you in.
+After planning your attack you figure the best place to get started is the company GitLab server at http://<target IP\>. Your username and password should you get you in. You'll want to gain access to administrative credentials for the AWS account the company uses.
 
 ## The Objective
 
-Gain access to the `terraform_admin_user` through whatever means necessary (Note that this role has no permissions. It is simply the goal).
+Gain access to the `aws_admin_automation_user` through whatever means necessary (Note that this role has no permissions. It is simply the goal).
+
+## Feedback
+
+Want to provide feedback on the challenge? Open a new discussion on [GitHub](https://github.com/Hacking-the-Cloud/hackingthe.cloud/discussions/categories/ctf-discussion)
 
 ## Walkthrough
 
@@ -187,7 +187,7 @@ The following is a step by step walkthrough of the CTF. You can refer to this if
 
     Our next step will be to get a shell in this environment. This is where our attackbox can come in.
 
-    **Please note**: You are welcome to use your C2 platform of choice. For this walkthrough I will use netcat for simplicity.
+    **Please note**: You are welcome to use your C2 platform of choice (If you'd like a recommendation, I'm a fan of [Mythic](https://github.com/its-a-feature/Mythic)). For this walkthrough I will use netcat for simplicity.
 
     SSH into your attack box and install a tool called `ncat`.
 
@@ -298,15 +298,15 @@ The following is a step by step walkthrough of the CTF. You can refer to this if
 
     On first glance it appears pretty standard; It installs GitLab, installs the GitLab runners, activates them, etc.
 
-    There is a slight problem though, on the line where they installed GitLab, they accidentally leaked a credential. An important one at that. That is the credential to the root user.
+    There is a slight problem though, on the line where they installed GitLab, they accidentally leaked a credential. An important one at that. That is the credential to the root user of GitLab.
 
-    This is bad news for SoftHouseIO and great news for us. Let's use this to log into the GitLab web UI as an administrator (username: root, password: <what's in the useradata>)
+    This is bad news for SoftHouseIO and great news for us. Let's use this to log into the GitLab web UI as an administrator (username: root, password: <what's in the useradata\>)
 
     After exploring around for a little while, you may stumble into the the `infra-deployer` project. That sounds important.
 
     ![The infra-deployer Project](/images/aws/capture_the_flag/cicdont/deployer.png)
 
-    "IAM Credentials are being stored in environment variables to be used with the GitLab runners". That sounds.....very interesting. The good news is that as an administrator, we can see those variables. Navigate to the `Settings` tab on the left and then click `CI/CD`. Next, click `Expand` on the `Variables` section.
+    "Admin IAM Credentials are being stored in environment variables to be used with the GitLab runners". That sounds.....very interesting. The good news is that as an administrator, we can see those variables. Navigate to the `Settings` tab on the left and then click `CI/CD`. Next, click `Expand` on the `Variables` section.
 
     ![Showing the Environment Variables](/images/aws/capture_the_flag/cicdont/variables.png)
 
