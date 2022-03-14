@@ -116,7 +116,7 @@ Filters can be created using the [CreateFilter API](https://docs.aws.amazon.com/
 
 ---
 ## Delete Publishing Destination
-An adversary could disable alerting simply by deleting the destination of alerts.
+An adversary could disable alerting simply by [deleting the destination](https://docs.aws.amazon.com/cli/latest/reference/guardduty/delete-publishing-destination.html) of alerts.
 
 **Required permissions to execute:**
 
