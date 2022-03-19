@@ -1,11 +1,12 @@
 ---
 author: andrei8055
 title: Soft Deleted Blobs
-description: Recovering and accessing files in private Storage Accounts that have been deleted
+description: Recovering and accessing files in private Storage Accounts that have been deleted.
 ---
 
 
-Orginally posted on [0xPwN Blog](https://0xpwn.wordpress.com/2022/03/09/create-an-azure-vulnerable-lab-part-3-soft-deleted-blobs/ "Create an Azure Vulnerable Lab: Part #3 – Soft Deleted Blobs"). 
+Orginally posted on [0xPwN Blog - Create an Azure Vulnerable Lab: Part #3 – Soft Deleted Blobs](https://0xpwn.wordpress.com/2022/03/09/create-an-azure-vulnerable-lab-part-3-soft-deleted-blobs/)
+
 In this tutorial we will see how data that has been deleted from a private Storage Account Container can still be a risk in some cases. Even if we know the full path of resources uploaded to a private container, Azure requires authentication to be accessed. To provide access we can choose between:
 
 - A shared access signature (SAS) – is a URI that grants restricted access to an Azure Storage container. Use it when you want to grant access to storage account resources for a specific time range without sharing your storage account key.
