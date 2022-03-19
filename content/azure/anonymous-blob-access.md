@@ -1,11 +1,11 @@
 ---
 author: andrei8055
 title: Anonymous Blob Access
-description: Finding and accessing files stored in Azure Storage Accounts without authentication
+description: Finding and accessing files stored in Azure Storage Accounts without authentication.
 ---
 
+Originally Research: [0xPwN Blog - Create an Azure Vulnerable Lab: Part #1 – Anonymous Blob Access](https://0xpwn.wordpress.com/2022/03/05/setting-up-an-azure-pentest-lab-part-1-anonymous-blob-access/) 
 
-Orginally posted on [0xPwN Blog](https://0xpwn.wordpress.com/2022/03/05/setting-up-an-azure-pentest-lab-part-1-anonymous-blob-access/ "Create an Azure Vulnerable Lab: Part #1 – Anonymous Blob Access"). 
 "Storage Accounts" is the service provided by Azure to store data in the cloud. A storage account can used to store:
 
 - Blobs
@@ -25,7 +25,9 @@ For this tutorial, we will focus on the Blobs section. Blobs are stored within a
 As you might have guessed, granting Container Access permission can be easily abused to download all the files stored within the container without any permissions as the only things required to be known are the storage account name and the container name, both of which can be enumerated with wordlists.
 
 ## Exploiting Anonymous Blob Access
+
 Now, there are thousands of articles explaining how this can be abused and how to search for insecure storage in Azure, but to make things easier I’ll do a TL:DR. One of the easiest way is to use MicroBurst, provide the storage account name to search for, and it’ll check if the containers exists based on a wordlist saved in the Misc/permutations.txt:
+
 ```
 PS > import-module .\MicroBurst.psm1
 PS> Invoke-EnumerateAzureBlobs -Base 0xpwnstorageacc
@@ -40,6 +42,7 @@ https://<storage_account>.blob.core.windows.net/<container>?restype=container&co
 ```
 Output:
 ```
+
 <EnumerationResults ContainerName="https://0xpwnstorageacc.blob.core.windows.net/public">
 	<Blobs>
 		<Blob>
