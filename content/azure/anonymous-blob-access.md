@@ -4,7 +4,7 @@ title: Anonymous Blob Access
 description: Finding and accessing files stored in Azure Storage Accounts without authentication.
 ---
 
-Originally Research: [0xPwN Blog - Create an Azure Vulnerable Lab: Part #1 – Anonymous Blob Access](https://0xpwn.wordpress.com/2022/03/05/setting-up-an-azure-pentest-lab-part-1-anonymous-blob-access/) 
+Original Research: [0xPwN Blog - Create an Azure Vulnerable Lab: Part #1 – Anonymous Blob Access](https://0xpwn.wordpress.com/2022/03/05/setting-up-an-azure-pentest-lab-part-1-anonymous-blob-access/) 
 
 "Storage Accounts" is the service provided by Azure to store data in the cloud. A storage account can used to store:
 
