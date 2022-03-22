@@ -14,6 +14,9 @@ Topics can include offensive techniques, tools, general knowledge related to clo
 
 Don't worry about submitting content in the wrong format or what section it should be a part of, we can always make improvements later :) When writing content: do try to credit the researcher who discovered it and link to their site/talk.
 
+## Disclaimer
+The information provided by Hacking the Cloud is intended to be used by professionals who are authorized to perform security assessments or by those defending cloud environments. While these techniques can be used to avoid detection, escalate privileges, compromise resources, etc. the intent is to improve security by making the knowledge of these techniques more generally available.
+
 ## Roadmap
 Currently the site has some material on AWS, and very little for Azure or GCP. If you have experience in any of those areas you are welcome to submit content. Even something as small as fixing grammar mistakes or adding a screenshot is appreciated!
 
