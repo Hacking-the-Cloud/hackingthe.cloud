@@ -101,3 +101,13 @@ This is particularly relevant in scenarios in which you have access to the IAM c
 To get around this, we can make use of [VPC Endpoints](https://docs.aws.amazon.com/vpc/latest/privatelink/concepts.html) which will not trigger this alert. To make things easier, the [SneakyEndpoints](https://github.com/Frichetten/SneakyEndpoints) tool was developed to allow you to quickly stand up infrastructure to bypass this detection.
 
 For more information on this, please see its [article](/aws/avoiding-detection/steal-keys-undetected/).
+
+## Situational Awareness
+
+Now that you have everything set up and you know what to look out for, your next question may be, "what is in this AWS account?". If you are performing a no-knowledge assessment, and thus, don't have any insights into what services are running in the account, it makes it difficult to know what to target or look into.
+
+One option would be to [enumerate the service-linked roles](/aws/enumeration/enum_iam_user_role/) in the account. A [service-linked](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) role is a special kind of IAM role that allows an AWS service to perform actions in your account. Because of this, we can potentially enumerate them without authentication. 
+
+From the previous validity checking step, we will know the AWS account ID we are operating in. That, combined with [this](/aws/enumeration/enum_iam_user_role/) technique will allow us to enumerate what services the AWS account uses. This can be helpful to answer questions such as, "Is our target using GuardDuty? Is this account a part of an organization? Are they using containers (ECS, EKS), or are they using EC2?".
+
+For more information on this, please see its [article](/aws/enumeration/enum_iam_user_role/).
