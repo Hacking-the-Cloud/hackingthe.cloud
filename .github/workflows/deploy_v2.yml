@@ -7,6 +7,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GH_TOKEN }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
@@ -16,8 +18,6 @@ jobs:
         with:
           key: ${{ github.ref }}
           path: .cache
-      env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
       - run: sudo apt-get install -y libcairo2-dev libfreetype6-dev libffi-dev libjpeg-dev libpng-dev libz-dev
       - run: pip install mkdocs-material
       - run: pip install mkdocs-minify-plugin
