@@ -15,4 +15,5 @@ jobs:
       - run: pip install mkdocs-material
       - run: pip install mkdocs-minify-plugin
       - run: pip install mkdocs-awesome-pages-plugin
+      - run: pip install mkdocs-git-committers-plugin-2
       - run: mkdocs build
