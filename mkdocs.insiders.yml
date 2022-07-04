@@ -9,7 +9,7 @@ plugins:
       repository: Hacking-the-Cloud/hackingthe.cloud
       branch: main
       token: !ENV GH_TOKEN
-      docs_path: /docs/content/
+      docs_path: content/
   - minify:
       minify_html: true
       minify_js: true
