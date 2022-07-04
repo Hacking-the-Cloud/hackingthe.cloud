@@ -21,6 +21,7 @@ jobs:
       - run: sudo apt-get install -y libcairo2-dev libfreetype6-dev libffi-dev libjpeg-dev libpng-dev libz-dev
       - run: pip install mkdocs-minify-plugin
       - run: pip install mkdocs-awesome-pages-plugin
-      - run: pip install mkdocs-git-committers-plugin-2>=0.4.3
+      - run: pip install mkdocs-git-revision-date-localized-plugin
+      - run: pip install mkdocs-git-committers-plugin-2
       - run: pip install git+https://${{ secrets.GH_TOKEN }}@github.com/squidfunk/mkdocs-material-insiders.git
       - run: mkdocs gh-deploy --force --config-file mkdocs.insiders.yml
