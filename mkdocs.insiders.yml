@@ -3,10 +3,13 @@ plugins:
   - social # Added to .insiders.yml
   - search
   - awesome-pages # non-standard
+  - git-revision-date-localized:
+      enable_creation_date: true
   - git-committers: # non-standard
       repository: Hacking-the-Cloud/hackingthe.cloud
       branch: main
       token: !ENV GH_TOKEN
+      docs_path: /docs/content/
   - minify:
       minify_html: true
       minify_js: true
