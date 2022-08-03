@@ -45,6 +45,9 @@ plugins:
       minify_html: true
       minify_js: true
       minify_css: true
+  - redirects:
+      redirect_maps:
+        'aws/post_exploitation/aws_consoler.md': 'aws/general-knowledge/assume_role_logic.md'
 
 extra_javascript:
   - javascripts/matomo.min.js
