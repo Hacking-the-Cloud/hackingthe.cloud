@@ -206,6 +206,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://hackingthe.cloud/gcp/exploitation/gcp_iam_privilege_escalation/</loc>
+         <lastmod>2022-08-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://hackingthe.cloud/gcp/general-knowledge/default-account-names/</loc>
          <lastmod>2022-08-24</lastmod>
          <changefreq>daily</changefreq>
