@@ -196,16 +196,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://hackingthe.cloud/gcp/lateral-movement/</loc>
-         <lastmod>2022-08-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://hackingthe.cloud/gcp/post_exploitation/</loc>
-         <lastmod>2022-08-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://hackingthe.cloud/gcp/capture_the_flag/gcp-goat/</loc>
          <lastmod>2022-08-29</lastmod>
          <changefreq>daily</changefreq>
@@ -267,6 +257,16 @@
     </url>
     <url>
          <loc>https://hackingthe.cloud/gcp/general-knowledge/security-concepts/</loc>
+         <lastmod>2022-08-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hackingthe.cloud/gcp/post_exploitation/lateral-movement/</loc>
+         <lastmod>2022-08-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://hackingthe.cloud/gcp/post_exploitation/treasure_hunting/</loc>
          <lastmod>2022-08-29</lastmod>
          <changefreq>daily</changefreq>
     </url>
