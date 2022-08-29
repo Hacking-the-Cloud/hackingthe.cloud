@@ -54,7 +54,7 @@ If `gcloud auth list` returns multiple accounts available, something interesting
 
 !!! info
 
-    If you are looking for ways to bypass access scopes checkout: [Bypassing access scopes](/gcp/exploitation/cloud-prive-esc/#bypassing-access-scopes)
+    If you are looking for ways to bypass access scopes checkout: [Bypassing access scopes](/gcp/exploitation/gcp-priv-esc/#bypassing-access-scopes)
 
 
 The service account on a GCP Compute Instance will use OAuth to communicate with the Google Cloud APIs. When [access scopes](https://cloud.google.com/compute/docs/access/service-accounts#accesscopesiam) are used, the OAuth token that is generated for the instance will have a [scope](https://oauth.net/2/scope/) limitation included. This defines what API endpoints it can authenticate to. It does NOT define the actual permissions.
