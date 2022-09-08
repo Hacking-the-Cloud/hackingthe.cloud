@@ -2,292 +2,292 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://hackingthe.cloud/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/aws/avoiding-detection/guardduty-pentest/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/aws/avoiding-detection/guardduty-tor-client/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/aws/avoiding-detection/modify-guardduty-config/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/aws/avoiding-detection/steal-keys-undetected/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/aws/capture_the_flag/cicdont/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/aws/deprecated/stealth_perm_enum/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/aws/deprecated/whoami/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/aws/enumeration/account_id_from_ec2/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/aws/enumeration/account_id_from_s3_bucket/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/aws/enumeration/brute_force_iam_permissions/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/aws/enumeration/enum_iam_user_role/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/aws/enumeration/get-account-id-from-keys/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/aws/enumeration/whoami/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/aws/exploitation/ec2-metadata-ssrf/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/aws/exploitation/iam_privilege_escalation/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/aws/exploitation/lambda-steal-iam-credentials/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/aws/exploitation/local-priv-esc-mod-instance-att/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/aws/exploitation/local-priv-esc-user-data-s3/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/aws/exploitation/misconfigured_resource-based_policies/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/aws/exploitation/orphaned_%20cloudfront_or_dns_takeover_via_s3/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/aws/exploitation/priv-esc-eks/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/aws/exploitation/route53_modification_privilege_escalation/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/aws/general-knowledge/connection-tracking/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/aws/general-knowledge/create_a_console_session_from_iam_credentials/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/aws/general-knowledge/iam-key-identifiers/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/aws/general-knowledge/intro_metadata_service/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/aws/general-knowledge/introduction_user_data/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/aws/general-knowledge/using_stolen_iam_credentials/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/aws/post_exploitation/get_iam_creds_from_console_session/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/aws/post_exploitation/intercept_ssm_communications/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/aws/post_exploitation/lambda_persistence/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/aws/post_exploitation/role-chain-juggling/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/aws/post_exploitation/run_shell_commands_on_ec2/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/aws/post_exploitation/s3_acl_persistence/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/aws/post_exploitation/user_data_script_persistence/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/azure/abusing-managed-identities/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/azure/anonymous-blob-access/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/azure/soft-deleted-blobs/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/blog/v2_new_look/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/gcp/capture_the_flag/gcp-goat/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/gcp/capture_the_flag/thunder_ctf/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/gcp/enumeration/enumerate_service_account_permissions/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/gcp/exploitation/gcp-metadata-ssrf/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/gcp/exploitation/gcp-priv-esc/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/gcp/exploitation/gcp_iam_privilege_escalation/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/gcp/exploitation/local-priv-esc-metadata/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/gcp/general-knowledge/client-credential-search-order/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/gcp/general-knowledge/default-account-names/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/gcp/general-knowledge/gcp-buckets/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/gcp/general-knowledge/metadata_in_google_cloud_instances/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/gcp/general-knowledge/security-and-constraints/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/gcp/general-knowledge/security-concepts/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/gcp/post_exploitation/lateral-movement/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/gcp/post_exploitation/treasure_hunting/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/gcp/tools/gcloud/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/terraform/terraform_ansi_escape_evasion/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://hackingthe.cloud/terraform/terraform_enterprise_metadata_service/</loc>
-         <lastmod>2022-09-05</lastmod>
+         <lastmod>2022-09-08</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
