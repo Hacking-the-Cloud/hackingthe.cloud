@@ -9,3 +9,10 @@
     <strong>Twitter</strong>
   </a>
 {% endblock %}
+
+{% block content %}
+  {% if page.meta.author %}
+    <p>Article by {{ page.meta.author }}.</p>
+  {% endif %}
+  {{ super() }}
+{% endblock %}
