@@ -1,9 +1,17 @@
 ---
 title: "Hacking The Cloud v2: New Look"
 description: All about the new look for Hacking The Cloud v2.
-date: 2021-12-06
-authors:
-  - nickfrichette
+date: 2021-12-06T00:00:40-06:00
+---
+<aside markdown style="display:flex">
+  <p><img src="https://avatars.githubusercontent.com/u/10386884?v=4" style="width:44px;height:44px;margin:5px;border-radius:100%"></img></p>
+
+  <span>__Nick Frichette__ · @frichette_n · <a href="https://twitter.com/Frichette_n">:fontawesome-brands-twitter:{ .twitter }</a></span>
+  <br>
+  <span>
+    :octicons-calendar-24: December 6, 2021
+  </span>
+</aside>
 ---
 Whoa! Things look a little different? You're not imagining it.
 
