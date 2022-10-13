@@ -2,6 +2,8 @@
 author: Joshua Jebaraj
 title: GCP Goat 
 description: GCP Goat is the Vulnerable application for learning the GCP Security
+hide:
+  - toc
 ---
 
 GCP-Goat is the vulnerable application for learning the Google Cloud Security

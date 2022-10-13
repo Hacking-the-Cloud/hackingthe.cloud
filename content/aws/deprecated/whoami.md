@@ -2,6 +2,8 @@
 author: Nick Frichette
 title: Whoami - Get Principal Name From Keys
 description: During an assessment you may find AWS IAM credentials. Use these tactics to identify the principal of the keys.
+hide:
+  - toc
 ---
 
 Original Research: [Spencer Gietzen](https://twitter.com/SpenGietz/status/1283843401008336896)

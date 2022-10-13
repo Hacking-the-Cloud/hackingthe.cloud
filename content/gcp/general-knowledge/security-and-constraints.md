@@ -7,7 +7,7 @@ description: Security considerations and constraints that are unique to GCP
 
 GCP Resources are typically placed into Projects. Projects are a mix of resource groups in Azure and Accounts in AWS. Projects can be either non-hierarchical or completely hierarchical. An operator can place security constraints on these projects to provide a baseline security policy. There are also Organization-wide policy constraints that apply to every project.
 
-# Examples
+## Examples
 
 From: [Organizational Policy Constraints](https://cloud.google.com/resource-manager/docs/organization-policy/org-policy-constraints)
 

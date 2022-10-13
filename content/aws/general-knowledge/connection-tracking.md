@@ -2,6 +2,8 @@
 author: Nick Frichette
 title: Connection Tracking
 description: Abuse security group connection tracking to maintain persistence even when security group rules are changed.
+hide:
+  - toc
 ---
 
 Security Groups in AWS have an interesting capability known as [Connection Tracking](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html). This allows the security groups to track information about the network traffic and allow/deny that traffic based on the Security Group rules.

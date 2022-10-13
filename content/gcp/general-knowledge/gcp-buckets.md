@@ -2,6 +2,8 @@
 author: Moses Frost (@mosesrenegade)
 title: Hunting GCP Buckets
 description: How to find valid and invalid GCP Buckets using tools
+hide:
+  - toc
 ---
 
 GCP Buckets are almost 100% identical to AWS S3 Buckets. 
