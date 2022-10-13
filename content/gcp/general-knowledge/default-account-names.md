@@ -4,7 +4,7 @@ title: Default Account Information
 description: Default information on how accounts and service accounts exist in GCP
 ---
 
-# Service Accounts
+## Service Accounts
 
 [Service accounts](https://cloud.google.com/iam/docs/service-accounts) are similar to Azure [Service Principals](https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals). They can allow for programmatic access but also abuse. 
 

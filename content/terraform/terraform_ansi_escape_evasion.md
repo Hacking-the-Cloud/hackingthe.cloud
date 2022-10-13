@@ -2,6 +2,8 @@
 author: Nick Frichette
 title: Terraform ANSI Escape
 description: Using ANSI Escape Sequences to Hide Malicious Terraform Code
+hide:
+  - toc
 ---
 
 Original Research: [Joern Schneeweisz](https://about.gitlab.com/blog/2022/06/01/terraform-as-part-of-software-supply-chain-part1-modules-and-providers/)

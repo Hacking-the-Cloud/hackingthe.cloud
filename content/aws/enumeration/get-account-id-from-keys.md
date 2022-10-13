@@ -2,6 +2,8 @@
 author: Nick Frichette
 title: Get Account ID from AWS Access Keys
 description: During an assessment you may find AWS IAM credentials but not know what account they are associated with. Use this to get the account ID.
+hide:
+  - toc
 ---
 
 While performing an assessment in AWS it is not uncommon to come across access keys and not know what account they are associated with. If your scope is defined by the AWS account ID, this may pose a problem as you'd likely not want to use them if they are out of scope.
