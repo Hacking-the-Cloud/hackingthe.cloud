@@ -18,7 +18,7 @@ An error occurred (UnauthorizedOperation) when calling the DescribeInstances ope
 [sns:Publish](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/publish.html) will return the ARN of the calling user/role **without logging to CloudTrail**. To use this method, you must provide a valid AWS account id in the API call. This can be your own account id, or the account id of anyone else.
 
 ```
-user@host:$ aws sns publish --topic-arn arn:aws:sns:us-east-1:*account id*:aaa --message aaa
-
-An error occurred (AuthorizationError) when calling the Publish operation: User: arn:aws:sts::123456789123:assumed-role/example_role/i-00000000000000000 is not authorized to perform: SNS:Publish on resource: arn:aws:sns:us-east-1:*account id*:aaa
+user@host:~$ aws sns publish --topic-arn arn:aws:sns:us-east-1:*account id*:aaa --message aaa
+ 
+An error occurred (AuthorizationError) when calling the Publish operation: User: arn:aws:iam::123456789123:user/no-perm is not authorized to perform: SNS:Publish on resource: arn:aws:sns:us-east-1:*account id*:aaa because no resource-based policy allows the SNS:Publish action
 ```
