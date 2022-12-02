@@ -1,5 +1,5 @@
 ---
-author: Nick Frichette
+author_name: Nick Frichette
 title: Create a Console Session from IAM Credentials
 description: "How to use IAM credentials to create an AWS Console session."
 ---

@@ -1,5 +1,5 @@
 ---
-author: Chris Moberly
+author_name: Chris Moberly
 title: Client Credential Search Order
 description: The order by which GCP client libraries search for credentials.
 ---

@@ -1,5 +1,5 @@
 ---
-author: Aloïs THÉVENOT
+author_name: Aloïs THÉVENOT
 title: Enumerate Service Account Permissions
 description: Brute force the permissions of a service account to see what you have access to.
 ---

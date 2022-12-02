@@ -1,5 +1,5 @@
 ---
-author: Chris Moberly
+author_name: Chris Moberly
 title: Google Cloud CLI
 description: Google Cloud CLI used to create and manage Google Cloud resources. 
 hide:

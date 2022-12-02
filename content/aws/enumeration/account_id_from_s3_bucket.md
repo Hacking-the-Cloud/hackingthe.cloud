@@ -1,5 +1,5 @@
 ---
-author: Nick Frichette
+author_name: Nick Frichette
 title: Enumerate AWS Account ID from a Public S3 Bucket
 description: Knowing only the name of a public S3 bucket, you can ascertain the account ID it resides in.
 ---

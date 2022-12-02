@@ -1,5 +1,5 @@
 ---
-author: Moses Frost (@mosesrenegade)
+author_name: Moses Frost (@mosesrenegade)
 title: Hunting GCP Buckets
 description: How to find valid and invalid GCP Buckets using tools
 hide:

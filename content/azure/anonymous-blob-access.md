@@ -1,5 +1,5 @@
 ---
-author: andrei8055
+author_name: andrei8055
 title: Anonymous Blob Access
 description: Finding and accessing files stored in Azure Storage Accounts without authentication.
 ---

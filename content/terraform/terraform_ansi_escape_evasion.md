@@ -1,5 +1,5 @@
 ---
-author: Nick Frichette
+author_name: Nick Frichette
 title: Terraform ANSI Escape
 description: Using ANSI Escape Sequences to Hide Malicious Terraform Code
 hide:

@@ -1,5 +1,5 @@
 ---
-author: Joshua Jebaraj
+author_name: Joshua Jebaraj
 title: GCP Goat 
 description: GCP Goat is the Vulnerable application for learning the GCP Security
 hide:

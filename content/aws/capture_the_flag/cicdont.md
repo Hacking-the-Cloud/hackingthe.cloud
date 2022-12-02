@@ -1,5 +1,5 @@
 ---
-author: Nick Frichette
+author_name: Nick Frichette
 title: CI/CDon't
 description: An AWS/GitLab CICD themed CTF.
 ---

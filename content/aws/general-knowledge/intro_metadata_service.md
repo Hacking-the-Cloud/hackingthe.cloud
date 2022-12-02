@@ -1,5 +1,5 @@
 ---
-author: Nick Frichette
+author_name: Nick Frichette
 title: Introduction to the Instance Metadata Service
 description: An introduction to the Instance Metadata Service and how to access it.
 ---

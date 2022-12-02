@@ -1,5 +1,5 @@
 ---
-author: Moses Frost (@mosesrenegade)
+author_name: Moses Frost (@mosesrenegade)
 title: Security and Constraints
 description: Security considerations and constraints that are unique to GCP
 ---

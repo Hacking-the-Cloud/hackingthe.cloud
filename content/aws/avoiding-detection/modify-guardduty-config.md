@@ -1,5 +1,5 @@
 ---
-author: Ben Leembruggen
+author_name: Ben Leembruggen
 title: Modify GuardDuty Configuration
 description: Modify existing GuardDuty configurations in the target account to hinder alerting and remediation capabilities.
 ---

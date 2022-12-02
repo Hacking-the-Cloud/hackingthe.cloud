@@ -1,5 +1,5 @@
 ---
-author: Phil Massyn
+author_name: Phil Massyn
 title: Enumerate AWS Account ID from an EC2 Instance
 description: With access to an ec2 instance, you will be able to identify the AWS account it runs in.
 ---

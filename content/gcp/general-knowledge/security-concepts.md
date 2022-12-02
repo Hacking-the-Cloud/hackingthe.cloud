@@ -1,5 +1,5 @@
 ---
-author: Chris Moberly
+author_name: Chris Moberly
 title: Security Concepts
 description: Common security concepts in GCP.
 ---
