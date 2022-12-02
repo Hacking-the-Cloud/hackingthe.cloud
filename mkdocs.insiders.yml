@@ -2,6 +2,8 @@ INHERIT: mkdocs.yml
 plugins:
   - social # Added to .insiders.yml
   - search
+  - rss: # non-standard
+      length: 200
   - awesome-pages # non-standard
   - git-revision-date-localized:
       enable_creation_date: true

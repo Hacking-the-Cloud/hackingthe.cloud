@@ -40,6 +40,8 @@ markdown_extensions:
 
 plugins:
   - search
+  - rss: # non-standard
+      length: 200
   - awesome-pages # non-standard
   - minify:
       minify_html: true
@@ -66,3 +68,5 @@ extra:
       link: https://www.linkedin.com/in/nick-frichette/
     - icon: fontawesome/brands/github
       link: https://github.com/Hacking-the-Cloud
+    - icon: fontawesome/solid/rss
+      link: https://hackingthe.cloud/feed_rss_created.xml
