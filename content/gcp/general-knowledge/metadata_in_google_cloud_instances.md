@@ -1,5 +1,5 @@
 ---
-author: Jan Slezak
+author_name: Jan Slezak
 title: Metadata in Google Cloud Instances
 description: Information about the data an attacker can access via GCP's API endpoints
 hide:

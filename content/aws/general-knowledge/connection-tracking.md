@@ -1,5 +1,5 @@
 ---
-author: Nick Frichette
+author_name: Nick Frichette
 title: Connection Tracking
 description: Abuse security group connection tracking to maintain persistence even when security group rules are changed.
 hide:

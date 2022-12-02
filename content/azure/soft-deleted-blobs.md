@@ -1,5 +1,5 @@
 ---
-author: andrei8055
+author_name: andrei8055
 title: Soft Deleted Blobs
 description: Recovering and accessing files in private Storage Accounts that have been deleted.
 ---

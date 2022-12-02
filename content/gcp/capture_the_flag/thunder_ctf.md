@@ -1,5 +1,5 @@
 ---
-author: Aloïs THÉVENOT
+author_name: Aloïs THÉVENOT
 title: Thunder CTF
 description: GCP themed CTF
 ---

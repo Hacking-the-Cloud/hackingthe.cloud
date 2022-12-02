@@ -1,5 +1,5 @@
 ---
-author: Nick Frichette
+author_name: Nick Frichette
 title: "Terraform Enterprise: Attack the Metadata Service"
 description: Leverage a default configuration in Terraform Enterprise to steal credentials from the Metadata Service
 ---

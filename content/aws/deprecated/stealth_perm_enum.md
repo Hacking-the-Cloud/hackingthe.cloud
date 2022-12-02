@@ -1,5 +1,5 @@
 ---
-author: Nick Frichette
+author_name: Nick Frichette
 title: Enumerate Permissions without Logging to CloudTrail
 description: Leverage a bug in the AWS API to enumerate permissions for a role without logging to CloudTrail and alerting the Blue Team.
 hide:

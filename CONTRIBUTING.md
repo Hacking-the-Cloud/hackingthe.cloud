@@ -38,7 +38,7 @@ After creating the file, please put the following at the top and fill it out.
 
 ```
 ---
-author: <Your Name>
+author_name: <Your Name>
 title: <Page Title>
 description: <A description of the page>
 ---

@@ -1,5 +1,5 @@
 ---
-author: Nick Frichette
+author_name: Nick Frichette
 title: "Bypass GuardDuty Tor Client Findings"
 description: Connect to the Tor network from an EC2 instance without alerting GuardDuty.
 hide:

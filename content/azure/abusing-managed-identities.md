@@ -1,5 +1,5 @@
 ---
-author: andrei8055
+author_name: andrei8055
 title: Abusing Managed Identities
 description: Abusing Managed Identities 
 ---

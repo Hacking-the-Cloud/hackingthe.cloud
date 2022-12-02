@@ -1,5 +1,5 @@
 ---
-author: Nick Frichette
+author_name: Nick Frichette
 title: Using Stolen IAM Credentials
 description: How to work with stolen IAM credentials and things to consider.
 ---

@@ -1,5 +1,5 @@
 ---
-author: Moses Frost (@mosesrenegade)
+author_name: Moses Frost (@mosesrenegade)
 title: Default Account Information
 description: Default information on how accounts and service accounts exist in GCP
 ---

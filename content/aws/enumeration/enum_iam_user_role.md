@@ -1,5 +1,5 @@
 ---
-author: Nick Frichette
+author_name: Nick Frichette
 title: Unauthenticated Enumeration of IAM Users and Roles
 description: Leverage cross account behaviors to enumerate IAM users and roles in a different AWS account without authentication.
 hide:

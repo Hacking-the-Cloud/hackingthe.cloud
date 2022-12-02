@@ -1,5 +1,5 @@
 ---
-author: Nick Frichette
+author_name: Nick Frichette
 title: Brute Force IAM Permissions
 description: Brute force the IAM permissions of a user or role to see what you have access to.
 ---
