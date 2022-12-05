@@ -37,7 +37,7 @@ To search for all public EBS snapshots associated with an AWS account, use the f
 aws ec2 describe-snapshots --restorable-by-user-ids all --owner-ids 000000000000
 ```
 
-## Detection
+## Identification
 
 To find exposed EBS snapshots in your account you can use automated tooling such as [Prowler](https://github.com/prowler-cloud/prowler), an open source tool to audit for AWS security. The following command can be used with version 3.0 or higher.
 
@@ -45,8 +45,12 @@ To find exposed EBS snapshots in your account you can use automated tooling such
 ./prowler -c ec2_ebs_public_snapshot
 ```
 
+## Detection
+
+When someone makes an EBS snapshot publicly accessible, CloudTrail generates an `ec2:ModifySnapshotAttribute` event with `createVolumePermission` set to `{"add": {"items": [{ "groups": "all" }]}}`. You can use Stratus Red Team's [aws.exfiltration.ec2-share-ebs-snapshot](https://stratus-red-team.cloud/attack-techniques/AWS/aws.exfiltration.ec2-share-ebs-snapshot/) to reproduce the issue and test your detections.
+
 ## Additional Resources
 
-For additional information on the risks of exposed EBS snapshots, check out this [DEF CON 27 talk](https://www.youtube.com/watch?v=-LGR63yCTts), `Finding Secrets In Publicly Exposed EBS Volumes` by Ben Morris.
+For additional information on the risks of exposed EBS snapshots, check out this [DEF CON 27 talk](https://www.youtube.com/watch?v=-LGR63yCTts), `Finding Secrets In Publicly Exposed EBS Volumes` by Ben Morris (slides available [here](https://media.defcon.org/DEF%20CON%2027/DEF%20CON%2027%20presentations/DEFCON-27-Ben-Morris-More-Keys-Than-A-Piano-Finding-Secrets-In-Publicly-Exposed-Ebs-Volumes.pdf)).
 
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/-LGR63yCTts" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
