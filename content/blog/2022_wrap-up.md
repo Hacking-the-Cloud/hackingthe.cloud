@@ -14,7 +14,7 @@ date: 2022-12-14T00:00:40-06:00
 </aside>
 ---
 
-2022 is coming to a close and it's time to look back on the year. For Hacking the Cloud, 2022 has been a year of steady improvements. We've consistently had new content and new techniques added to the catalog throughout the year. We also expanded the type of content we offer with a full-blown custom [CTF](https://hackingthe.cloud/aws/capture_the_flag/cicdont/)! With all that in mind, here are some accomplishments for the site this year, along with some noteworthy updates.
+2022 is coming to a close and it's time to look back on the year. For Hacking the Cloud, 2022 has been a year of steady improvements. We've consistently had new content and new techniques added to the catalog throughout the year. We also expanded the type of content we offer with a full-blown, custom, [CTF](https://hackingthe.cloud/aws/capture_the_flag/cicdont/)! With all that in mind, here are some accomplishments for the site this year, along with some noteworthy updates.
 
 ## Numbers
 
@@ -39,7 +39,7 @@ We have also reached 17 [contributors](https://github.com/Hacking-the-Cloud/hack
 
 ## Most Popular Articles
 
-Some more numbers; this time the most popular articles along with page counts:
+Some more numbers; this time the most popular articles along with page views:
 
 1. [Steal EC2 Metadata Credentials via SSRF](https://hackingthe.cloud/aws/exploitation/ec2-metadata-ssrf/) - 10,963 page views!
 2. [CI/CDon't](https://hackingthe.cloud/aws/capture_the_flag/cicdont/) - 5,842 page views.
@@ -47,11 +47,11 @@ Some more numbers; this time the most popular articles along with page counts:
 4. [Connection Tracking](https://hackingthe.cloud/aws/general-knowledge/connection-tracking/) - 5,209 page views.
 5. [Using Stolen IAM Credentials](https://hackingthe.cloud/aws/general-knowledge/using_stolen_iam_credentials/) - 5,043 page views.
 
-Once again, the [Steal EC2 Metadata Credentials via SSRF](https://hackingthe.cloud/aws/exploitation/ec2-metadata-ssrf/) is the number one most popular page on the site! I think this is mostly attributed to high SEO ranking, along with it being a crucial security topic. 
+Once again, the [Steal EC2 Metadata Credentials via SSRF](https://hackingthe.cloud/aws/exploitation/ec2-metadata-ssrf/) article was the number one most popular page on the site! I think this is mostly attributed to high SEO ranking, along with it being a crucial security topic. 
 
 [CI/CDon't](https://hackingthe.cloud/aws/capture_the_flag/cicdont/) was a surprise runner up, but a happy surprise. I made this CTF specifically for Hacking the Cloud to cover some important security topics. I'm hoping that view count is indicative that folks enjoyed it and perhaps a few played it themselves.
 
-[Using Stolen IAM Credentials](https://hackingthe.cloud/aws/general-knowledge/using_stolen_iam_credentials/) ranking in the top 5 was another happy surprise. This article deviates from the standard type of article we would normally host. Typically each page of Hacking the Cloud is dedicated to an individual technique. The stolen IAM credentials article was an attempt to create a "playbook" that would explain how an attacker should operate in a certain situation, along with OPSEC considerations. Considering that this article has been viewed so much, I definitely plan to continue this type of content. Perhaps with accompanying video content?
+[Using Stolen IAM Credentials](https://hackingthe.cloud/aws/general-knowledge/using_stolen_iam_credentials/) ranking in the top 5 was another happy surprise. This article deviates from the standard type of article we would normally host. Typically each page of Hacking the Cloud is dedicated to an individual technique. This article was an attempt to create a "playbook" that would explain how an attacker should operate in a certain situation, along with OPSEC considerations. Considering that this article has been viewed so much, I definitely plan to continue this type of content. Perhaps with accompanying video content?
 
 ## RSS Feeds!
 
@@ -76,7 +76,7 @@ I am 100% supportive of citing other researchers. It's why Hacking the Cloud has
 
 To that site owner's credit, when I raised these concerns with them they were quick to remove the plagiarized content. To my knowledge this has not been a problem since, and I don't hold any ill-will towards them.
 
-As a result of this incident, however, I have added additional language to our existing [Plagiarism Policy](https://github.com/Hacking-the-Cloud/hackingthe.cloud/blob/main/CONTRIBUTING.md#plagiarism-policy) to further enforce that we will not accept plagiarized content on Hacking the Cloud. Additionally, I have added additional guarantees that I will remove links/references at the author's request (even for situations that don't involve plagiarism).
+As a result of this incident, however, I have added additional language to our existing [Plagiarism Policy](https://github.com/Hacking-the-Cloud/hackingthe.cloud/blob/main/CONTRIBUTING.md#plagiarism-policy) to further enforce that we will not accept plagiarized content on Hacking the Cloud. Additionally, I have added additional guarantees that I will remove links/references at the author's request (including situations that don't involve plagiarism).
 
 Hacking the Cloud uses the [MIT License](https://github.com/Hacking-the-Cloud/hackingthe.cloud/blob/main/LICENSE) which, in retrospect, was a big mistake. When this decision was made, I was not considering the potential for someone to copy content from the site and potentially monetizing it. I have spent some time looking into this, but I am not a lawyer, I don't know a thing about copyright, and I have not had much luck finding resources on how we can better protect the site's content. If you have any experience in this domain, I would love to [hear](https://github.com/Hacking-the-Cloud/hackingthe.cloud/discussions/categories/general) from you.
 
