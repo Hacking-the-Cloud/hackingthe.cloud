@@ -211,6 +211,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://hackingthe.cloud/blog/2022_wrap-up/</loc>
+         <lastmod>2022-12-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://hackingthe.cloud/blog/v2_new_look/</loc>
          <lastmod>2022-12-14</lastmod>
          <changefreq>daily</changefreq>
