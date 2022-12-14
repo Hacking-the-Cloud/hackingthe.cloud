@@ -82,7 +82,7 @@ Hacking the Cloud uses the [MIT License](https://github.com/Hacking-the-Cloud/ha
 
 ## Mastodon
 
-In a bit of an experiment, Hacking the Cloud now has it's own [Mastodon](https://infosec.exchange/@hackingthecloud) account! My goal with this account is to try something new. In the short term, I'd like to add a GitHub action to post to the account when a new article is published, along with posting release notes for the site.
+In a bit of an experiment, Hacking the Cloud now has its own [Mastodon](https://infosec.exchange/@hackingthecloud) account! My goal with this account is to try something new. In the short term, I'd like to add a GitHub action to post to the account when a new article is published, along with posting release notes for the site.
 
 Long term, I'd like to cover broader cloud security news, and highlight interesting research or findings. I'm considering hooking it up to the RSS feeds of some well known blogs and sharing cloud security news that way. Feel free to give the account a follow if you're interested.
 
