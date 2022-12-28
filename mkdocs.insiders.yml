@@ -16,8 +16,6 @@ plugins:
       minify_html: true
       minify_js: true
       minify_css: true
-  - meta:
-      meta_file: '**/.meta.yml'
   - redirects:
       redirect_maps:
         'aws/post_exploitation/aws_consoler.md': 'aws/general-knowledge/create_a_console_session_from_iam_credentials.md'
