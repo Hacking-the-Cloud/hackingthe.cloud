@@ -4,9 +4,24 @@ title: Enumerate AWS Account ID from a Public S3 Bucket
 description: Knowing only the name of a public S3 bucket, you can ascertain the account ID it resides in.
 ---
 
-Discovered by [Ben Bridts](https://twitter.com/benbridts)  
-Original Research: [link](https://www.cloudar.be/awsblog/finding-the-accountid-of-any-public-s3-bucket/)  
-Link to Tool: [s3-account-search](https://github.com/WeAreCloudar/s3-account-search)
+<div class="grid cards" markdown>
+
+-   :material-account:{ .lg .middle } __Original Research__
+
+    ---
+
+    <aside style="display:flex">
+    <p><a href="https://cloudar.be/awsblog/finding-the-account-id-of-any-public-s3-bucket/">Finding the Account ID of any public S3 bucket</a> by <a href="https://twitter.com/benbridts">Ben Bridts</a></p>
+    <p><img src="https://pbs.twimg.com/profile_images/1153675351119343616/YZ1At6W7_400x400.jpg" style="width:44px;height:44px;margin:5px;border-radius:100%;max-width:unset"></img></p>
+    </aside>
+
+-   :material-tools:{ .lg .middle } __Tools mentioned in this article__
+
+    ---
+
+    [s3-account-search](https://github.com/WeAreCloudar/s3-account-search): A tool to find the account ID an S3 bucket belongs to.
+
+</div>
 
 !!! Note
     The documentation and GitHub repository refer to this tool as `s3-account-search`, however when it is installed using [pip](https://pip.pypa.io/en/stable/), it is named `s3-account-finder`. Because of this, all the examples below will use the `s3-account-finder` name.

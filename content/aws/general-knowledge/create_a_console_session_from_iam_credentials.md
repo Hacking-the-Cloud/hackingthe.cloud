@@ -4,8 +4,17 @@ title: Create a Console Session from IAM Credentials
 description: "How to use IAM credentials to create an AWS Console session."
 ---
 
-Link to Tool: [aws-vault](https://github.com/99designs/aws-vault)  
-Alternative Tool: [leapp](https://github.com/Noovolari/leapp)
+<div class="grid cards" markdown>
+
+-   :material-tools:{ .lg .middle } __Tools mentioned in this article__
+
+    ---
+
+    [aws-vault](https://github.com/99designs/aws-vault): A vault for securely storing and accessing AWS credentials in development environments.
+
+    [leapp](https://github.com/Noovolari/leapp): Leapp is the DevTool to access your cloud.
+
+</div>
 
 When performing an AWS assessment you will likely encounter IAM credentials. These credentials can be used with the [AWS CLI](/aws/general-knowledge/using_stolen_iam_credentials/#working-with-the-keys) or other tooling to query the AWS API. 
 
