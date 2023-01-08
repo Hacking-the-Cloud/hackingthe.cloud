@@ -15,6 +15,7 @@ theme:
     # - navigation.instant  Add this at a later date
     - navigation.tabs
     - navigation.indexes
+    - content.action.edit
   palette:
     - scheme: slate
       primary: red
