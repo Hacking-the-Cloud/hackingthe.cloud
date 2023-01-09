@@ -6,6 +6,8 @@ hide:
   - toc
 ---
 
+# Enumerate Root User Email Address from the AWS Console
+
 Based on error responses from the AWS Console it is possible to determine if a given email address belongs to the root user of an AWS account.
 
 From the [AWS Console](https://console.aws.amazon.com/), ensure the `Root user` radio button is selected and enter an email address that you suspect owns an AWS account. 
