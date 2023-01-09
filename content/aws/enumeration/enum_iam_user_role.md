@@ -6,6 +6,8 @@ hide:
   - toc
 ---
 
+# Unauthenticated Enumeration of IAM Users and Roles
+
 Original Research: [Daniel Grzelak](https://twitter.com/dagrz) - [Remastered Talk by Scott Piper](https://www.youtube.com/watch?v=8ZXRw4Ry3mQ)  
 Additional Reading: [Rhino Security](https://rhinosecuritylabs.com/aws/aws-role-enumeration-iam-p2/)  
 Link to Quiet Riot: [Github](https://github.com/righteousgambitresearch/quiet-riot)  

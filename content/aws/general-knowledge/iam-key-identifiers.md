@@ -6,6 +6,8 @@ hide:
   - toc
 ---
 
+# IAM ID Identifiers
+
 [Source](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-unique-ids)
 
 | Prefix | Entity Type                  |
