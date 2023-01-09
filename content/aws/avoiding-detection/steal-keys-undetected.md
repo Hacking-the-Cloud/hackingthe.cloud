@@ -6,6 +6,8 @@ hide:
   - toc
 ---
 
+# Bypass Credential Exfiltration Detection
+
 Link to Tool: [SneakyEndpoints](https://github.com/Frichetten/SneakyEndpoints)
 
 A common technique when exploiting AWS environments is leveraging SSRF, XXE, command injection, etc. to steal IAM credentials from the [instance metadata service](https://hackingthe.cloud/aws/general-knowledge/intro_metadata_service/) of a target EC2 instance. This can allow you to execute AWS API calls within the victim's account, however, it comes with a risk. If you were to try to use those credentials outside of that host (for example, from your laptop) an alert would be triggered. There is a GuardDuty finding which detects when IAM credentials are being used outside of EC2 called [UnauthorizedAccess:IAMUser/InstanceCredentialExfiltration.OutsideAWS](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_finding-types-iam.html#unauthorizedaccess-iam-instancecredentialexfiltrationoutsideaws).

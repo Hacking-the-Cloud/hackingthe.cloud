@@ -6,6 +6,8 @@ hide:
   - toc
 ---
 
+# Enumerate Permissions without Logging to CloudTrail
+
 Original Research: [Nick Frichette](https://frichetten.com/blog/aws-api-enum-vuln/)  
 Link to Tool: [aws_stealth_perm_enum](https://github.com/Frichetten/aws_stealth_perm_enum)
 
