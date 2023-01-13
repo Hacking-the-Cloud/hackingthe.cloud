@@ -6,6 +6,8 @@ hide:
   - toc
 ---
 
+# Terraform ANSI Escape
+
 Original Research: [Joern Schneeweisz](https://about.gitlab.com/blog/2022/06/01/terraform-as-part-of-software-supply-chain-part1-modules-and-providers/)
 
 When performing a Terraform [apply](https://www.terraform.io/cli/commands/apply) from a local workstation, Terraform will output a list of resources it has created, updated, or deleted. Because this is taking place in a terminal, we can potentially use [ANSI escape codes](https://en.wikipedia.org/wiki/ANSI_escape_code) to alter this output. This would allow us to hide or obfuscate malicious activity, such as in a malicious Terraform module.
