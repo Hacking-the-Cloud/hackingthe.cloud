@@ -6,6 +6,8 @@ hide:
   - toc
 ---
 
+# Hunting GCP Buckets
+
 GCP Buckets are almost 100% identical to AWS S3 Buckets. 
 
 *Theory*: This call is based on OpenStack; maybe most cloud environments will be the same.

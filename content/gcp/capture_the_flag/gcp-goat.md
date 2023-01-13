@@ -6,6 +6,8 @@ hide:
   - toc
 ---
 
+# GCP Goat
+
 GCP-Goat is the vulnerable application for learning the Google Cloud Security
 
 The Application consists of the following scenarios
