@@ -1,10 +1,24 @@
 ---
-author: Nick Frichette
+author_name: Nick Frichette
 title: Brute Force IAM Permissions
 description: Brute force the IAM permissions of a user or role to see what you have access to.
 ---
 
-Link to Tool: [GitHub](https://github.com/andresriancho/enumerate-iam)
+<div class="grid cards" markdown>
+
+-   :material-alert-decagram:{ .lg .middle } __Technique seen in the wild__
+
+    ---
+
+    Reference: [Compromised Cloud Compute Credentials: Case Studies From the Wild](https://unit42.paloaltonetworks.com/compromised-cloud-compute-credentials/#post-125981-_lfnmqg2a6dto)
+
+-   :material-tools:{ .lg .middle } __Tools mentioned in this article__
+
+    ---
+
+    [enumerate-iam](https://github.com/andresriancho/enumerate-iam): Enumerate the permissions associated with an AWS credential set.
+
+</div>
 
 When attacking AWS you may compromise credentials for an IAM user or role. This can be an excellent step to gain access to other resources, however it presents a problem for us; How do we know what permissions we have access to? While we may have context clues based on the name of the role/user or based on where we found them, this is hardly exhaustive or thorough. 
 

@@ -1,0 +1,52 @@
+---
+author_name: Roi Lavie
+title: Abusing Elastic Container Registry for Lateral Movement
+description: With ECR permissions you can easily distribute a backdoor to production servers, developer's laptops, or CI/CD pipelines and own the environment by gaining privileged permissions.
+hide:
+  - toc
+---
+
+# Abusing Elastic Container Registry for Lateral Movement
+
+Original Research: [Roi Lavie](https://medium.com/ironsource-tech-blog/abusing-elastic-container-registry-ecr-to-own-aws-environments-47534ad61729) - [Abusing Elastic Container Registry (ECR) to own AWS environments]
+
+**Required IAM Permission**: [read and write access to ECR registry]
+
+IAM (Identity and Access Management) is a set of consents that attach to identities, or cloud resources, to authorize what they can actually do. This means EC2 resources, and others like it, also have identities that can change the infrastructure itself. 43.9% of organizations have internet-facing workloads containing secrets and credentials, as a result, identity and access management (IAM) has become more critical than ever.
+
+<figure markdown>
+  ![Inbound SG](/images/aws/exploitation/abusing-container-registry/Abusing-Container-Registry.png){ loading=lazy }
+</figure>
+
+This post is designed to show the impact of this attack technique and help security engineers and DevOps/SecOps to detect and understand the risks of ECR and other Container registries.
+
+Lateral Movement through AWS ECR
+In the following video, I will show how by using ECR permissions you can easily distribute a backdoor to production servers, developer's laptops, or CI/CD pipelines and own the environment by gaining privileged permissions.
+
+<iframe width="420" height="315"
+  src="https://www.youtube.com/embed/xGFh5L0eOzE">
+</iframe>
+Video Summary:
+
+- An attacker’s initial access can be through vulnerable applications (e.g SSRF), misconfiguration, leaked access keys, developer laptops, and more.
+- The attacker gains access to resources using access to ECR
+- The attacker pulls the latest docker image
+- The attacker adds a layer by injecting a malicious payload to the docker image
+- The attacker pushes the docker image to ECR with the latest tag
+- The victim pulls the latest docker image and starts the container
+- The malicious reverse shell is executed and communicates with the attacker
+- The attacker steals the server's IAM credentials
+  (A reverse shell is an example of a simple payload but noisy technique. An attacker can inject the ECR with other techniques e.g. a hidden backdoor)
+
+Security Recommendations:
+
+- Least privileges — external facing apps should not have write access or wildcard (\*) permissions on ECR
+- Secure CI/CD pipelines — Protect from any unauthorized access to source code repos or build tools.
+- Enforce signing of docker images
+- (see: https://github.com/notaryproject/notary)
+- Use docker custom security profiles like AppArmor, Seccomp
+- Audit and monitor access and actions on ECR using AWS CloudTrail
+  (If you use Container Image scanning, be aware that it will only detect the vulnerabilities of the system and will not be able to detect malicious payloads within the containers)
+
+**Conclusions:**
+One of the main reasons I wrote this post is to share knowledge about the importance of container registry access, especially around ECR. Although this issue poses a high risk, it is not given the required attention it deserves. More awareness is needed around the potential damage that over-privileged services can introduce.

@@ -1,8 +1,12 @@
 ---
-author: Nick Frichette
+author_name: Nick Frichette
 title: Bypass Credential Exfiltration Detection
 description: When stealing IAM credentials from an EC2 instance you can avoid a GuardDuty detection by using VPC Endpoints.
+hide:
+  - toc
 ---
+
+# Bypass Credential Exfiltration Detection
 
 Link to Tool: [SneakyEndpoints](https://github.com/Frichetten/SneakyEndpoints)
 

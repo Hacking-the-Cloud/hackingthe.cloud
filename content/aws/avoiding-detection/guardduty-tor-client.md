@@ -1,8 +1,12 @@
 ---
-author: Nick Frichette
+author_name: Nick Frichette
 title: "Bypass GuardDuty Tor Client Findings"
-description: "Connect to the Tor network from an EC2 instance without alerting GuardDuty."
+description: Connect to the Tor network from an EC2 instance without alerting GuardDuty.
+hide:
+  - toc
 ---
+
+# Bypass GuardDuty Tor Client Findings
 
 [UnauthorizedAccess:EC2/TorClient](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_finding-types-ec2.html#unauthorizedaccess-ec2-torclient) is a high severity GuardDuty finding that fires when an EC2 instance is detected making connections to Tor [Guard](https://community.torproject.org/relay/types-of-relays/#Guard%20and%20middle%20relay) or Authority nodes. According to the documentation, "this finding may indicate unauthorized access to your AWS resources with the intent of hiding the attacker's true identity".
 

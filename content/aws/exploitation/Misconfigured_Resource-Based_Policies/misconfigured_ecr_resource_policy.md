@@ -1,0 +1,142 @@
+---
+author_name: Nick Frichette
+title: Abusing Misconfigured ECR Resource Policies
+description: How to take advantage of misconfigured AWS ECR private repositories.
+---
+
+AWS Elastic Container Registry (ECR) [private repositories](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Repositories.html) use resource-based policies to delineate which entities are permitted to push and pull containers. As a result, it is possible for these policies to be [misconfigured](/aws/exploitation/Misconfigured_Resource-Based_Policies/) and potentially abused. The following are some examples of possible misconfigurations and the required permissions needed to take advantage of them.
+
+!!! Note
+    Aside from the [wildcard principal](/aws/exploitation/misconfigured_resource-based_policies/#the-principal-and-risks), you should also be mindful of overbroad permissions in general, such as permitting an entire AWS account to have access.
+
+## Understanding ecr:GetAuthorizationToken
+
+A unique [requirement](https://docs.aws.amazon.com/AmazonECR/latest/userguide/repository-policies.html#repository-policy-vs-iam-policy) to abusing misconfigured resource-based policies in ECR is [ecr:GetAuthorizationToken](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/get-authorization-token.html). The attacking entity must have this permission via an identity-based policy, it cannot be permitted via a resource-based policy (even if the `Action` element is `ecr:*`). For scenarios in which the policy has a [wildcard principal](/aws/exploitation/misconfigured_resource-based_policies/#the-principal-and-risks) and a broken policy, this is not a problem as you can create a role with the needed permission.
+
+!!! Note
+    When interacting with an ECR private repository via the [Docker](https://github.com/docker/cli) cli, you use [ecr:GetLoginPassword](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/get-login-password.html) to authenticate. This calls `ecr:GetAuthorizationToken` to provide the needed authorization.
+
+## Downloading Containers
+
+**Required Permissions**: [ecr:GetLoginPassword](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/get-login-password.html), [ecr:BatchGetImage](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/batch-get-image.html), [ecr:GetDownloadURLForLayer](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/get-download-url-for-layer.html).
+
+As an example, take the following misconfigured resource policy for an ECR private repository.
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowAll",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "*"
+      },
+      "Action": [
+        "ecr:BatchGetImage",
+        "ecr:GetDownloadUrlForLayer"
+      ]
+    }
+  ]
+}
+```
+
+This policy would permit us the ability to download containers from the vulnerable repository to our own account. We can take advantage of this with the following commands. First, we need to authenticate to the repository.
+
+```
+aws ecr get-login-password --region <region> | docker login --username AWS --password-stdin <account ID>.dkr.ecr.<region>.amazonaws.com
+```
+
+Next, we will pull the container with the following command.
+
+```
+docker pull <account ID>.dkr.ecr.<region>.amazonaws.com/<repository name>:vulnerable
+```
+
+We can now loot this container for source code or other valuable information.
+
+## Uploading Containers
+
+**Required Permissions**: [ecr:GetLoginPassword](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/get-login-password.html), [ecr:InitiateLayerUpload](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/initiate-layer-upload.html), [ecr:UploadLayerPart](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/upload-layer-part.html), [ecr:BatchCheckLayerAvailability](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/batch-check-layer-availability.html), [ecr:CompleteLayerUpload](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/complete-layer-upload.html), [ecr:PutImage](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/ecr/put-image.html).
+
+!!! Info
+    As an anecdotal aside, the number of permissions required to perform a container upload may inadvertently increase the likelihood of a `Principal` being set to `*`. If you're a developer or ops person just trying to get something done, it may be enticing to set it to a wildcard and be done with it/forget about it.
+
+As an example, take the following misconfigured resource policy for an ECR private repository.
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ExamplePolicy",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "*"
+      },
+      "Action": "ecr:*"
+    }
+  ]
+}
+```
+
+This policy would permit us the ability to upload containers to the repository from our own account. We can take advantage of this with the following commands. First, we need to authenticate to the repository.
+
+```
+aws ecr get-login-password --region <region> | docker login --username AWS --password-stdin <account ID>.dkr.ecr.<region>.amazonaws.com
+```
+
+Next, we need to create/choose a container to upload. In a real world scenario you would likely want to create a container which runs your C2 of choice, or perhaps a simple script to retrieve IAM credentials. For this example, we will use an Ubuntu container.
+
+```
+docker tag ubuntu:latest <account ID>.dkr.ecr.<region>.amazonaws.com/<repository name>:vulnerable
+```
+
+And finally we push the container into the repository.
+
+```
+docker push <account ID>.dkr.ecr.<region>.amazonaws.com/<repository name>:vulnerable
+```
+
+Now we simply have to wait for a service (ECS, EKS, EC2, Lambda, etc.) to pull this malicious container and execute it, giving us access to that environment.
+
+## Identification
+
+To find exposed ECR private repositories you can use [Prowler](https://github.com/prowler-cloud/prowler), an open source tool to audit for AWS security. The following command can be used with version 3.0 or higher.
+
+```
+./prowler -c ecr_repositories_not_publicly_accessible
+                         _
+ _ __  _ __ _____      _| | ___ _ __
+| '_ \| '__/ _ \ \ /\ / / |/ _ \ '__|
+| |_) | | | (_) \ V  V /| |  __/ |
+| .__/|_|  \___/ \_/\_/ |_|\___|_|v3.0-beta-21Nov2022
+|_| the handy cloud security tool
+
+Date: 2022-11-26 19:12:03
+
+This report is being generated using credentials below:
+
+AWS-CLI Profile: [default] AWS Filter Region: [all]
+AWS Account: [000000000000] UserId: [AROAQQPLEQBZZHQGGAQ55:Nick]
+Caller Identity ARN: [arn:aws:sts::000000000000:assumed-role/snip/Nick]
+
+Executing 1 checks, please wait...
+
+-> Scan is completed! |▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉▉| 1/1 [100%] in 4.5s 
+
+Overview Results:
+╭───────────────────┬─────────────────╮
+│ 100.0% (1) Failed │ 0.0% (0) Passed │
+╰───────────────────┴─────────────────╯
+
+Account 009619941490 Scan Results (severity columns are for fails only):
+╭────────────┬───────────┬──────────┬────────────┬────────┬──────────┬───────╮
+│ Provider   │ Service   │ Status   │   Critical │   High │   Medium │   Low │
+├────────────┼───────────┼──────────┼────────────┼────────┼──────────┼───────┤
+│ aws        │ ecr       │ FAIL (1) │          1 │      0 │        0 │     0 │
+╰────────────┴───────────┴──────────┴────────────┴────────┴──────────┴───────╯
+```
+
+!!! Note
+    `Condition` elements may induce false positives.

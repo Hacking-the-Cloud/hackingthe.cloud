@@ -15,4 +15,9 @@ jobs:
       - run: pip install mkdocs-material
       - run: pip install mkdocs-minify-plugin
       - run: pip install mkdocs-awesome-pages-plugin
+      - run: pip install mkdocs-redirects
+      - run: pip install mkdocs-git-revision-date-localized-plugin
+      - run: pip install mkdocs-git-committers-plugin-2
+      - run: pip install mkdocs-rss-plugin
+      - run: pip install --use-pep517 mkdocs-glightbox
       - run: mkdocs build

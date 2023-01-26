@@ -1,5 +1,5 @@
 ---
-author: Nick Frichette
+author_name: Nick Frichette
 title: "Terraform Enterprise: Attack the Metadata Service"
 description: Leverage a default configuration in Terraform Enterprise to steal credentials from the Metadata Service
 ---
@@ -97,7 +97,7 @@ terraform {
 With the backend configuration file created we can initialize the backend with the following command.
 
 ```
-terraform init --backend-config='token=$TFE_TOKEN'
+terraform init --backend-config="token=$TFE_TOKEN"
 ```
 
 If everything has worked as it should, you should get a `Terraform has been successfully initialized` notification. To test this, you can perform a `terraform state list` to list the various state objects.

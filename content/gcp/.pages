@@ -1,0 +1,7 @@
+nav:
+    - General Knowledge: general-knowledge
+    - Enumeration: enumeration
+    - Exploitation: exploitation
+    - Post Exploitation: post_exploitation
+    - Tools: tools
+    - Capture the Flag: capture_the_flag

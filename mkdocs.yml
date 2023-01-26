@@ -15,6 +15,7 @@ theme:
     # - navigation.instant  Add this at a later date
     - navigation.tabs
     - navigation.indexes
+    - content.action.edit
   palette:
     - scheme: slate
       primary: red
@@ -40,11 +41,17 @@ markdown_extensions:
 
 plugins:
   - search
+  - rss: # non-standard
+      length: 200
   - awesome-pages # non-standard
   - minify:
       minify_html: true
       minify_js: true
       minify_css: true
+  - redirects:
+      redirect_maps:
+        'aws/post_exploitation/aws_consoler.md': 'aws/general-knowledge/create_a_console_session_from_iam_credentials.md'
+  - glightbox: # non-standard
 
 extra_javascript:
   - javascripts/matomo.min.js
@@ -55,9 +62,13 @@ edit_uri: edit/main/content/
 
 extra:
   social:
+    - icon: fontawesome/brands/mastodon
+      link: https://infosec.exchange/@hackingthecloud
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/Frichette_n
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/nick-frichette/
     - icon: fontawesome/brands/github
       link: https://github.com/Hacking-the-Cloud
+    - icon: fontawesome/solid/rss
+      link: https://hackingthe.cloud/feed_rss_created.xml

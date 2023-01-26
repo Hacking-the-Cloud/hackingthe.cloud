@@ -1,7 +1,7 @@
 ---
-author: Nick Frichette
+author_name: Nick Frichette
 title: Introduction to the Instance Metadata Service
-description: An Introduction to the Instance Metadata Service and how to Access It.
+description: An introduction to the Instance Metadata Service and how to access it.
 ---
 
 Every EC2 instance has access to the instance metadata service (IMDS) that contains metadata and information about that specific EC2 instance. In addition, if an [IAM Role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html) is associated with the EC2 instance, credentials for that role will be in the metadata service. Because of this, the instance metadata service is a prime target for attackers who gain access to an EC2 instance.

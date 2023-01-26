@@ -1,8 +1,12 @@
 ---
-author: Nick Frichette
+author_name: Nick Frichette
 title: IAM ID Identifiers
 description: Chart of the IAM ID Prefixes.
+hide:
+  - toc
 ---
+
+# IAM ID Identifiers
 
 [Source](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-unique-ids)
 

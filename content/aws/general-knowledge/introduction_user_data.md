@@ -1,5 +1,5 @@
 ---
-author: Nick Frichette
+author_name: Nick Frichette
 title: Introduction to User Data
 description: An introduction to EC2 User Data and how to access it.
 ---

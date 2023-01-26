@@ -1,14 +1,18 @@
 ---
-author: Nick Frichette
+author_name: Nick Frichette
 title: Unauthenticated Enumeration of IAM Users and Roles
 description: Leverage cross account behaviors to enumerate IAM users and roles in a different AWS account without authentication.
+hide:
+  - toc
 ---
+
+# Unauthenticated Enumeration of IAM Users and Roles
 
 Original Research: [Daniel Grzelak](https://twitter.com/dagrz) - [Remastered Talk by Scott Piper](https://www.youtube.com/watch?v=8ZXRw4Ry3mQ)  
 Additional Reading: [Rhino Security](https://rhinosecuritylabs.com/aws/aws-role-enumeration-iam-p2/)  
-Link to Quiet Riot: [Github](https://github.com/righteousgambitresearch/quiet-riot)
+Link to Quiet Riot: [Github](https://github.com/righteousgambitresearch/quiet-riot)  
 Link to Tool: [GitHub](https://github.com/Frichetten/enumate_iam_using_bucket_policy)  
-Link to Pacu Module: [GitHub](https://github.com/RhinoSecurityLabs/pacu/tree/master/modules/iam__enum_roles)  
+Link to Pacu Module: [GitHub](https://github.com/RhinoSecurityLabs/pacu/tree/master/pacu/modules/iam__enum_roles)  
 
 You can enumerate Account IDs, root account e-mail addresses, IAM roles, IAM users, and a partial account footprint by abusing [Resource-Based Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_resource-based).
 
@@ -41,7 +45,7 @@ You would apply this policy to a bucket <ins>you</ins> own. By specifying a prin
 !!! Note
     While this works for both IAM users and roles, this will also work with [service-linked roles](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html). This will allow you to enumerate various services the account uses, such as GuardDuty or Organizations.
 
-To automate this process you can use the [Pacu Module](https://github.com/RhinoSecurityLabs/pacu/tree/master/modules/iam__enum_roles) or [this](https://github.com/Frichetten/enumate_iam_using_bucket_policy) which will attempt to brute force it for you.
+To automate this process you can use the [Pacu Module](https://github.com/RhinoSecurityLabs/pacu/tree/master/pacu/modules/iam__enum_roles) or [this](https://github.com/Frichetten/enumate_iam_using_bucket_policy) which will attempt to brute force it for you.
 
 ```
 usage: main.py [-h] --id ID --my_bucket MY_BUCKET [--wordlist WORDLIST] (--role | --user)

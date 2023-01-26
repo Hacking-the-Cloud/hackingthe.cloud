@@ -8,4 +8,12 @@
     </span>
     <strong>Twitter</strong>
   </a>
+  <a hidden disabled rel="me" href="https://infosec.exchange/@hackingthecloud">Mastodon</a>
+{% endblock %}
+
+{% block content %}
+  {% if page.meta.author_name %}
+    <p>Article by {{ page.meta.author_name }}.</p>
+  {% endif %}
+  {{ super() }}
 {% endblock %}

@@ -5,3 +5,4 @@ nav:
     - Avoid Detection: avoiding-detection
     - Post Exploitation: post_exploitation
     - Deprecated: deprecated
+    - Capture the Flag: capture_the_flag
