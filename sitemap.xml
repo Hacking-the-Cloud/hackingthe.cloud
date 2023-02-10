@@ -126,6 +126,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://hackingthe.cloud/aws/exploitation/s3_streaming_copy/</loc>
+         <lastmod>2023-02-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://hackingthe.cloud/aws/exploitation/Misconfigured_Resource-Based_Policies/</loc>
          <lastmod>2023-02-10</lastmod>
          <changefreq>daily</changefreq>
