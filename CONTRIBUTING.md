@@ -28,6 +28,10 @@ docker run --rm -it -p 8000:8000 -v ${PWD}:/docs mkdocs-material
 
 __NOTE__: You do not have to run the Docker container to contribute. You can make edits or even create new pages directly from GitHub. Go to the file you'd like to edit, or the directory you'd like to add to and click "Add File" in the mid-top right. Use the Markdown editor built into GitHub and submit your Pull Request.
 
+## Using Cards
+
+If you'd like to use a card, for [example](https://hackingthe.cloud/aws/post_exploitation/create_a_console_session_from_iam_credentials/) `Technique seen in the wild`, `Tools mentioned in this article`, etc, please be aware that you would need a sponsorship for [Material for MKDocs](https://squidfunk.github.io/mkdocs-material/reference/grids/#using-card-grids) for the cards to be properly displayed. Simply copy and paste the template from another page and it will be properly rendered on the site (we have a sponsorship).
+
 ## Creating a New Page
 
 All of the content for Hacking the Cloud is in the "content" directory. From here, you can navigate to the different sections of each cloud provider. If you aren't sure what specific section to place it in, no worries! Feel free to put it under ./content and we can find or create a home for it later.
