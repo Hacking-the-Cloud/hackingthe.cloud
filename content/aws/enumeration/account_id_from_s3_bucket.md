@@ -24,7 +24,7 @@ description: Knowing only the name of a public S3 bucket, you can ascertain the 
 </div>
 
 !!! Note
-    When you install a version <0.2.0 using [pip](https://pip.pypa.io/en/stable/), the executable is named `s3-account-finder`.
+    When you install a version <0.2.0 using [pip](https://pip.pypa.io/en/stable/), the executable is named `s3-account-search`.
 
 By leveraging the s3:ResourceAccount policy condition, we can identify the AWS account ID associated with a public S3 bucket. This is possible because it supports wildcards (*). With this, we can sequentially enumerate the account ID.
 
