@@ -1,6 +1,6 @@
 author_name: Wes Ladd (@righteousgambit)
 title: Unauthenticated Enumeration of Google Workspace Email Addresses
-description: Discover how to exploit information disclosure configurations in Azure Active Directory to enumerate valid email addresses.
+description: Discover how to exploit information disclosure configurations in Google Workspace to enumerate valid email addresses.
 hide:
   - toc
 ---
