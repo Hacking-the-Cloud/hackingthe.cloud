@@ -1,3 +1,4 @@
+---
 author_name: Wes Ladd (@righteousgambit)
 title: Unauthenticated Enumeration of Google Workspace Email Addresses
 description: Discover how to exploit information disclosure configurations in Google Workspace to enumerate valid email addresses.
