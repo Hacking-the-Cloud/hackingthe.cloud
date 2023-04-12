@@ -1,3 +1,4 @@
+---
 author_name: Wes Ladd (@righteousgambit)
 title: Unauthenticated Enumeration of Azure Active Directory Email Addresses
 description: Discover how to exploit information disclosure configurations in Azure Active Directory to enumerate valid email addresses.

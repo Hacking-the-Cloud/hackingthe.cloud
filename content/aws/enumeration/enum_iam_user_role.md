@@ -1,3 +1,4 @@
+---
 author_name: Nick Frichette, Wes Ladd (@righteousgambit), and skdg
 title: Unauthenticated Enumeration of IAM Users and Roles
 description: Discover how to exploit cross-account behaviors to enumerate IAM users and roles in another AWS account without authentication.
