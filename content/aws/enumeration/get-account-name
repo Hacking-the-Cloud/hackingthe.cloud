@@ -1,0 +1,14 @@
+---
+author_name: Justin Moorcroft
+title: Determine an AWS Account's organizational
+description: With access to the Cost Explorer Service, you can determine the name assigned to an account within an organization
+---
+
+Access to the Organiations service is very restricted when accessed from within a memeber account within an organization. Typically, you need access to the management account, or the member account you are in needs delegated administrative permissions to perform the `list-accounts` action.
+
+There is a way to get around this using the Cost Explorer service. The following command will return the account's friendly name (provided that you have permissions to perform the action):
+```
+aws ce get-cost-and-usage --time-period Start=2023-06-28,End=2023-06-29 --granularity DAILY --metrics UsageQuantity --group-by Type=DIMENSION,Key=LINKED_ACCOUNT | jq '.DimensionValueAttributes[0].Attributes.description'
+```
+
+This could provide useful information as to what environment you are in (QA, Staging, Prod) and what workload is running within the account
