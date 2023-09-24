@@ -1,14 +1,20 @@
 {% extends "base.html" %}
 
 {% block announce %}
-  <a href="https://twitter.com/Frichette_n" style="color:white">
-    For updates follow <strong>@frichette_n</strong> on
+  For updates follow <strong>@frichette_n</strong> on
+  <a rel="me" href="https://fosstodon.org/@frichetten/">
+    <span class="twemoji mastodon">
+      {% include ".icons/fontawesome/brands/mastodon.svg" %}
+    </span>
+    <strong>Fosstodon</strong>
+  </a>
+  and
+  <a href="https://twitter.com/frichette_n">
     <span class="twemoji twitter">
       {% include ".icons/fontawesome/brands/twitter.svg" %}
     </span>
     <strong>Twitter</strong>
   </a>
-  <a hidden disabled rel="me" href="https://infosec.exchange/@hackingthecloud">Mastodon</a>
 {% endblock %}
 
 {% block content %}
