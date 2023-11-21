@@ -50,7 +50,7 @@ First, we will create a role with the following trust policy:
 We will then save the policy and refresh the page. 
 
 !!! Note
-    You may get a warning in the policy editor saying, "Invalid Role Reference: The Principal element includes the IAM role ID AROAJMD24IEMKTX6BABJI. We recommend that you use a role ARN isntead", however this will not prevent you from saving the policy.
+    You may get a warning in the policy editor saying, "Invalid Role Reference: The Principal element includes the IAM role ID AROAJMD24IEMKTX6BABJI. We recommend that you use a role ARN instead", however this will not prevent you from saving the policy.
 
 After refreshing the page the policy will now be as follows:
 
