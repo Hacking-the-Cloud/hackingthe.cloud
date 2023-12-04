@@ -1,7 +1,7 @@
 ---
 author_name: Nick Frichette
-title: IAM ID Identifiers
-description: Chart of the IAM ID Prefixes.
+title: IAM unique identifiers
+description: Chart of the IAM unique ID prefixes.
 hide:
   - toc
 ---

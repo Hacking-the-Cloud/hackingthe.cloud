@@ -24,7 +24,7 @@ description: Knowing only the name of a public S3 bucket, you can ascertain the 
 </div>
 
 !!! Note
-    The documentation and GitHub repository refer to this tool as `s3-account-search`, however when it is installed using [pip](https://pip.pypa.io/en/stable/), it is named `s3-account-finder`. Because of this, all the examples below will use the `s3-account-finder` name.
+    When you install a version <0.2.0 using [pip](https://pip.pypa.io/en/stable/), the executable is named `s3-account-search`.
 
 By leveraging the s3:ResourceAccount policy condition, we can identify the AWS account ID associated with a public S3 bucket. This is possible because it supports wildcards (*). With this, we can sequentially enumerate the account ID.
 
@@ -47,7 +47,7 @@ To use the tool, there is some setup on your end. You will need your own AWS acc
 ## Usage
 
 ```
-s3-account-finder arn:aws:iam::123456789123:role/s3-searcher <bucket name>
+s3-account-search arn:aws:iam::123456789123:role/s3-searcher <bucket name>
 Starting search (this can take a while)
 found: 1
 found: 12
