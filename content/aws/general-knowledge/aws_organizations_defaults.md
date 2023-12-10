@@ -1,7 +1,7 @@
 ---
-author_name: Nick Frichette & Scott Weston
+author_name: Scott Weston & Nick Frichette
 title: AWS Organizations Defaults & Pivoting
-description: AWS Organizations is a common service to run into in AWS environments. It's default behavior can make it a target for attackers, and it offers numerous routes to pivot beyond the default behavior.
+description: How to abuse AWS Organizations' default behavior and lateral movement capabilities.
 ---
 
 <div class="grid cards" markdown>
