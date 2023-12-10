@@ -4,6 +4,20 @@ title: AWS Organizations Defaults & Pivoting
 description: AWS Organizations is a common service to run into in AWS environments. It's default behavior can make it a target for attackers, and it offers numerous routes to pivot beyond the default behavior.
 ---
 
+<div class="grid cards" markdown>
+
+-   :material-account:{ .lg .middle } __Original Research__
+
+    ---
+
+    <aside style="display:flex">
+    <p><a href="https://www.netspi.com/blog/technical/cloud-penetration-testing/pivoting-clouds-aws-organizations-part-1/">Pivoting AWS Organizations 1</a> & <a href="https://www.netspi.com/blog/technical/cloud-penetration-testing/pivoting-clouds-aws-organizations-part-2/">Pivoting AWS Organizations 2</a> by <a href="https://www.linkedin.com/in/webbinroot/">Scott Weston</a></p>
+    <p><img src="https://avatars.githubusercontent.com/u/74038921?v=4" height=80 width=80></img></p>
+    </aside>
+
+-   :material-book:{ .lg .middle } __Additional Resources__
+</div>
+
 Almost all mid-to-large sized AWS environments make use of [multi-account](https://docs.aws.amazon.com/whitepapers/latest/organizing-your-aws-environment/organizing-your-aws-environment.html) architecture. Using multiple AWS accounts offers a number of [benefits](https://docs.aws.amazon.com/whitepapers/latest/organizing-your-aws-environment/benefits-of-using-multiple-aws-accounts.html) and is considered a best practice. To help organize and manage those accounts, AWS offers a service called [AWS Organizations](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html).
 
 Due to the ubiquity of AWS Organizations, it is important for Penetration Testers and Red Teamers to familiarize themselves with its default configuration. 
@@ -94,8 +108,4 @@ See the relevant pull requests here:
 - https://github.com/RhinoSecurityLabs/pacu/pull/326
 - https://github.com/RhinoSecurityLabs/pacu/pull/335
 
-## References
-- Author: Scott ([@WebbinRoot](https://twitter.com/WebbinRoot)) or ([in/webbinroot/](https://www.linkedin.com/in/webbinroot/)) at [NetSPI](https://www.netspi.com/)
-- Blog Posts:
-     - https://www.netspi.com/blog/technical/cloud-penetration-testing/pivoting-clouds-aws-organizations-part-1/
-     - https://www.netspi.com/blog/technical/cloud-penetration-testing/pivoting-clouds-aws-organizations-part-2/
+
