@@ -35,7 +35,7 @@ These things combined mean that, should an attacker compromise the management ac
 
 For defensive security teams, it would be a good idea to ensure no infrastructure is deployed into the management account to reduce attack surface. Additionally, carefully controlling who has access to it and monitoring that access would also help to reduce risk.
 
-Note Scott Weston (See References) has added a module to Pacu to brute force this role name or a list of role names. So if a management account is compromised, and the user wants to attempt to assume one to many role names on all accounts, they can run the following Pacu Module
+Scott Weston (See References) has added a module to Pacu to brute force this role name or a list of role names. So if a management account is compromised, and the user wants to attempt to assume one to many role names on all accounts, they can run the following Pacu Module
 ```
 Pacu (role:ManagementAccount) > run organizations__assume_role
 [ Review the results to see if any of the following roles are assumed] 
@@ -43,7 +43,7 @@ Pacu (role:ManagementAccount) > run organizations__assume_role
 
 ## Inviting Pre-Existing Member Accounts: Trusted Access & Delegated Administration
 
-When a pre-existing AWS account is **invited** to join an organization, it does not auto-generate a default role with AdministratorAccess like the account creation workflow. As a pentester, one can look into trusted access and delegated administration to see if there are any more avenues to pivot such that you can move from the compromised management account/delegated admin to another member account in the organization.
+When a pre-existing AWS account is **invited** to join an organization, it does not auto-generate a default role with AdministratorAccess like the account creation workflow. As a pentester, one can look into trusted access and delegated administration to see if there are any more avenues to pivot such that you can move from the compromised management account/delegated admin to another member account in the organization. Depending on the features available, this might allow for indirect access to other member accounts (ex. IAM Access Analyzer), or direct access with some setup (IAM Identity Center).
 
 ### Organization-Integrated Features
 
