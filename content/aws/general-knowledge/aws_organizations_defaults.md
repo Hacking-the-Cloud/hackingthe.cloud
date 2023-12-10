@@ -68,6 +68,8 @@ Delegated Administration is pretty much like trusted access, but is from the per
 
 Besides the ability to run specific organization-integrated features, note that the member account also in general **gains access to numerous read-only APIs**. For example, note how [this](https://docs.aws.amazon.com/cli/latest/reference/organizations/list-accounts.html) CLI command states that a "delegated administrator" can run it. While a default member account can only see itself and the management account in an organization, a delegated administrator can potentially see all AWS accounts in the organization. 
 
+As of late 2022, delegated administrators also potentially have the ability to manipulate SCPs (which are basically IAM policy filters at the organization level). See the attached blog article for a review of this avenue.
+
 ### IAM Access Analyzer (Indirect Route):
 
 IAM Access Analyzer allows one to scan all roles in the organization. If an attacker compromises the managament account where trusted access is enabled for IAM Access Analyzer (or the attacker enables it depending on permissions), the attacker could run IAM Access Analyzer on the entire organization and review the results to see if there are any misconfigured roles they can pivot to. Note **the attacker NEVER directly got access to the member accounts and was constrained to the management account**. Rather the attacker just ran the organization-integrated feature which accesses the member accounts giving the attacker indirect access to the organization. See the blog post in references for images/walkthrough.
