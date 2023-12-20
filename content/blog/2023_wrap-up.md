@@ -14,7 +14,7 @@ date: 2023-12-20T00:00:40-06:00
 </aside>
 ---
 
-2023 is coming to a close and it’s time to look back on the year. This was the fourth year that Hacking the Cloud has been operating, sharing techniques on attacking and defending cloud environments. We’ve added a number of new articles to the site and updated old ones. With all this in mind, here are some accomplishments for the site this year.
+2023 is coming to a close and it’s time to look back on the year. This was the third year that Hacking the Cloud has been operating, sharing techniques on attacking and defending cloud environments. We’ve added a number of new articles to the site and updated old ones. With all this in mind, here are some accomplishments for the site this year.
 
 ## Numbers
 
