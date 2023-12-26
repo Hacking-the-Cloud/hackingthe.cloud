@@ -20,7 +20,7 @@ date: 2023-12-20T00:00:40-06:00
 
 Here are some fun stats. All data was pulled ~6PM central, December 19th. In 2023, Hacking the Cloud has:
 
-- 457 stars gained on GitHub
+- 457 stars gained on GitHub (1389 total)
 - 128 commits committed
 - 96,031 visits
 - 187,542 pageviews
