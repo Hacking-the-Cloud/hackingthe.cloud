@@ -4,6 +4,8 @@
 
 All content submitted to Hacking the Cloud must be written in your own words. Submissions which appear to include plagiarized material (copying and pasting of whole articles/blog posts) will be rejected. It is okay to quote an existing article (with the reference). The goal of Hacking the Cloud is to congregate knowledge for the community into a single location. This includes having links/references to primary sources.
 
+Think of Hacking the Cloud as the [Wikipedia](https://www.wikipedia.org/) of cloud security. We should do cite our sources and quote content when needed, but our articles are written by our own contributors.
+
 __If you are an author and believe your work has been plagiarized on Hacking the Cloud, please submit an [issue](https://github.com/Hacking-the-Cloud/hackingthe.cloud/issues) on GitHub and it will be taken down quickly.__
 
 There is one exception to this policy; If you are the original author of the article or blog post, you are welcome to copy the contents of it and include it here on Hacking the Cloud. This rule is intended to make it easy for authors to contribute their work without having to go through the trouble of editing/changing it. If it is later determined that the submitter is not the original author, the work will be removed.
@@ -30,7 +32,46 @@ __NOTE__: You do not have to run the Docker container to contribute. You can mak
 
 ## Using Cards
 
-If you'd like to use a card, for [example](https://hackingthe.cloud/aws/post_exploitation/create_a_console_session_from_iam_credentials/) `Technique seen in the wild`, `Tools mentioned in this article`, etc, please be aware that you would need a sponsorship for [Material for MKDocs](https://squidfunk.github.io/mkdocs-material/reference/grids/#using-card-grids) for the cards to be properly displayed. Simply copy and paste the template from another page and it will be properly rendered on the site (we have a sponsorship).
+If you'd like to use a card, for [example](https://hackingthe.cloud/aws/post_exploitation/create_a_console_session_from_iam_credentials/) `Technique seen in the wild`, `Tools mentioned in this article`, etc, __please be aware that you would need a subscription for [Material for MKDocs](https://squidfunk.github.io/mkdocs-material/reference/grids/#using-card-grids) for the cards to be properly displayed on your local machine__. Simply copy and paste the template from the options below and it will be properly rendered on the site (we have a subscription to Material for MKDocs).
+
+### Card Templates
+
+<div class="grid cards" markdown>
+
+-   :material-tools:{ .lg .middle } __Tools mentioned in this article__
+
+    ---
+
+    [](): Title
+
+-   :material-account:{ .lg .middle } __Original Research__
+
+    ---
+
+    [](): Title
+
+-   :material-account:{ .lg .middle } __Original Research__
+
+    ---
+
+    <aside style="display:flex">
+    <p><a href="link">title</a> by <a href="profile link">name</a></p>
+    <p><img src="image" style="width:44px;height:44px;margin:5px;border-radius:100%;max-width:unset"></img></p>
+    </aside>
+
+-   :material-alert-decagram:{ .lg .middle } __Technique seen in the wild__
+
+    ---
+
+    Reference: []()
+
+-   :material-book:{ .lg .middle } __Additional Resources__
+
+    ---
+
+    Reference: []()
+
+</div>
 
 ## Creating a New Page
 
