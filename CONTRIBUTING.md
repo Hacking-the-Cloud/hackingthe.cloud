@@ -36,6 +36,7 @@ If you'd like to use a card, for [example](https://hackingthe.cloud/aws/post_exp
 
 ### Card Templates
 
+```
 <div class="grid cards" markdown>
 
 -   :material-tools:{ .lg .middle } __Tools mentioned in this article__
@@ -72,6 +73,7 @@ If you'd like to use a card, for [example](https://hackingthe.cloud/aws/post_exp
     Reference: []()
 
 </div>
+```
 
 ## Creating a New Page
 
