@@ -8,11 +8,30 @@ hide:
 
 # Unauthenticated Enumeration of IAM Users and Roles  
 
-Original Research: [Daniel Grzelak](https://twitter.com/dagrz) - [Remastered Talk by Scott Piper](https://www.youtube.com/watch?v=8ZXRw4Ry3mQ)  
-Additional Reading: [Rhino Security](https://rhinosecuritylabs.com/aws/aws-role-enumeration-iam-p2/)  
-Link to Quiet Riot: [Github](https://github.com/righteousgambitresearch/quiet-riot)  
-Link to Tool: [GitHub](https://github.com/Frichetten/enumate_iam_using_bucket_policy)  
-Link to Pacu Module: [GitHub](https://github.com/RhinoSecurityLabs/pacu/tree/master/pacu/modules/iam__enum_roles)  
+<div class="grid cards" markdown>
+-   :material-account:{ .lg .middle } __Original Research__
+
+    ---
+
+    <aside style="display:flex">
+    <p><a href="https://www.youtube.com/watch?v=8ZXRw4Ry3mQlink">Hacking AWS end-to-end - remastered</a> by <a href="https://twitter.com/dagrz">Daniel Grzelak</a></p>
+    <p><img src="https://pbs.twimg.com/profile_images/1399921399276261378/a0pT9lV8_400x400.jpg" style="width:44px;height:44px;margin:5px;border-radius:100%;max-width:unset"></img></p>
+    </aside>
+
+-   :material-book:{ .lg .middle } __Additional Resources__
+
+    ---
+
+    Reference: [Unauthenticated AWS Role Enumeration (IAM Revisited)](https://rhinosecuritylabs.com/aws/aws-role-enumeration-iam-p2/)
+
+-   :material-tools:{ .lg .middle } __Tools mentioned in this article__
+
+    ---
+
+    - [quiet-riot](https://github.com/righteousgambit/quiet-riot)  
+    - [enumerate_iam_using_bucket_policy](https://github.com/Frichetten/enumate_iam_using_bucket_policy)
+    - [pacu:iam_enum_roles](https://github.com/RhinoSecurityLabs/pacu/tree/master/pacu/modules/iam__enum_roles)
+</div>
 
 You can enumerate AWS Account IDs, Root User account e-mail addresses, IAM roles, IAM users, and gain insights to enabled AWS and third-party services by abusing [Resource-Based Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_resource-based), even in accounts for which you have no access. [Quiet Riot](https://github.com/righteousgambitresearch/quiet-riot) offers a scalable method for enumerating each of these items with configurable wordlists per item type. Furthermore - it also allows you to enumerate Azure Active Directory and Google Workspace valid email addresses - which can then be used to test for valid Root User accounts in AWS, assuming that the email address is the same.
 
