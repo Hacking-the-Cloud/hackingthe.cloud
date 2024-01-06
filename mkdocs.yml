@@ -58,9 +58,6 @@ plugins:
 extra_javascript:
   - javascripts/matomo.min.js
 
-extra_css:
-  - stylesheets/extra.css
-
 repo_name: Hacking The Cloud
 repo_url: https://github.com/Hacking-the-Cloud/hackingthe.cloud
 edit_uri: edit/main/content/
