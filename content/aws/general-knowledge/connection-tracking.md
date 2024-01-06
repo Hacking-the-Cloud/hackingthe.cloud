@@ -8,6 +8,17 @@ hide:
 
 # Connection Tracking
 
+<div class="grid cards" markdown>
+-   :material-account:{ .lg .middle } __Original Research__
+
+    ---
+
+    <aside style="display:flex">
+    <p><a href="https://frichetten.com/blog/abusing-aws-connection-tracking/">Abusing AWS Connection Tracking</a> by <a href="https://twitter.com/frichette_n">Nick Frichette</a></p>
+    <p><img src="https://pbs.twimg.com/profile_images/1481139090850467840/LpzTkOTE_400x400.jpg" style="width:44px;height:44px;margin:5px;border-radius:100%;max-width:unset"></img></p>
+    </aside>
+</div>
+
 Security Groups in AWS have an interesting capability known as [Connection Tracking](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/security-group-connection-tracking.html). This allows the security groups to track information about the network traffic and allow/deny that traffic based on the Security Group rules.
 
 There are two kinds of traffic flows; tracked and untracked. For example the AWS documentation mentions a tracked flow as the following, "if you initiate an ICMP ping command to your instance from your home computer, and your inbound security group rules allow ICMP traffic, information about the connection (including the port information) is tracked. Response traffic from the instance for the ping command is not tracked as a new request, but rather as an established connection and is allowed to flow out of the instance, even if your outbound security group rules restrict outbound ICMP traffic".
