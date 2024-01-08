@@ -18,6 +18,9 @@ By default, Cognito will set a configuration called `Prevent user existence erro
 
 While this is useful in theory, and a good default to have, it can be bypassed via [cognito-idp:SignUp](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-idp/sign-up.html) calls. This bypass was originally reported via a GitHub [issue](https://github.com/aws-amplify/amplify-js/issues/6238) in July 2020 and Cognito is still vulnerable as of early 2024.
 
+!!! Note
+	Cognito can be configured to prevent disclosing user existence errors via [alias attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-managing-errors.html#cognito-user-pool-managing-errors-prevent-userexistence-errors), however it requires additional setup.  
+
 ## Example Responses
 
 To demonstrate the responses depending on the configuration and if a user does/does not exist, here are some examples. The `admin` user exists in the user pool and is the account we will be trying to enumerate.
