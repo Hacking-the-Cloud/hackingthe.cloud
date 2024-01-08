@@ -16,10 +16,10 @@ Amazon [Cognito](https://aws.amazon.com/cognito/) is a popular “sign-in as a s
 
 By default, Cognito will set a configuration called `Prevent user existence errors`. This is designed to prevent adversaries from [enumerating accounts](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/03-Identity_Management_Testing/04-Testing_for_Account_Enumeration_and_Guessable_User_Account) and using that information for further attacks, such as [credential stuffing](https://owasp.org/www-community/attacks/Credential_stuffing).
 
-While this is useful in theory, and a good default to have, it can be bypassed via [cognito-idp:SignUp](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-idp/sign-up.html) calls. This bypass was originally reported via a GitHub [issue](https://github.com/aws-amplify/amplify-js/issues/6238) in July 2020 and Cognito is still vulnerable as of early 2024.
+While this is useful in theory, and a good default to have, it can be bypassed via [cognito-idp:SignUp](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cognito-idp/sign-up.html) calls for usernames. This bypass was originally reported via a GitHub [issue](https://github.com/aws-amplify/amplify-js/issues/6238) in July 2020 and Cognito is still vulnerable as of early 2024.
 
 !!! Note
-	Cognito can be configured to prevent disclosing user existence errors via [alias attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-managing-errors.html#cognito-user-pool-managing-errors-prevent-userexistence-errors), however it requires additional setup.  
+	Cognito user pools can be configured to prevent disclosing user existence errors via [alias attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-managing-errors.html#cognito-user-pool-managing-errors-prevent-userexistence-errors) for email addresses and phone numbers, but not usernames.   
 
 ## Example Responses
 
