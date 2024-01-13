@@ -72,11 +72,17 @@ If you'd like to use a card, for [example](https://hackingthe.cloud/aws/post_exp
 
     Reference: []()
 
--   :material-shield-star:{ .lg .middle } __Required IAM Permissions__
+-   :material-shield-lock:{ .lg .middle } __Required IAM Permissions__
 
     ---
 
     - []()
+
+-   :material-shield-plus:{ .lg .middle } __Recommended but not Required IAM Permissions__
+
+    ---
+
+    - 
 
 </div>
 ```
