@@ -84,6 +84,11 @@ If you'd like to use a card, for [example](https://hackingthe.cloud/aws/post_exp
 
     - 
 
+-   :material-link-box-outline:{ .lg .middle } __Technique Article__
+
+    ---
+
+    - 
 </div>
 ```
 
