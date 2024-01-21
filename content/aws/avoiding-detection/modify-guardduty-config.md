@@ -12,17 +12,20 @@ Where GuardDuty uses a delegated admin or invite model, features like detector c
 ## Misconfiguring the Detector
 An attacker could modify an existing GuardDuty detector in the account, to remove log sources or lessen its effectiveness.
 
+<div class="grid cards" markdown>
+-   :material-shield-lock:{ .lg .middle } __Required IAM Permissions__
+
+    ---
+
+    - [guardduty:ListDetectors](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/guardduty/list-detectors.html)
+    - [guardduty:UpdateDetector](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/guardduty/update-detector.html)
+</div>
+
 Configuration changes may include a combination of:
 
 - Disabling the detector altogether.  
 - Removing Kubernetes and s3 as data sources, which removes all [S3 Protection](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_finding-types-s3.html) and [Kubernetes alerts](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_finding-types-kubernetes.html).  
 - Increasing the event update frequency to 6 hours, as opposed to as low as 15 minutes.
-
-
-**Required permissions to execute:**
-
-- guardduty:ListDetectors
-- guardduty:UpdateDetector
 
 Example CLI commands
 ```
@@ -48,13 +51,17 @@ An attacker could create or update GuardDuty's [Trusted IP list](https://docs.aw
 
 *DNS findings are exempt from the Trusted IP list.*
 
-**Required permissions to execute:**
+<div class="grid cards" markdown>
+-   :material-shield-lock:{ .lg .middle } __Required IAM Permissions__
 
-- guardduty:ListDetectors
-- guardduty:ListIPSet
-- iam:PutRolePolicy
-- guardduty:CreateIPSet (To create new list)
-- guardduty:UpdateIPSet (To update an existing list)
+    ---
+
+    - [guardduty:ListDetectors](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/guardduty/list-detectors.html)
+    - [guardduty:ListIPSets](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/guardduty/list-ip-sets.html)
+    - [guardduty:CreateIPSet](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/guardduty/create-ip-set.html)
+    - [guardduty:UpdateIPSet](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/guardduty/update-ip-set.html)
+    - [iam:PutRolePolicy](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/iam/put-role-policy.html)
+</div>
 
 *Depending on the level of stealth required, the file can be uploaded to an s3 bucket in the target account, or an account controlled by the attacker.*
 
@@ -72,15 +79,19 @@ aws guardduty update-ip-set \
 ## Modify Cloudwatch events rule
 GuardDuty populates its findings to Cloudwatch Events on a 5 minute cadence.  Modifying the Event pattern or Targets for an event may reduce GuardDuty's ability to alert and trigger auto-remediation of findings, especially where the remediation is triggered in a member account as GuardDuty administrator protections do not extend to the Cloudwatch events in the member account. 
 
+<div class="grid cards" markdown>
+-   :material-shield-lock:{ .lg .middle } __Required IAM Permissions__
+
+    ---
+
+    - [events:ListRules](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/events/list-rules.html)
+    - [events:ListTargetsByRule](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/events/list-targets-by-rule.html)
+    - [events:PutRule](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/events/put-rule.html)
+    - [events:RemoveTargets](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/events/remove-targets.html)
+</div>
+
 !!! Note  
     In a delegated or invitational admin GuardDuty architecture, cloudwatch events will still be created in the admin account.
-
-**Required permissions to execute:**
-
-- event:ListRules
-- event:ListTargetsByRule
-- event:PutRule
-- event:RemoveTargets
 
 Example CLI commands
 ```
@@ -102,9 +113,13 @@ aws events remove-targets --name guardduty-event \
 ## Supression Rules
 Newly create GuardDuty findings can be automatically archived via [Suppression Rules](https://docs.aws.amazon.com/guardduty/latest/ug/findings_suppression-rule.html). An adversary could use [filters](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_filter-findings.html) to automatically archive findings they are likely to generate. 
 
-**Required permissions to execute:**
+<div class="grid cards" markdown>
+-   :material-shield-lock:{ .lg .middle } __Required IAM Permissions__
 
-* guardduty:CreateFilter
+    ---
+
+    - [guardduty:CreateFilter](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/guardduty/create-filter.html)
+</div>
 
 Example CLI commands
 
@@ -118,9 +133,13 @@ Filters can be created using the [CreateFilter API](https://docs.aws.amazon.com/
 ## Delete Publishing Destination
 An adversary could disable alerting simply by [deleting the destination](https://docs.aws.amazon.com/cli/latest/reference/guardduty/delete-publishing-destination.html) of alerts.
 
-**Required permissions to execute:**
+<div class="grid cards" markdown>
+-   :material-shield-lock:{ .lg .middle } __Required IAM Permissions__
 
-* guardduty:DeletePublishingDestination
+    ---
+
+    - [guardduty:DeletePublishingDestination](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/guardduty/delete-publishing-destination.html)
+</div>
 
 Example CLI commands
 
