@@ -6,8 +6,8 @@ docs_dir: content
 
 theme:
   name: material
-  logo: images/logo.png
-  favicon: images/logo.png
+  logo: assets/logo.png
+  favicon: assets/logo.png
   custom_dir: overrides
   icon:
     repo: fontawesome/brands/github

@@ -1,3 +1,11 @@
 [data-md-color-scheme="slate"] {
-  --md-default-bg-color: #2e303e;
+  --md-default-bg-color: #2B2D42;
+  --md-primary-fg-color: #EF003C;
+  --md-typeset-color: #ffffff;
+  --md-code-fg-color: #ffffff;
+  --md-code-bg-color: #181b20;
+
+  .md-tabs {
+    font-weight: bold;
+  }
 }
