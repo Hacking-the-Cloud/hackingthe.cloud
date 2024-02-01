@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="content/images/branding/hacking-the-cloud-wordmark.png" />
+  <img src="content/images/branding/hacking-the-cloud-wordmark.jpg" />
 </p>
 
 ![Deploy](https://github.com/Hacking-the-Cloud/hackingthe.cloud/workflows/deploy%20v2/badge.svg) 
