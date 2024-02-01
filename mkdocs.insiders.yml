@@ -1,6 +1,8 @@
 INHERIT: mkdocs.yml
 plugins:
-  - social # Added to .insiders.yml
+  - social: # Added to .insiders.yml
+      cards_layout_options:
+        background_color: #EF003C;
   - search
   - rss: # non-standard
       length: 200
