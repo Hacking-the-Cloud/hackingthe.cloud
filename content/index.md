@@ -8,7 +8,7 @@ hide:
 # Home
 
 <figure markdown>
-  ![Hacking the Cloud logo](/images/branding/hacking-the-cloud-wordmark.png)
+  ![Hacking the Cloud logo](/images/branding/hacking-the-cloud-wordmark.jpg)
 </figure>
 
 Hacking the cloud is an encyclopedia of the attacks/tactics/techniques that offensive security professionals can use on their next cloud exploitation adventure. The goal is to share this knowledge with the security community to better defend cloud native technologies.
