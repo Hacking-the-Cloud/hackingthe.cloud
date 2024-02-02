@@ -1,12 +1,12 @@
 ---
 author_name: Nick Frichette
-title: Enumerate Permissions without Logging to CloudTrail
+title: "[Deprecated] Enumerate Permissions without Logging to CloudTrail"
 description: Leverage a bug in the AWS API to enumerate permissions for a role without logging to CloudTrail and alerting the Blue Team.
 hide:
   - toc
 ---
 
-# Enumerate Permissions without Logging to CloudTrail
+# [Deprecated] Enumerate Permissions without Logging to CloudTrail
 
 Original Research: [Nick Frichette](https://frichetten.com/blog/aws-api-enum-vuln/)  
 Link to Tool: [aws_stealth_perm_enum](https://github.com/Frichetten/aws_stealth_perm_enum)

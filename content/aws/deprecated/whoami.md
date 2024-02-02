@@ -1,6 +1,6 @@
 ---
 author_name: Nick Frichette
-title: Whoami - Get Principal Name From Keys
+title: "[Deprecated] Whoami - Get Principal Name From Keys"
 description: During an assessment you may find AWS IAM credentials. Use these tactics to identify the principal of the keys.
 ---
 
