@@ -77,7 +77,7 @@ I am 100% supportive of citing other researchers. It's why Hacking the Cloud has
 To that site owner's credit, when I raised these concerns with them they were quick to remove the plagiarized content. To my knowledge this has not been a problem since, and I don't hold any ill-will towards them.
 
 !!! warning "Feb 2024 Update"
-    It has been brought to my attention that HackTricks Cloud is still engaging in blatant plagiarism of a variety of different sources, including plagiarizing Hacking the Cloud content. Please see [this](https://x.com/Frichette_n/status/1753070869109481725?s=20) this Twitter thread for some examples.
+    It has been brought to my attention that HackTricks Cloud is still engaging in blatant plagiarism of a variety of different sources, including plagiarizing Hacking the Cloud content. Please see [this](https://x.com/Frichette_n/status/1753070869109481725?s=20) this Twitter thread for some examples. Please see [this](https://x.com/Frichette_n/status/1753803942377517492?s=20) thread for more examples. I recommend avoiding their training course because of this. Copying and pasting blog posts and referencing those as training materials does not inspire confidence.
 
 As a result of this incident, however, I have added additional language to our existing [Plagiarism Policy](https://github.com/Hacking-the-Cloud/hackingthe.cloud/blob/main/CONTRIBUTING.md#plagiarism-policy) to further enforce that we will not accept plagiarized content on Hacking the Cloud. Additionally, I have added additional guarantees that I will remove links/references at the author's request (including situations that don't involve plagiarism).
 
