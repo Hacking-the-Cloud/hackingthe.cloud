@@ -8,8 +8,22 @@ hide:
 
 # [Deprecated] Enumerate Permissions without Logging to CloudTrail
 
-Original Research: [Nick Frichette](https://frichetten.com/blog/aws-api-enum-vuln/)  
-Link to Tool: [aws_stealth_perm_enum](https://github.com/Frichetten/aws_stealth_perm_enum)
+<div class="grid cards" markdown>
+-   :material-account:{ .lg .middle } __Original Research__
+
+    ---
+
+    <aside style="display:flex">
+    <p><a href="https://frichetten.com/blog/aws-api-enum-vuln/">Enumerate AWS API Permissions Without Logging to CloudTrail</a> by <a href="https://twitter.com/frichette_n">Nick Frichette</a></p>
+    <p><img src="https://pbs.twimg.com/profile_images/1481139090850467840/LpzTkOTE_400x400.jpg" style="width:44px;height:44px;margin:5px;border-radius:100%;max-width:unset"></img></p>
+    </aside>
+
+-   :material-tools:{ .lg .middle } __Tools mentioned in this article__
+
+    ---
+
+    [aws_stealth_perm_enum](https://github.com/Frichetten/aws_stealth_perm_enum)
+</div>
 
 !!! Warning
     As of 5/18/2021, this technique has been resolved and fixed by AWS. Mutating the Content-Type header when making API requests no longer can be used to enumerate permissions of a role or user. This page is maintained for historical and inspiration purposes.
