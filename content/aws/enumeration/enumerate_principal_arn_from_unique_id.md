@@ -1,6 +1,6 @@
 ---
 author_name: Nick Frichette
-title: Enumerate a Principal ARN from an AWS Unique Identifier
+title: Derive a Principal ARN from an AWS Unique Identifier
 description: How to convert an unique identifier to a principal ARN.
 ---
 
