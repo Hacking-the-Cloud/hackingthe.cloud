@@ -4,7 +4,13 @@ title: Abusing Managed Identities
 description: Abusing Managed Identities 
 ---
 
-Original Research: [0xPwN Blog - Create an Azure Vulnerable Lab: Part #4 – Managed Identities](https://0xpwn.wordpress.com/2022/03/13/create-an-azure-vulnerable-lab-part-4-managed-identities/)
+<div class="grid cards" markdown>
+-   :material-account:{ .lg .middle } __Original Research__
+
+    ---
+
+    [Create an Azure Vulnerable Lab: Part #4 – Managed Identities](https://0xpwn.wordpress.com/2022/03/13/create-an-azure-vulnerable-lab-part-4-managed-identities/) by [Andrei Agape](https://tripla.dk/author/drag0nus/)
+</div>
 
 Using Managed Identities it is possible to grant a resource (such as VM/WebApp/Function/etc) access to other resource (such as Vaults/Storage Accounts/etc.) For example, if we want to give our web application access to a private storage account container without having to deal with how we safely store connection strings in config files or source code, we could use a managed identity.
 
