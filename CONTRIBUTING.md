@@ -57,7 +57,7 @@ If you'd like to use a card, for [example](https://hackingthe.cloud/aws/post_exp
 
     <aside style="display:flex">
     <p><a href="link">title</a> by <a href="profile link">name</a></p>
-    <p><img src="image" style="width:44px;height:44px;margin:5px;border-radius:100%;max-width:unset"></img></p>
+    <p><img src="image" alt="name" style="width:44px;height:44px;margin:5px;border-radius:100%;max-width:unset"></img></p>
     </aside>
 
 -   :material-alert-decagram:{ .lg .middle } __Technique seen in the wild__

@@ -12,7 +12,7 @@ description: How to abuse AWS Organizations' default behavior and lateral moveme
 
     <aside style="display:flex">
     <p><a href="https://www.netspi.com/blog/technical/cloud-penetration-testing/pivoting-clouds-aws-organizations-part-1/">Pivoting AWS Organizations 1</a> & <a href="https://www.netspi.com/blog/technical/cloud-penetration-testing/pivoting-clouds-aws-organizations-part-2/">Pivoting AWS Organizations 2</a> by <a href="https://www.linkedin.com/in/webbinroot/">Scott Weston</a></p>
-    <p><img src="https://avatars.githubusercontent.com/u/74038921?v=4" style="width:44px;height:44px;margin-left:10px;border-radius:100%;max-width:unset"></img></p>
+    <p><img src="https://avatars.githubusercontent.com/u/74038921?v=4" alt="Scott Weston" style="width:44px;height:44px;margin-left:10px;border-radius:100%;max-width:unset"></img></p>
     </aside>
 
 </div>

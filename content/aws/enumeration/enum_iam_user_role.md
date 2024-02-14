@@ -15,7 +15,7 @@ hide:
 
     <aside style="display:flex">
     <p><a href="https://www.youtube.com/watch?v=8ZXRw4Ry3mQlink">Hacking AWS end-to-end - remastered</a> by <a href="https://twitter.com/dagrz">Daniel Grzelak</a></p>
-    <p><img src="https://pbs.twimg.com/profile_images/1399921399276261378/a0pT9lV8_400x400.jpg" style="width:44px;height:44px;margin:5px;border-radius:100%;max-width:unset"></img></p>
+    <p><img src="https://pbs.twimg.com/profile_images/1399921399276261378/a0pT9lV8_400x400.jpg" alt="Daniel Grzelak" style="width:44px;height:44px;margin:5px;border-radius:100%;max-width:unset"></img></p>
     </aside>
 
 -   :material-book:{ .lg .middle } __Additional Resources__

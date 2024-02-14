@@ -12,7 +12,7 @@ description: Knowing only the name of a public S3 bucket, you can ascertain the 
 
     <aside style="display:flex">
     <p><a href="https://cloudar.be/awsblog/finding-the-account-id-of-any-public-s3-bucket/">Finding the Account ID of any public S3 bucket</a> by <a href="https://twitter.com/benbridts">Ben Bridts</a></p>
-    <p><img src="https://pbs.twimg.com/profile_images/1153675351119343616/YZ1At6W7_400x400.jpg" style="width:44px;height:44px;margin:5px;border-radius:100%;max-width:unset"></img></p>
+    <p><img src="https://pbs.twimg.com/profile_images/1153675351119343616/YZ1At6W7_400x400.jpg" alt="Ben Bridts" style="width:44px;height:44px;margin:5px;border-radius:100%;max-width:unset"></img></p>
     </aside>
 
 -   :material-tools:{ .lg .middle } __Tools mentioned in this article__
