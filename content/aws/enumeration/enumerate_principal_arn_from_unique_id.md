@@ -25,7 +25,7 @@ description: How to convert an unique identifier to a principal ARN.
 
 When operating in an AWS environment, you may come upon a variety of [IAM unique identifiers](https://hackingthe.cloud/aws/general-knowledge/iam-key-identifiers/). These identifiers correspond to different types of AWS resources, and the type of the resource can be identified by the prefix (the first four characters).
 
-For IAM users (AIDA) and roles (AROA) you can reverse the unique ID to its corresponding ARN by referencing it in a [resource-based policy](http://localhost:8000/aws/exploitation/Misconfigured_Resource-Based_Policies/).
+For IAM users (AIDA) and roles (AROA) you can reverse the unique ID to its corresponding ARN by referencing it in a [resource-based policy](https://hackingthe.cloud/aws/exploitation/Misconfigured_Resource-Based_Policies/).
 
 To do this, we can use the example ID of `AROAJMD24IEMKTX6BABJI` from [Aidan Steele](https://twitter.com/__steele)'s excellent explanation of the topic. While this technique should work with most resource-based policies, we will use a role's trust policy.
 
