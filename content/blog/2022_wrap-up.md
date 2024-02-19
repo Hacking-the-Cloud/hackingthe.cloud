@@ -27,13 +27,13 @@ I think the best way to view how well the site is doing is to see some numbers. 
 - 6,408 average monthly visitors (excluding December)
 - 9,763 average monthly visitors in the past quarter!
 
-![Monthly visitor graph](/images/blog/2022_wrap-up/monthly_visitors.png)
+![Monthly visitor graph](../images/blog/2022_wrap-up/monthly_visitors.png)
 
 November in particular was a high traffic month, presumably because of multiple articles being released and gaining traction on Google's [Discover](https://developers.google.com/search/docs/appearance/google-discover).
 
 Compared to 2021, visitor count has increased over `94%`! (Note: 2022 is not over, hence the dotted line for 2022)
 
-![Yearly visitor graph](/images/blog/2022_wrap-up/yearly_visitors.png)
+![Yearly visitor graph](../images/blog/2022_wrap-up/yearly_visitors.png)
 
 We have also reached 17 [contributors](https://github.com/Hacking-the-Cloud/hackingthe.cloud/graphs/contributors) officially on GitHub! I want to personally thank every single one of you who took the time to contribute to the site. Especially for Azure and GCP which I have no knowledge of. You all make this possible and I appreciate your contributions deeply.
 
@@ -65,8 +65,8 @@ Last month, I was made aware that another site was copying entire articles from 
 
 Hacking the Cloud |  Copy
 :----------------:|:------:
-![](/images/blog/2022_wrap-up/example_1_original.png) | ![](/images/blog/2022_wrap-up/example_1_copy.png)
-![](/images/blog/2022_wrap-up/example_2_original.png) | ![](/images/blog/2022_wrap-up/example_2_copy.png)
+![](../images/blog/2022_wrap-up/example_1_original.png) | ![](../images/blog/2022_wrap-up/example_1_copy.png)
+![](../images/blog/2022_wrap-up/example_2_original.png) | ![](../images/blog/2022_wrap-up/example_2_copy.png)
 
 As you can imagine, I was pretty unhappy with this for a number of reasons. Writing content for Hacking the Cloud takes a significant time investment. Setting up test infrastructure, getting screenshots, validating logs, ensuring everything written is 100% accurate (and fixing it when things slip through) is a huge endeavor. It is deflating and frustrating when another site claims they have more content, only for you to find a non-insignificant portion of that content was copied and pasted from your work and the work of people who took time to contribute to your project. 
 
@@ -90,7 +90,7 @@ In a bit of an experiment, Hacking the Cloud now has its own [Mastodon](https://
 Long term, I'd like to cover broader cloud security news, and highlight interesting research or findings. I'm considering hooking it up to the RSS feeds of some well known blogs and sharing cloud security news that way. Feel free to give the account a follow if you're interested.
 
 <figure markdown>
-  ![Showing the Mastodon profile page for Hacking the Cloud](/images/blog/2022_wrap-up/mastodon.png){ loading=lazy }
+  ![Showing the Mastodon profile page for Hacking the Cloud](../images/blog/2022_wrap-up/mastodon.png){ loading=lazy }
 </figure>
 
 ## Plans for the Future

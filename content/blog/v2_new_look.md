@@ -16,7 +16,7 @@ date: 2021-12-06T00:00:40-06:00
 Whoa! Things look a little different? You're not imagining it.
 
 <figure markdown>
-  ![The old look](/images/blog/v2_new_look/old_look.png){ loading=lazy }
+  ![The old look](../images/blog/v2_new_look/old_look.png){ loading=lazy }
   <figcaption>The old look.</figcaption>
 </figure>
 

@@ -32,7 +32,7 @@ In this example, we are using a [local-exec](https://www.terraform.io/language/r
 
 The problem is that this output would get displayed to the user, for example:
 
-![Regular Output](/images/terraform/terraform_ansi_escape_evasion/regular_output.png)
+![Regular Output](../images/terraform/terraform_ansi_escape_evasion/regular_output.png)
 
 To solve this, we can use ANSI escape codes to modify this output. It is worth noting that the specific sequences we will need to use will depend on the terminal type the victim is using. The following example is using [gnome-terminal](https://gitlab.gnome.org/GNOME/gnome-terminal) on Ubuntu.
 
@@ -53,4 +53,4 @@ resource "null_resource" "blah" {
 
 And this is the output:
 
-![Modified Output](/images/terraform/terraform_ansi_escape_evasion/modified_output.png)
+![Modified Output](../images/terraform/terraform_ansi_escape_evasion/modified_output.png)

@@ -52,7 +52,7 @@ plugins:
       minify_css: true
   - redirects:
       redirect_maps:
-        'aws/post_exploitation/aws_consoler.md': 'aws/general-knowledge/create_a_console_session_from_iam_credentials.md'
+        'aws/post_exploitation/aws_consoler.md': 'aws/post_exploitation/create_a_console_session_from_iam_credentials.md'
   - glightbox: # non-standard
 
 extra_javascript:

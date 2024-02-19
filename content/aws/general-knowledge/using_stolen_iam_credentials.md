@@ -62,15 +62,15 @@ If you are attempting to maintain stealth, `sts:GetCallerIdentity` may be a risk
 
 Data events are high-volume API calls for resources in an AWS account. Because of the number of times these APIs may be called, they are not logged to CloudTrail by default and in some cases they cannot be logged at all.
 
-An example of this would be [sns:Publish](/aws/enumeration/whoami/#sns-publish). By making this API call (and supplying a valid AWS account ID) we can get similar information as `sts:GetCallerIdentity`.
+An example of this would be [sqs:ListQueues](https://hackingthe.cloud/aws/enumeration/whoami/#sqslistqueues). By making this API call we can get similar information to `sts:GetCallerIdentity` without the risk of logging to CloudTrail.
 
 ```
-$ aws sns publish --topic-arn arn:aws:sns:us-east-1:*account id*:aaa --message aaa
+user@host:~$ aws sqs list-queues
 
-An error occurred (AuthorizationError) when calling the Publish operation: User: arn:aws:sts::123456789123:assumed-role/example_role/i-00000000000000000 is not authorized to perform: SNS:Publish on resource: arn:aws:sns:us-east-1:*account id*:aaa
+An error occurred (AccessDenied) when calling the ListQueues operation: User: arn:aws:sts::123456789012:assumed-role/no_perms/no_perms is not authorized to perform: sqs:listqueues on resource: arn:aws:sqs:us-east-1:123456789012: because no identity-based policy allows the sqs:listqueues action
 ```
 
-For more information on this technique, please see its [article](/aws/enumeration/whoami/).
+For more information on this technique, please see its [article](https://hackingthe.cloud/aws/enumeration/whoami/).
 
 ## Avoiding Detection
 
@@ -87,12 +87,12 @@ In order to avoid this, it is best to make use of a "safe" operating system, suc
 
     Defenders, this may also be worth looking into for detection purposes.
 
-For more information on this, please see its [article](/aws/avoiding-detection/guardduty-pentest/).
+For more information on this, please see its [article](https://hackingthe.cloud/aws/avoiding-detection/guardduty-pentest/).
 
 ### GuardDuty Credential Exfiltration
 
 !!! Note
-    This section only applies to IAM credentials taken from the [Instance Metadata Service](/aws/general-knowledge/intro_metadata_service/) of an EC2 instance. It does not apply to other IAM credentials.
+    This section only applies to IAM credentials taken from the [Instance Metadata Service](https://hackingthe.cloud/aws/general-knowledge/intro_metadata_service/) of an EC2 instance. It does not apply to other IAM credentials.
 
 When using IAM credentials taken from an EC2 instance, you run the risk of triggering the [UnauthorizedAccess:IAMUser/InstanceCredentialExfiltration.OutsideAWS](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_finding-types-iam.html#unauthorizedaccess-iam-instancecredentialexfiltrationoutsideaws) GuardDuty finding. This finding alerts on scenarios in which IAM credentials from an EC2 instance are used from outside AWS (E.X your home IP address).
 
@@ -100,14 +100,14 @@ This is particularly relevant in scenarios in which you have access to the IAM c
 
 To get around this, we can make use of [VPC Endpoints](https://docs.aws.amazon.com/vpc/latest/privatelink/concepts.html) which will not trigger this alert. To make things easier, the [SneakyEndpoints](https://github.com/Frichetten/SneakyEndpoints) tool was developed to allow you to quickly stand up infrastructure to bypass this detection.
 
-For more information on this, please see its [article](/aws/avoiding-detection/steal-keys-undetected/).
+For more information on this, please see its [article](https://hackingthe.cloud/aws/avoiding-detection/steal-keys-undetected/).
 
 ## Situational Awareness
 
 Now that you have everything set up and you know what to look out for, your next question may be, "what is in this AWS account?". If you are performing a no-knowledge assessment, and thus, don't have any insights into what services are running in the account, it makes it difficult to know what to target or look into.
 
-One option would be to [enumerate the service-linked roles](/aws/enumeration/enum_iam_user_role/) in the account. A [service-linked](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) role is a special kind of IAM role that allows an AWS service to perform actions in your account. Because of this, we can potentially enumerate them without authentication. 
+One option would be to [enumerate the service-linked roles](https://hackingthe.cloud/aws/enumeration/enum_iam_user_role/) in the account. A [service-linked](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html) role is a special kind of IAM role that allows an AWS service to perform actions in your account. Because of this, we can potentially enumerate them without authentication. 
 
-From the previous validity checking step, we will know the AWS account ID we are operating in. That, combined with [this](/aws/enumeration/enum_iam_user_role/) technique will allow us to enumerate what services the AWS account uses. This can be helpful to answer questions such as, "Is our target using GuardDuty? Is this account a part of an organization? Are they using containers (ECS, EKS), or are they using EC2?".
+From the previous validity checking step, we will know the AWS account ID we are operating in. That, combined with [this](https://hackingthe.cloud/aws/enumeration/enum_iam_user_role/) technique will allow us to enumerate what services the AWS account uses. This can be helpful to answer questions such as, "Is our target using GuardDuty? Is this account a part of an organization? Are they using containers (ECS, EKS), or are they using EC2?".
 
-For more information on this, please see its [article](/aws/enumeration/enum_iam_user_role/).
+For more information on this, please see its [article](https://hackingthe.cloud/aws/enumeration/enum_iam_user_role/).

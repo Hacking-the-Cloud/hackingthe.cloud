@@ -71,5 +71,5 @@ There are some conditions to the enumeration, and they are defined below.
 To perform the enumeration there is a script [here](https://github.com/Frichetten/aws_stealth_perm_enum). Setting the credentials as environment variables and then running the script will inform you what API permissions you have available to you.
 
 <figure markdown>
-  ![Proof of Concept](/images/aws/enumeration/stealth_perm_enum/permissions.png){ loading=lazy }
+  ![Proof of Concept](../../images/aws/enumeration/stealth_perm_enum/permissions.png){ loading=lazy }
 </figure>
