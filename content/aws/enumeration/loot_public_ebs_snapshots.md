@@ -10,15 +10,15 @@ For EC2 instances, files and data are typically stored in [Elastic Block Store](
 
 EBS Snapshots have two availability settings, Private and Public. It is important to note that EBS does not utilize resource-based policies. If a snapshot is made public via the console or through Infrastructure as Code, it will be available to anyone with no additional controls.
 
-![EBS Snapshot availability setting page](/images/aws/enumeration/loot_public_ebs_snapshots/ebs_snapshot_availability.png)
+![EBS Snapshot availability setting page](../../images/aws/enumeration/loot_public_ebs_snapshots/ebs_snapshot_availability.png)
 
 ## Finding Exposed Snapshots
 
-A lot of instances of resource exposure (and subsequent [exploitation](/aws/exploitation/Misconfigured_Resource-Based_Policies/)) in AWS require knowing the ARN of the resource. This provides some level of security-by-obscurity, as the attacker needs to find the ARN through some means (In some cases this can also apply to [vulnerabilities in AWS services](https://securitylabs.datadoghq.com/articles/appsync-vulnerability-disclosure/) themselves).
+A lot of instances of resource exposure (and subsequent [exploitation](https://hackingthe.cloud/aws/exploitation/Misconfigured_Resource-Based_Policies/)) in AWS require knowing the ARN of the resource. This provides some level of security-by-obscurity, as the attacker needs to find the ARN through some means (In some cases this can also apply to [vulnerabilities in AWS services](https://securitylabs.datadoghq.com/articles/appsync-vulnerability-disclosure/) themselves).
 
 A somewhat unique trait of EBS snapshots is that, if they are set to public, the list of those EBS snapshots is publicly available through the AWS API. From the EC2 section in the AWS console, navigate to Elastic Block Store, Snapshots, and select `Public snapshots` from the drop down. This will show all publicly available EBS snapshots (you may have to scroll through to see an accurate count).
 
-![Showing the public snapshot list in the AWS console](/images/aws/enumeration/loot_public_ebs_snapshots/public_snapshot_console.png)
+![Showing the public snapshot list in the AWS console](../../images/aws/enumeration/loot_public_ebs_snapshots/public_snapshot_console.png)
 
 To pull this list in an easily consumable format you can use the following CLI command:
 
@@ -29,7 +29,7 @@ aws ec2 describe-snapshots --restorable-by-user-ids all
 As of the time of this writing there are tens of thousands of snapshots exposed. As a bonus, it is possible to filter this list by account ID, allowing you to easily target specific accounts.
 
 !!! Tip
-    This can be an easy, free (in terms of detection) check to look out for when exploiting AWS environments. If you steal IAM credentials, you can [determine the account](/aws/enumeration/get-account-id-from-keys/) they are tied to and check for exposed EBS snapshots.
+    This can be an easy, free (in terms of detection) check to look out for when exploiting AWS environments. If you steal IAM credentials, you can [determine the account](https://hackingthe.cloud/aws/enumeration/get-account-id-from-keys/) they are tied to and check for exposed EBS snapshots.
 
 To search for all public EBS snapshots associated with an AWS account, use the following command:
 

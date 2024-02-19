@@ -63,7 +63,7 @@ https://<TFE Instance>/api/v2/organizations | jq
 ```
 
 <figure markdown>
-  ![Getting the Organization](/images/terraform/terraform_enterprise_metadata_service/get_organization.png){ loading=lazy }
+  ![Getting the Organization](../images/terraform/terraform_enterprise_metadata_service/get_organization.png){ loading=lazy }
 </figure>
 
 Next, we need to identify a [workspace](https://www.terraform.io/cloud-docs/api-docs/workspaces) we can use. Again, this can be quereyed using the organization `id` we gathered in the previous step.
@@ -73,7 +73,7 @@ curl -H "Authorization: Bearer $TFE_TOKEN" \
 https://<TFE Instance>/api/v2/organizations/<Organization ID>/workspaces | jq
 ```
 <figure markdown>
-  ![Getting the Workspace](/images/terraform/terraform_enterprise_metadata_service/get_workspace.png){ loading=lazy }
+  ![Getting the Workspace](../images/terraform/terraform_enterprise_metadata_service/get_workspace.png){ loading=lazy }
 </figure>
 
 ### Configure the Remote Backend
@@ -149,7 +149,7 @@ print(json.dumps(result))
 Now that the wrapper script is created (and modified), we can execute code via `terraform plan`. This is a non-destructive action, which will evaluate our local configuration vs's the remote state. In addition, it will execute our remote provider and return the result to us.
 
 <figure markdown>
-  ![Code Execution Output](/images/terraform/terraform_enterprise_metadata_service/code_exec_output.png){ loading=lazy }
+  ![Code Execution Output](../images/terraform/terraform_enterprise_metadata_service/code_exec_output.png){ loading=lazy }
 </figure>
 
 !!! Warning

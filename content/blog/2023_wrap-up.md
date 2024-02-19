@@ -52,7 +52,7 @@ In third place, we have the first non-AWS article to ever make a top 5 (and I’
 If you’re interested in learning more about cloud security, you may also be interested in discussing with like-minded people. Social media can make that a lot easier. Here are the top social media websites with content that linked to Hacking the Cloud articles that got clicks.
 
 <figure markdown="1">
-![Social media counts](/images/blog/2023_wrap-up/social_media_counts.png)
+![Social media counts](../images/blog/2023_wrap-up/social_media_counts.png)
 </figure>
 
 1. LinkedIn - 42% of links

@@ -59,4 +59,4 @@ found: 123456789123
     The majority of this activity would only be logged to the calling account (the account you are running the tool with), however S3 data events and server access logging can be used to see the API activity. That being said, there is no immediate way to counter or prevent you from doing this. Additionally these requests could be spaced out over an extended period of time, further making it difficult to identify.
 
 !!! Tip
-    Pair this with [Unauthenticated Enumeration of IAM Users and Roles](/aws/enumeration/enum_iam_user_role/)!
+    Pair this with [Unauthenticated Enumeration of IAM Users and Roles](https://hackingthe.cloud/aws/enumeration/enum_iam_user_role/)!

