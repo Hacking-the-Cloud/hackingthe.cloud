@@ -20,7 +20,7 @@ description: Finding and accessing files stored in Azure Storage Accounts withou
 - Queues
 - VM disks
 
-![Azure Storage Account](https://www.partech.nl/-/media/habitat/images/blog/azure-storage-account/azure-storage-types.ashx?mw=900&hash=555BFCDE52A79D19432AA476A2935234)
+![Azure Storage Account](../images/azure/anonyous-blob-access/Azure%20Storage%20Types.png)
 
 For this tutorial, we will focus on the Blobs section. Blobs are stored within a container, and we can have multiple containers within a storage account. When we create a container, Azure will ask on the permissions that we grant for public access. We can chose between:
 
