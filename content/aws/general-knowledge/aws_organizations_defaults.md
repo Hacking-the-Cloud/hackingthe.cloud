@@ -65,14 +65,14 @@ Many AWS services include specific features that have the capability to scope to
 
 ## Helpful Diagram
 
-![image](https://github.com/WebbinRoot/hackingthe.cloud/assets/74038921/e5edf877-5175-4d7d-895c-6aa8389c9207)
+![image](../../images/aws/general-knowledge/aws_organizations_defaults/aws-organizations-diagram.png)
 Trusted Access & Delegated Administration
 
 ## Trusted Access
 
 These organization integrated features are in an "off" state by default. Trusted access is the act of the management account turning "on" the organization integrated features. For example, even if a member account is part of an organization, they will not be able to increase the scope of IAM Access Analyzer to the organization until the management account enables trusted access for IAM Access Analyzer for the organization. On a technical level, the act of turning "on" an organization-integrated feature via trusted access allows the feature to make roles in member accounts to carry out its tasks. There is an AWS CLI command the management account can run to enable one of these organization-integrated features and list those that are present as seen below:
 
-![image](https://github.com/WebbinRoot/hackingthe.cloud/assets/74038921/66525d6d-a365-4603-ac9e-04124ff7ebfb)
+![image](../../images/aws/general-knowledge/aws_organizations_defaults/access-analyzer.png)
 
 !!! Note 
     Trusted access is enabled via the management account and allows IAM Access Analyzer to reach into all member accounts to achieve its objective.
@@ -81,7 +81,7 @@ These organization integrated features are in an "off" state by default. Trusted
 
 Delegated Administration is pretty much like trusted access, but is from the perspective of a member account. In delegated administration, the user allows one of the member accounts to execute an organization-integrated feature on the AWS organization, essentially "delegating" the "administration" of that feature to that member account. We would say that a member account is "a delegated administrator for service ABC (ex. IAM Access Analyzer)." The CLI command to see all delegated administrators in an organization is shown below. If you are a member account, and call this API, and your AWS account is listed in the output, than that is a good way to confirm you are in a delegated admin account. Note again that a delegated admin is **for a specific service** so rather than searching through every single feature to see what you are a delegated admin for, you can call the API shown below to see what specific feature you are a delegated admin for.
 
-![image](https://github.com/WebbinRoot/hackingthe.cloud/assets/74038921/3deec4a3-363a-48c0-a075-432d078f68a7)
+![image](../../images/aws/general-knowledge/aws_organizations_defaults/delegated-admin.png)
 
 Besides the ability to run specific organization-integrated features, note that the member account also in general **gains access to numerous read-only APIs**. For example, note how [this](https://docs.aws.amazon.com/cli/latest/reference/organizations/list-accounts.html) CLI command states that a "delegated administrator" can run it. While a default member account can only see itself and the management account in an organization, a delegated administrator can potentially see all AWS accounts in the organization. 
 
