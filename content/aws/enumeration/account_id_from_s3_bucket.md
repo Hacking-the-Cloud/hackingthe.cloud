@@ -30,7 +30,7 @@ By leveraging the s3:ResourceAccount policy condition, we can identify the AWS a
 
 To test this, you can use [Grayhat Warfare's](https://buckets.grayhatwarfare.com/random/buckets) list of public S3 buckets.
 
-You will need a role with `s3:getObject` and `s3:ListBucket` permissions, and you can specify the target bucket as the resource for your policy. Alternatively you can set a resource of '*' to quickly test multiple buckets.
+You will need a role with `s3:getObject` and `s3:ListBucket` permissions, and you can specify the target bucket as the resource for your policy. Alternatively, you can set a resource of '*' to quickly test multiple buckets.
 
 ## Installation
 
@@ -56,7 +56,36 @@ found: 123456789123
 ```
 
 !!! Warning  "Operational Security Tip"
-    The majority of this activity would only be logged to the calling account (the account you are running the tool with), however S3 data events and server access logging can be used to see the API activity. That being said, there is no immediate way to counter or prevent you from doing this. Additionally these requests could be spaced out over an extended period of time, further making it difficult to identify.
+
+    As of 2022's announcement, any new buckets are created without the Public Access policy and specifically without any ACLs. The removal of the ACLs means that the `GetObject`, instead you *must* enable the AWS ACLs that make S3 Buckets readable in addition to having GetBucket in the IAM Policy. Here is a terraform block to enable this abuse which use to be the default pre-2022. 
+
+        ```
+        resource "aws_s3_bucket_ownership_controls" "example" {
+            bucket = aws_s3_bucket.example.id
+            rule {
+                object_ownership = "BucketOwnerPreferred"
+            }
+        }
+
+        resource "aws_s3_bucket_public_access_block" "example" {
+            bucket = aws_s3_bucket.example.id
+
+            block_public_acls       = false
+            block_public_policy     = false
+            ignore_public_acls      = false
+            restrict_public_buckets = false
+        }
+
+        resource "aws_s3_bucket_acl" "example" {
+            bucket = aws_s3_bucket.example.id
+            acl    = "public-read"
+
+            depends_on = [
+                aws_s3_bucket_ownership_controls.example,
+                aws_s3_bucket_public_access_block.example
+            ]
+        }
+        ```
 
 !!! Tip
     Pair this with [Unauthenticated Enumeration of IAM Users and Roles](https://hackingthe.cloud/aws/enumeration/enum_iam_user_role/)!
