@@ -96,21 +96,7 @@ chmod +x scan.sh
 ```
 
 2. **Using Specialized Tools:**
-Tools like `truffleHog` and `gitleaks` can detect sensitive information in codebases and configurations:
-
-- **TruffleHog:**
-
-```bash
-pip install truffleHog
-truffleHog --entropy=True --json /path/to/search
-```
-
-- **Gitleaks:**
-
-```bash
-curl -sSL https://raw.githubusercontent.com/zricethezav/gitleaks/master/install.sh | bash
-gitleaks --repo-path=/path/to/search --report=gitleaks-report.json
-```
+Tools like [truffleHog](https://github.com/trufflesecurity/trufflehog) and [gitleaks](https://github.com/gitleaks/gitleaks) can detect sensitive information in codebases and configurations.
 
 ### Additional Resources
 
