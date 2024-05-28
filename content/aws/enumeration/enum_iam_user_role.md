@@ -35,7 +35,7 @@ hide:
 
 You can enumerate AWS Account IDs, Root User account e-mail addresses, IAM roles, IAM users, and gain insights to enabled AWS and third-party services by abusing [Resource-Based Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_resource-based), even in accounts for which you have no access. [Quiet Riot](https://github.com/righteousgambitresearch/quiet-riot) offers a scalable method for enumerating each of these items with configurable wordlists per item type. Furthermore - it also allows you to enumerate Azure Active Directory and Google Workspace valid email addresses - which can then be used to test for valid Root User accounts in AWS, assuming that the email address is the same.
 
-Ultimately, if you want to perform these techniques at scale - Quiet Riot is your best best, but if you want to do it manually, you can a number of ways to do so. Another way to enumerate IAM principals would be to use S3 Bucket Policies. Take the following example:
+Ultimately, if you want to perform these techniques at scale - Quiet Riot is your best bet, but if you want to do it manually, you can a number of ways to do so. Another way to enumerate IAM principals would be to use S3 Bucket Policies. Take the following example:
 
 ```
 {
