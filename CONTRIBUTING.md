@@ -4,7 +4,7 @@
 
 All content submitted to Hacking the Cloud must be written in your own words. Submissions which appear to include plagiarized material (copying and pasting of whole articles/blog posts) will be rejected. It is okay to quote an existing article (with the reference). The goal of Hacking the Cloud is to congregate knowledge for the community into a single location. This includes having links/references to primary sources.
 
-Think of Hacking the Cloud as the [Wikipedia](https://www.wikipedia.org/) of cloud security. We should do cite our sources and quote content when needed, but our articles are written by our own contributors.
+Think of Hacking the Cloud as the [Wikipedia](https://www.wikipedia.org/) of cloud security. We should cite our sources and quote content when needed, but our articles are written by our own contributors.
 
 __If you are an author and believe your work has been plagiarized on Hacking the Cloud, please submit an [issue](https://github.com/Hacking-the-Cloud/hackingthe.cloud/issues) on GitHub and it will be taken down quickly.__
 
