@@ -135,7 +135,7 @@ Each enumeration  module (ex. `enum_instances`) in the tool allows you to pass i
 {
   "type": "service_account",
   "project_id": "production-project[TRUNCATED]",
-  "private_key_id": "291216294df17e6787b225b6a15f1a929ee4d2dd",
+  "private_key_id": "2912[TRUNCATED]",
   "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0B[RECACTED]\n-----END PRIVATE KEY-----\n",
   "client_email": "newserviceaccount@production-project[TRUNCATED].iam.gserviceaccount.com",
   "client_id": "11[TRUNCATED]",
