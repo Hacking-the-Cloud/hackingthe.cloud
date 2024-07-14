@@ -4,11 +4,18 @@ title: Enumerate Org/Folder/Project Permissions + Individual Resource Permission
 description: Brute force the permissions of all resources above to see what permissions you have. Includes example of brute forcing ~9500 permissions at the end. Also introduces tool that passively collections permissions allowed as run (gcpwn)
 ---
 
-Link to Tool: [Github](https://github.com/NetSPI/gcpwn)
+<div class="grid cards" markdown>
+-   :material-tools:{ .lg .middle } __Tools mentioned in this article__
+
+    ---
+
+    [gcpwn](https://github.com/NetSPI/gcpwn)
+</div>
 
 ## What is testIamPermissions?
 
 GCP offers a "testIamPermissions" API call on most resources that support policies. This includes resources like:
+
 - Organizations
 - Folders
 - Projects
@@ -17,7 +24,8 @@ GCP offers a "testIamPermissions" API call on most resources that support polici
 
 In MOST cases, the general psuedo-code is the same regardless of the resource. However, the permissions allowed are usually dependent on the resource. 
 
-For example, for **"Projects"** (probably 99% of people's interest), testIamPermissions is documented [here](https://cloud.google.com/resource-manager/reference/rest/v1/projects/testIamPermissions). Note the general pattern is passing in an array (or list) of individual permissions and the service will return the list of permissions the caller is allowed **in that specific project**. So in the example below, we pass in a large number of permissions and maybe just "cloudfunctions.functions.list" is returned indicating our caller has that permission within this project (aka, can list all cloud functions in this project)
+For example, for **"Projects"** (probably 99% of people's interest), testIamPermissions is documented [here](https://cloud.google.com/resource-manager/reference/rest/v1/projects/testIamPermissions). Note the general pattern is passing in an array (or list) of individual permissions and the service will return the list of permissions the caller is allowed **in that specific project**. So in the example below, we pass in a large number of permissions and maybe just "cloudfunctions.functions.list" is returned indicating our caller has that permission within this project (aka, can list all cloud functions in this project).
+
 ```
 # Input
 {
@@ -35,7 +43,9 @@ For example, for **"Projects"** (probably 99% of people's interest), testIamPerm
   ]
 }
 ```
+
 However, testIamPermissions does NOT just exist for projects. The compute service allows you to specify permissions at the compute instance level (as opposed to the project level). As such, testIamPermissions actually exists for instances as well shown in the documentation [here](https://cloud.google.com/compute/docs/reference/rest/v1/instances/testIamPermissions). You'll notice the API call is pretty much the same as the projects API call in that it takes in a big list of permission and returns the list of permissions the caller has on THAT specific instance; we are just calling testIamPermissions on the **instance** as opposed to the **project**. Also note we could not pass in "cloudfunctions.functions.list", for example, to the instances testIamPermissions as it will only accept instance-level permissions.
+
 ```
 # Input
 {
@@ -111,13 +121,14 @@ However, testIamPermissions does NOT just exist for projects. The compute servic
 
 ## GCPwn Introduction
 
-[gcpwn](https://github.com/NetSPI/gcpwn/tree/main) is a tool that will run testIamPermission on all resources identified if specified by the end user. This means it will cover testIamPermission test cases for organizations, projects, folders, compute instances, cloud functions, cloud storage (buckets), service accounts, etc. For orgs/projects/folders it runs a small list of permissions as the input but you can specify through flags to brute force **~9500 permissions**
+[gcpwn](https://github.com/NetSPI/gcpwn/tree/main) is a tool that will run testIamPermission on all resources identified if specified by the end user. This means it will cover testIamPermission test cases for organizations, projects, folders, compute instances, cloud functions, cloud storage (buckets), service accounts, etc. For orgs/projects/folders it runs a small list of permissions as the input but you can specify through flags to brute force **~9500 permissions**.
 
 To install the tool, follow the installation instructions [here](https://github.com/NetSPI/gcpwn/wiki). Once installed, review the ["Common Use Cases"](https://github.com/NetSPI/gcpwn/wiki/4.-Common-Use-Cases-(Bruteforcing-9500-Permissions)) which covers both of the items above.
 
-To see a live demo, you can watch [this](https://www.youtube.com/watch?v=opvv9h3Qe0s) which covers testIamPermissions breifly
+To see a live demo, you can watch [this](https://www.youtube.com/watch?v=opvv9h3Qe0s) which covers testIamPermissions briefly.
 
-Note the tool will also passively record all API permissions you were able to call regardless if testIamPermissions is used, testIamPermissions just will give you more permissions back usually.
+!!! Note
+    The tool will also passively record all API permissions you were able to call regardless if testIamPermissions is used, testIamPermissions just will give you more permissions back usually.
 
 ## Enumerate Permissions on Individual Resources
 
@@ -129,6 +140,7 @@ Each enumeration  module (ex. `enum_instances`) in the tool allows you to pass i
 4. Run enum_instances and see an instance is found. Run `creds info` again and note that permission are now populated saying the user has `compute.instances.list` on the project and `compute.instances.get` on the instance itself.
 5. Run enum_instances again **but now include testIamPermission calls** with the `--iam` flag. Run `creds info` again and note way more permissions were identified for the specified compute instance as gcpwn ran testIamPermissions during the enumeration phaes and saved the results. Now we can see our caller has not just `compute.instances.get` but `compute.instances.addAccessConfig`, `compute.instances.addMaintenancePolicies`, `compute.instances.addResourcePolicies`, etc. on `instance-20240630-025631`
 6. This is hard to read. So you can pass in `--csv` with `creds info` to export it to an easy to read Excel file. creds info will highlight "dangerous" permissions red and the resulting CSV has a column for True/False for dangerous permissions.
+
 ```
 ┌──(kali㉿kali)-[~/gcpwn]
 └─$ cat key.json
@@ -607,9 +619,10 @@ Access Token: N/A
       - test (Version: 2) (secret version)
       - test-location (Version: 1) (secret version)
 ```
+
 ## Enumerate ~9500 Permission on Org/Folder/Project
 
-gcpwn includes a special flag for `enum_resources` called `--all-permissions`. When this is used with the `--iam` flag, gcpwn will attempt ~9500 individual permissions via testIamPermissions. This effectively should tell you every permission the user has in the current resource. Note you can find the list of permissions via the repository. For example, here are all the project permissions it [tries](https://github.com/NetSPI/gcpwn/blob/main/Modules/ResourceManager/utils/all_project_permissions.txt). **NOTE AGAIN TESTIAMPERMISSIONS IS NOT ACTUALLY ACTIVELY INVOKING THESE APIS**. Thus it should be safe to run these all through testIamPermissions. While not shown below you can pass `--all-permissions` and `--iam` into `enum_all` if you want to do this as part of the everything enumeration
+gcpwn includes a special flag for `enum_resources` called `--all-permissions`. When this is used with the `--iam` flag, gcpwn will attempt ~9500 individual permissions via testIamPermissions. This effectively should tell you every permission the user has in the current resource. Note you can find the list of permissions via the repository. For example, here are all the project permissions it [tries](https://github.com/NetSPI/gcpwn/blob/main/Modules/ResourceManager/utils/all_project_permissions.txt). **NOTE AGAIN TESTIAMPERMISSIONS IS NOT ACTUALLY ACTIVELY INVOKING THESE APIS**. Thus it should be safe to run these all through testIamPermissions. While not shown below you can pass `--all-permissions` and `--iam` into `enum_all` if you want to do this as part of the everything enumeration.
 
 ```
 (production-project[TRUNCATED]:service_user)> modules run enum_resources --iam --all-permissions
@@ -703,6 +716,3 @@ Access Token: N/A
     - workstations.workstations.update
 
 ```
-
-
-
