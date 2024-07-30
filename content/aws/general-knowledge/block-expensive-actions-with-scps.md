@@ -32,7 +32,7 @@ To help prevent billing headaches when learning about AWS security or conducting
 
 To implement the policy below, refer to the AWS [documentation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_attach.html) for detailed instructions on attaching and managing SCPs.
 
-!!! Note
+!!! Warning
     While this SCP provides a significant safeguard, it is not entirely foolproof. You can still incur high charges if not careful. This policy only blocks known problematic API calls. Always exercise caution when creating or configuring resources in AWS.
 
 ## Safeguard SCP
