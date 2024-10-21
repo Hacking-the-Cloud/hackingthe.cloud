@@ -69,6 +69,8 @@ extra:
   social:
     - icon: fontawesome/brands/mastodon
       link: https://infosec.exchange/@hackingthecloud
+    - icon: fontawesome/brands/bluesky
+      link: https://bsky.app/profile/hackingthe.cloud
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/Frichette_n
     - icon: fontawesome/brands/linkedin
