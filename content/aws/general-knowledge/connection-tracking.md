@@ -15,7 +15,7 @@ hide:
 
     <aside style="display:flex">
     <p><a href="https://frichetten.com/blog/abusing-aws-connection-tracking/">Abusing AWS Connection Tracking</a> by <a href="https://twitter.com/frichette_n">Nick Frichette</a></p>
-    <p><img src="https://pbs.twimg.com/profile_images/1481139090850467840/LpzTkOTE_400x400.jpg" alt="Nick Frichette" style="width:44px;height:44px;margin:5px;border-radius:100%;max-width:unset"></img></p>
+    <p><img src="https://pbs.twimg.com/profile_images/1823034546369216512/XSok3NRz_400x400.jpg" alt="Nick Frichette" style="width:44px;height:44px;margin:5px;border-radius:100%;max-width:unset"></img></p>
     </aside>
 </div>
 
