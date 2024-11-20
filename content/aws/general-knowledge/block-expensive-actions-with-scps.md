@@ -28,7 +28,7 @@ An ever-present danger when using AWS is accidentally making an API call that co
 
 ## Understanding Service Control Policies
 
-To help prevent billing headaches when learning about AWS security or conducting research we can use a [Service Control Policy](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html) (SCP). An SCP is a type of organizational policy which restricts what API calls can be made by member accounts in an [AWS Organization](/aws/general-knowledge/aws_organizations_defaults/). Thanks to the work of [Ian McKay](https://x.com/iann0036), and other community members, we have a list of AWS API operations which are prohibitively expensive and should be avoided. 
+To help prevent billing headaches when learning about AWS security or conducting research we can use a [Service Control Policy](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html) (SCP). An SCP is a type of organizational policy which restricts what API calls can be made by member accounts in an [AWS Organization](/aws/general-knowledge/aws_organizations_defaults.md). Thanks to the work of [Ian McKay](https://x.com/iann0036), and other community members, we have a list of AWS API operations which are prohibitively expensive and should be avoided. 
 
 To implement the policy below, refer to the AWS [documentation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_attach.html) for detailed instructions on attaching and managing SCPs.
 
