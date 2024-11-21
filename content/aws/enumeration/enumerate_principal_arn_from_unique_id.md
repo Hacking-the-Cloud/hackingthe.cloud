@@ -12,7 +12,7 @@ description: How to convert an unique identifier to a principal ARN.
 
     <aside style="display:flex">
     <p><a href="https://awsteele.com/blog/2023/11/19/reversing-aws-iam-unique-ids.html">Reversing AWS IAM unique IDs</a> by <a href="https://twitter.com/__steele">Aidan Steele</a></p>
-    <p><img src="https://pbs.twimg.com/profile_images/1199447204311617537/vzdPtfih_400x400.jpg" alt="Aidan Steele" style="width:44px;height:44px;margin:5px;border-radius:100%;max-width:unset"></img></p>
+    <p><img src="/images/researchers/aidan_steele.jpg" alt="Aidan Steele" style="width:44px;height:44px;margin:5px;border-radius:100%;max-width:unset"></img></p>
     </aside>
 
 -   :material-book:{ .lg .middle } __Additional Resources__
