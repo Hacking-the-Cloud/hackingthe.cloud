@@ -13,7 +13,7 @@ description: Avoid AWS bill surprises by blocking known-expensive API calls with
 
     <aside style="display:flex">
     <p><a href="https://gist.github.com/iann0036/b473bbb3097c5f4c656ed3d07b4d2222"> List of expensive / long-term effect AWS IAM actions</a> by <a href="https://x.com/iann0036">Ian McKay</a></p>
-    <p><img src="https://pbs.twimg.com/profile_images/833954217983307776/yPaJcQPr_400x400.jpg" alt="Ian McKay" style="width:44px;height:44px;margin:5px;border-radius:100%;max-width:unset"></img></p>
+    <p><img src="/images/researchers/ian_mckay.jpg" alt="Ian McKay" style="width:44px;height:44px;margin:5px;border-radius:100%;max-width:unset"></img></p>
     </aside>
 
 -   :material-book:{ .lg .middle } __Additional Resources__
@@ -28,7 +28,7 @@ An ever-present danger when using AWS is accidentally making an API call that co
 
 ## Understanding Service Control Policies
 
-To help prevent billing headaches when learning about AWS security or conducting research we can use a [Service Control Policy](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html) (SCP). An SCP is a type of organizational policy which restricts what API calls can be made by member accounts in an [AWS Organization](/aws/general-knowledge/aws_organizations_defaults/). Thanks to the work of [Ian McKay](https://x.com/iann0036), and other community members, we have a list of AWS API operations which are prohibitively expensive and should be avoided. 
+To help prevent billing headaches when learning about AWS security or conducting research we can use a [Service Control Policy](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html) (SCP). An SCP is a type of organizational policy which restricts what API calls can be made by member accounts in an [AWS Organization](../../aws/general-knowledge/aws_organizations_defaults.md). Thanks to the work of [Ian McKay](https://x.com/iann0036), and other community members, we have a list of AWS API operations which are prohibitively expensive and should be avoided. 
 
 To implement the policy below, refer to the AWS [documentation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_attach.html) for detailed instructions on attaching and managing SCPs.
 

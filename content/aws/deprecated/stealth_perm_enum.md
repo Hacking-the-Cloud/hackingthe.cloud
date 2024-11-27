@@ -15,7 +15,7 @@ hide:
 
     <aside style="display:flex">
     <p><a href="https://frichetten.com/blog/aws-api-enum-vuln/">Enumerate AWS API Permissions Without Logging to CloudTrail</a> by <a href="https://twitter.com/frichette_n">Nick Frichette</a></p>
-    <p><img src="https://pbs.twimg.com/profile_images/1481139090850467840/LpzTkOTE_400x400.jpg" alt="Nick Frichette" style="width:44px;height:44px;margin:5px;border-radius:100%;max-width:unset"></img></p>
+    <p><img src="/images/researchers/nick_frichette.jpg" alt="Nick Frichette" style="width:44px;height:44px;margin:5px;border-radius:100%;max-width:unset"></img></p>
     </aside>
 
 -   :material-tools:{ .lg .middle } __Tools mentioned in this article__
