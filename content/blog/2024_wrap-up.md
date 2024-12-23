@@ -1,6 +1,6 @@
 ---
 title: "2024 Cloud Security Highlights: Hacking the Cloud’s Year in Review"
-description: An end of year summary for Hacking the Cloud in 2023.
+description: An end of year summary for Hacking the Cloud in 2024.
 date: 2024-12-23T00:00:40-06:00
 ---
 <aside markdown style="display:flex">
