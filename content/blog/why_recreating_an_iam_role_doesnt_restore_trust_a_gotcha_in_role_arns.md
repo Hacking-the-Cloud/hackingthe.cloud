@@ -62,7 +62,7 @@ Should we delete `Megan`, then recreate her role and check back in on `Bobby`'s 
 
 What happened? Where did the ARN go? 
 
-##Why This Happens
+## Why This Happens
 
 At first glance, it’s easy to assume that the ARN of a role is its unique identifier. After all, it's what we use in trust policies, logs, error messages, and Terraform or CloudFormation templates. It looks like a primary key, acts like a primary key, so it must be the primary key, right?
 
@@ -72,7 +72,7 @@ Under the hood, AWS assigns each IAM role an internal, immutable [role ID](../aw
 
 The ARN is best thought of as a human-readable label, similar to a username. It’s a convenient pointer, but it’s not the source of truth. When you delete a role, AWS also discards the associated role ID. Recreating a role, even with the exact same name, results in a completely new role with a new role ID. The ARN may be identical, but the underlying identity is not.
 
-This is why a trust policy that still references the original ARN will silently fail: it's pointing to an identity that no longer exists. The policy is technically valid JSON, but AWS can no longer resolve that ARN to a live principal with the matching role ID.
+This is why a trust policy that still references the original ARN will be replaced with the principal ID: it's pointing to an identity that no longer exists. The policy is technically valid JSON, but AWS can no longer resolve that ARN to a live principal with the matching principal ID.
 
 AWS explicitly calls this out in their [IAM documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-roles):
 
@@ -80,7 +80,7 @@ AWS explicitly calls this out in their [IAM documentation](https://docs.aws.amaz
 
 This is further elaborated in this [re:Post article](https://repost.aws/articles/ARSqFcxvd7R9u-gcFD9nmA5g/understanding-aws-s-handling-of-deleted-iam-roles-in-policies).
 
-##Why This is a Good Thing
+## Why This is a Good Thing
 
 While frustrating at times, this behavior is a security feature. It prevents someone from deleting a trusted IAM role and then recreating it to inherit that trust, which could otherwise lead to unintended privilege escalation or lateral movement.
 
