@@ -8,6 +8,9 @@ description: "In AWS, deleting and recreating an IAM role results in a new ident
 
 This subtle behavior can disrupt cross-account access, third-party integrations, and automation workflows.
 
+!!! info
+    While this article is primarily focused on IAM roles and avoiding making this mistake in a SaaS context, it is important to know that the same idea applies to IAM users as well. In addition, IAM principals can be referenced in resource-based policies of a variety of resources, not just role trust policies.
+
 ## The Scenario
 
 Imagine you have a trust policy attached to a role named `Bobby` and that this trust policy permits the role named `Megan` to assume it as shown below.
@@ -82,13 +85,37 @@ By locking trust relationships to unique principal IDs, AWS ensures that trust m
 
 While tying trust relationships to immutable principal IDs is a sound security decision, this behavior can introduce operational risk, especially in SaaS integrations.
 
-Many SaaS platforms, especially in the security, observability, or data pipeline space, allow customers to establish integrations by trusting a specific IAM role via an ARN. The SaaS provider configures their side to call sts:AssumeRole on a role in a customer’s AWS account and uses that role to perform whatever their service needs to do.
+Many SaaS platforms, especially in the security, observability, or data pipeline space, allow customers to establish integrations by trusting a specific IAM role via an ARN. The SaaS provider configures their side to call `sts:AssumeRole` on a role in a customer’s AWS account and uses that role to perform whatever their service needs to do.
 
 Say that SaaS provider makes a mistake and deletes the trusted IAM Role and recreates it (intentionally or not), that new IAM role will have a different principal ID. While the ARN may be the same, from AWS' perspective that is not the same IAM role. The result? 
 
 The SaaS provider will not be able to assume any of their customer roles.
 
 To make matters worse, the only solution in this situation is for every single customer to modify the trust policy of their SaaS roles in every single AWS account to trust the new IAM role in the SaaS account. This can introduce downtime, addition support requests, and other issues.
+
+## How to Avoid This
+
+The simplest method for avoiding this operational risk is to have your SaaS customer trust an entire AWS account, and not a specific IAM role. Below is an example of such a trust policy.
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::111111111111:root"
+            },
+            "Action": "sts:AssumeRole"
+        }
+    ]
+}
+```
+
+This trust policy will permit any AWS principal in the account `111111111111` to assume the role in the customer account. 
+
+!!! warning
+    It is important that you restrict who has access to the trusted account and limit what principals have `sts:AssumeRole` privileges.
 
 ## Conclusion
 
