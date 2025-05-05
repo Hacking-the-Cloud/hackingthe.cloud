@@ -70,7 +70,7 @@ Not quite.
 
 Under the hood, AWS assigns each IAM role an internal, immutable [role ID](../aws/general-knowledge/iam-key-identifiers.md) when it is created. This role ID, not the ARN, is what actually identifies the role in trust relationships, policy evaluations, and service-level authorizations.
 
-The ARN is best thought of as a human-readable label, similar to a username. It’s a convenient pointer, but it’s not the source of truth. When you delete a role, AWS also discards the associated role ID. Recreating a role, even with the exact same name, results in a completely new role with a new role ID. The ARN may be identical, but the underlying identity is no
+The ARN is best thought of as a human-readable label, similar to a username. It’s a convenient pointer, but it’s not the source of truth. When you delete a role, AWS also discards the associated role ID. Recreating a role, even with the exact same name, results in a completely new role with a new role ID. The ARN may be identical, but the underlying identity is not.
 
 This is why a trust policy that still references the original ARN will silently fail: it's pointing to an identity that no longer exists. The policy is technically valid JSON, but AWS can no longer resolve that ARN to a live principal with the matching role ID.
 
