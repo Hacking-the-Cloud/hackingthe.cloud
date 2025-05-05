@@ -1,5 +1,4 @@
 nav:
-    - "Why Recreating an IAM Role Doesn't Restore Trust: A Gotcha in Role ARNs": blog/why_recreating_an_iam_role_doesnt_restore_trust_a_gotcha_in_role_arns/
     - "2024 Cloud Security Highlights: Hacking the Cloud’s Year in Review": blog/2024_wrap-up/
     - 2023 Wrap-up: blog/2023_wrap-up/
     - 2022 Wrap-up: blog/2022_wrap-up/
