@@ -117,6 +117,31 @@ This trust policy will permit any AWS principal in the account `111111111111` to
 !!! warning
     It is important that you restrict who has access to the trusted account and limit what principals have `sts:AssumeRole` privileges.
 
+As an alternative, you can modify the trust policy to trust the entire AWS account and then use a `Condition` block to restrict access to a specific role ARN. Unlike when a role ARN is listed directly in the `Principal` field, using `aws:PrincipalArn` in a condition does not evaluate the principal's role ID, it matches only the string value of the ARN. This means that if you delete and recreate the role with the same name, the trust policy will continue to work as long as the ARN matches.
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::111111111111:root"
+      },
+      "Action": "sts:AssumeRole",
+      "Condition": {
+        "ArnEquals": {
+          "aws:PrincipalArn": "arn:aws:iam::111111111111:role/Megan"
+        }
+      }
+    }
+  ]
+}
+```
+
+!!! warning
+    Of course, while this approach improves resilience to role deletion, it also removes the protection from privilege escalation and lateral movement abuse offered by the original example. You should carefully evaluate what behavior you need depending on your specific scenario. 
+
 ## Conclusion
 
 IAM roles may look simple on the surface, but the way AWS handles trust relationships is complex: identity resources are more than their name. When you delete and recreate a role, even with the same ARN, AWS treats it as a completely different entity. That distinction can lead to subtle, hard-to-debug failures, especially in SaaS integrations.
