@@ -23,3 +23,21 @@ user@host:~$ aws sqs list-queues
 
 An error occurred (AccessDenied) when calling the ListQueues operation: User: arn:aws:sts::123456789012:assumed-role/no_perms/no_perms is not authorized to perform: sqs:listqueues on resource: arn:aws:sqs:us-east-1:123456789012: because no identity-based policy allows the sqs:listqueues action
 ```
+
+## pinpoint-sms-voice:SendVoiceMessage
+[pinpoint-sms-voice:SendVoiceMessage](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/pinpoint-sms-voice/send-voice-message.html) is another API call that does [not](https://docs.aws.amazon.com/pinpoint/latest/developerguide/pinpoint-sms-voice-cloudtrail-actions.html) log to CloudTrail.
+
+```
+user@host:~% aws pinpoint-sms-voice send-voice-message
+
+An error occurred (AccessDeniedException) when calling the SendVoiceMessage operation: User: arn:aws:sts::123456789012:assumed-role/no_perms/no_perms is not authorized to perform: sms-voice:SendVoiceMessage on resource: arn:aws:sms-voice:us-east-1:123456789012:/v1/sms-voice/voice/message
+```
+
+## timestream-query:DescribeEndpoints
+[timestream-query:DescribeEndpoints](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/timestream-query/describe-endpoints.html) is another API call that does [not](https://docs.aws.amazon.com/timestream/latest/developerguide/logging-using-cloudtrail.html) log to CloudTrail.
+
+```
+user@host:~% aws timestream-query describe-endpoints
+
+An error occurred (AccessDeniedException) when calling the DescribeEndpoints operation: User: arn:aws:sts::123456789012:assumed-role/no_perms/no_perms is not authorized to perform: timestream:DescribeEndpoints because no identity-based policy allows the timestream:DescribeEndpoints action
+```
