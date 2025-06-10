@@ -23,6 +23,7 @@ jobs:
           path: .cache
           restore-keys: |
             mkdocs-material-
+      - run: sudo apt-get update
       - run: sudo apt-get install -y libcairo2-dev libfreetype6-dev libffi-dev libjpeg-dev libpng-dev libz-dev
       - run: pip install pillow cairosvg
       - run: pip install mkdocs-minify-plugin
