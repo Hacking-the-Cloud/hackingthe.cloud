@@ -24,6 +24,8 @@ On January 20th 2022, AWS released a new GuardDuty finding called [UnauthorizedA
 
 However, there is currently a functioning bypass for this - [VPC Endpoints](https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints.html). Using VPC Endpoints will not trigger the GuardDuty alert. What this means is that, as an attacker, `if you steal IAM credentials from an EC2 instance, you can use those credentials from your own EC2 instance while routing traffic through VPC Endpoints. This will not trigger the GuardDuty finding`.
 
+Note that, starting in October 2024, GuardDuty began detecting these bypass attempts for services that support CloudTrail network activity events for VPC endpoints. Initially, this applied only to EC2, KMS, Secrets Manager, and CloudTrail, but by mid-2025, it had expanded to 26 services. This means the technique may no longer be reliable depending on the target service — always test current behavior and consult the latest [AWS documentation](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-network-events-with-cloudtrail.html) to verify which services will trigger the alert.
+
 !!! Note
     There is another bypass option, however, it would only be useful in niche scenarios. The InstanceCredentialExfiltration finding is only tied to the AWS account, not the EC2 instance. As a result, if you compromise an EC2 instance in the target account and then compromise OTHER EC2 instances in the account, or steal their IAM credentials, you can safely use them from the initially compromised instance without fear of triggering GuardDuty.
 
