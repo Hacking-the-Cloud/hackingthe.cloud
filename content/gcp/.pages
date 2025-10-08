@@ -2,4 +2,5 @@ nav:
     - General Knowledge: general-knowledge
     - Enumeration: enumeration
     - Exploitation: exploitation
+    - Avoid Detection: avoid-detection
     - Capture the Flag: capture_the_flag
