@@ -31,7 +31,7 @@ A common abuse is to deploy a high-performance instance for cryptomining within 
     ```
 2.  **Link the project to a billing account:**
     ```bash
-    gcloud beta billing projects link sys-22222222222222222222222222-btlling-account xxxxxx
+    gcloud beta billing projects link sys-22222222222222222222222222-billing-account xxxxxx
     ```
 3.  **Create a large compute instance** for cryptomining:
     ```bash
