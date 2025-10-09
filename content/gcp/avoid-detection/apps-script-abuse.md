@@ -1,5 +1,5 @@
 ---
-author_name: Bleon Proko and Jakub Pavlik
+author_name: Taylor Smith
 title: Apps Script project impersonation / Google Apps Script persistence
 description: Google Workspace Apps Script projects create hidden GCP projects (sys-<...>) that can be impersonated by attackers. This technique enables stealthy persistence (service accounts, hidden compute, cryptomining) and can bypass common console inspections.
 ---
@@ -27,15 +27,15 @@ A common abuse is to deploy a high-performance instance for cryptomining within 
 
 1.  **Create a hidden project** with a name mimicking a legitimate function:
     ```bash
-    gcloud projects create 'sys-22222222222222222222222222 --name "Exaforce Google Sheet Function"-folder-936086877446
+    gcloud projects create 'sys-22222222222222222222222222' --name "Exaforce Google Sheet Function" --folder-936086877446
     ```
 2.  **Link the project to a billing account:**
     ```bash
-    S.gcloud beta billing projects link sys-22222222222222222222222222-btlling-account
+    gcloud beta billing projects link sys-22222222222222222222222222-btlling-account xxxxxx
     ```
 3.  **Create a large compute instance** for cryptomining:
     ```bash
-    gcloud compute instances create app-script-instance project=sys-22222222222222222222222222-zone us-centrali-a machine-type n2-standard-16 (nage-fantly debian 11 image project deblan cloud boot-disk-size-200GB
+    gcloud compute instances create app-script-instance project=sys-22222222222222222222222222 --zone=us-central1-a --machine-type=n2-standard-16 --image-family=debian-11 --image-project=deblan-cloud --boot-disk-size=200GB
     ```
 
 ## Attack Vector 2: Stealthy Persistence
@@ -44,11 +44,11 @@ Attackers can use a hidden project to create a service account and grant it high
 
 1.  **Create a service account** inside the hidden project:
     ```bash
-    gcloud tam service-accounts create persistence-service-account display-name "Persistence Service Account -project sys-22222222222222222222222222
+    gcloud iam service-accounts create persistence-service-account --display-name "Persistence Service Account" --project sys-22222222222222222222222222
     ```
 2.  **Bind the service account** to a privileged role at the organization level:
     ```bash
-    gcloud organizations add-tan-policy-binding 929656368871 role organizations/ roles/AppScriptPolicy renber-persistence-service-account@nys-222222222222.tam.gserviceaccount.com
+    gcloud organizations add-iam-policy-binding xxxxxxx --member="serviceAccount:persistence-service-account@sys-222222222222.iam.gserviceaccount.com" --role="organizations/xxxxx/roles/AppScriptPolicy"
     ```
 
 Notably, IAM service accounts are free resources, so this persistence mechanism can be established even without linking the project to a billing account, bypassing some detection methods.
@@ -70,17 +70,17 @@ Notably, IAM service accounts are free resources, so this persistence mechanism 
 You can prevent this attack by implementing a custom organization policy that denies the creation of projects with an ID matching the Apps Script format.
 
 ```yaml
-name: >
- organizations/012345678912/customConstraints/custom.denyAppsScriptPr
- ojectImpersonation
+name: >-
+
+organizations/012345678912/customConstraints/custom.denyAppsScriptProjectImpersonation
 resource_types: cloudresourcemanager.googleapis.com/Project
 method_types:
-- CREATE
-- UPDATE
+  - CREATE
+  - UPDATE
 condition: 'resource.projectId.matches(''sys-[0-9]{26}'')'
 action_type: DENY
 display_name: Deny Apps Script Project Impersonation
-description:
+description: ''
 ```
 
 **Note:** This policy is effective but will also block the creation of legitimate Apps Script projects for all users in the organization.
