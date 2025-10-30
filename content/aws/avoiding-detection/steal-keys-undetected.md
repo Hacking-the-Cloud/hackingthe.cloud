@@ -32,7 +32,7 @@ However, there is currently a functioning bypass for this - [VPC Endpoints](http
 
 ## SneakyEndpoints
 
-To make this setup faster/easier for Penetration Testers and Red Teamers, [SneakyEndpoints](https://github.com/Frichetten/SneakyEndpoints) was created. This project is a collection of Terraform configurations which can quickly spin up an environment to attack form. It will create an EC2 instance in a private subnet (no internet access) and create a number of VPC Endpoints for you to use. This setup ensures we don't accidentally access an internet facing API endpoint and trigger the alert.
+To make this setup faster/easier for Penetration Testers and Red Teamers, [SneakyEndpoints](https://github.com/Frichetten/SneakyEndpoints) was created. This project is a collection of Terraform configurations which can quickly spin up an environment to attack from. It will create an EC2 instance in a private subnet (no internet access) and create a number of VPC Endpoints for you to use. This setup ensures we don't accidentally access an internet facing API endpoint and trigger the alert.
 
 ## Setup and Usage
 
