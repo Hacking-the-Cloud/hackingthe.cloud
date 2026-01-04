@@ -1,7 +1,7 @@
 ---
 title: "2025 Hacking the Cloud: Year in Review"
 description: An end of year summary for Hacking the Cloud in 2025.
-date: 2026-01-05T00:00:40-06:00
+date: 2026-01-05T00:00:40-05:00
 ---
 <aside markdown style="display:flex">
   <p><img src="https://avatars.githubusercontent.com/u/10386884?v=4" style="width:44px;height:44px;margin:5px;border-radius:100%"></img></p>
