@@ -3,5 +3,6 @@ nav:
     - AWS: aws
     - Azure: azure
     - GCP: gcp
+    - AI and LLM: ai-llm
     - Terraform: terraform
     - Blog: blog
