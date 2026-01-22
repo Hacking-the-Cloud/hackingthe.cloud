@@ -1,6 +1,3 @@
-User-agent: GPTBot
-Disallow: /
-User-agent: ChatGPT-User
-Disallow: /
-User-agent: CCBot
-Disallow: /
+User-agent: *
+Allow: /
+Sitemap: https://hackingthe.cloud/sitemap.xml
