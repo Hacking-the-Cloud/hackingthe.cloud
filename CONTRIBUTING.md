@@ -30,6 +30,26 @@ docker run --rm -it -p 8000:8000 -v ${PWD}:/docs mkdocs-material
 
 __NOTE__: You do not have to run the Docker container to contribute. You can make edits or even create new pages directly from GitHub. Go to the file you'd like to edit, or the directory you'd like to add to and click "Add File" in the mid-top right. Use the Markdown editor built into GitHub and submit your Pull Request.
 
+## Scheduled Merges (Publishing at a Specific Time)
+
+If you want your PR to merge at a specific time (so it deploys on schedule), leave a PR comment with:
+
+```
+/schedule-merge YYYY-MM-DD HH:MM CT
+```
+
+Example:
+
+```
+/schedule-merge 2026-01-28 09:00 CT
+```
+
+Notes:
+- Times are interpreted as Central Time (America/Chicago, including daylight saving time).
+- Only maintainers with write/maintain/admin permissions can schedule a merge.
+- To reschedule, comment again with a new time; the latest schedule wins.
+- If the merge fails (checks/merge conflicts), the schedule is cleared and you can fix the PR and reschedule.
+
 ## Using Cards
 
 If you'd like to use a card, for [example](https://hackingthe.cloud/aws/post_exploitation/create_a_console_session_from_iam_credentials/) `Technique seen in the wild`, `Tools mentioned in this article`, etc, __please be aware that you would need a subscription for [Material for MKDocs](https://squidfunk.github.io/mkdocs-material/reference/grids/#using-card-grids) for the cards to be properly displayed on your local machine__. Simply copy and paste the template from the options below and it will be properly rendered on the site (we have a subscription to Material for MKDocs).
