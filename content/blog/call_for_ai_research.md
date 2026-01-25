@@ -10,7 +10,7 @@ date: 2026-01-26T00:00:40-06:00
   <span>__Nick Frichette__ · @frichette_n · <a href="https://twitter.com/Frichette_n">:fontawesome-brands-twitter:{ .twitter }</a> <a href="https://fosstodon.org/@frichetten">:fontawesome-brands-mastodon:{ .mastodon }</a> <a href="https://bsky.app/profile/frichetten.com">:fontawesome-brands-bluesky:{ .bluesky }</a></span>
   <br>
   <span>
-    :octicons-calendar-24: January 25, 2026
+    :octicons-calendar-24: January 26, 2026
   </span>
 </aside>
 ---
