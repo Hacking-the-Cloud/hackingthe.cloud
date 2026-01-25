@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 import os
 import re
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
+
+SCHEDULE_TIMEZONE = "America/Chicago"
+MAX_SCHEDULE_DAYS = 30
 
 
 def write_output(key: str, value: str) -> None:
@@ -66,7 +69,7 @@ else:
         raise SystemExit(0)
 
 year, month, day = [int(part) for part in date_part.split("-")]
-local_tz = ZoneInfo("America/Chicago")
+local_tz = ZoneInfo(SCHEDULE_TIMEZONE)
 try:
     local_dt = datetime(year, month, day, hour, minute, tzinfo=local_tz)
 except ValueError:
@@ -77,6 +80,11 @@ utc_dt = local_dt.astimezone(timezone.utc)
 now_utc = datetime.now(timezone.utc)
 if utc_dt <= now_utc:
     fail("Scheduled time must be in the future.")
+    raise SystemExit(0)
+
+max_future = now_utc + timedelta(days=MAX_SCHEDULE_DAYS)
+if utc_dt > max_future:
+    fail(f"Scheduled time must be within {MAX_SCHEDULE_DAYS} days from now.")
     raise SystemExit(0)
 
 utc_iso = utc_dt.replace(microsecond=0).isoformat().replace("+00:00", "Z")

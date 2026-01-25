@@ -44,9 +44,17 @@ Example:
 /schedule-merge 2026-01-28 09:00 CT
 ```
 
+To cancel a scheduled merge, comment:
+
+```
+/unschedule-merge
+```
+
 Notes:
 - Times are interpreted as Central Time (America/Chicago, including daylight saving time).
-- Only maintainers with write/maintain/admin permissions can schedule a merge.
+- Merges are processed every 5 minutes, so the actual merge may occur up to 5 minutes after the scheduled time.
+- Only maintainers with write/maintain/admin permissions can schedule or cancel a merge.
+- Schedules must be within 30 days from the current date.
 - To reschedule, comment again with a new time; the latest schedule wins.
 - If the merge fails (checks/merge conflicts), the schedule is cleared and you can fix the PR and reschedule.
 
