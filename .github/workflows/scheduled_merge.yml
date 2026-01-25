@@ -14,11 +14,10 @@ permissions:
 
 jobs:
   schedule:
-    if: github.event_name == 'issue_comment'
+    if: github.event_name == 'issue_comment' && (contains(github.event.comment.body, '/schedule-merge') || contains(github.event.comment.body, '/unschedule-merge'))
     runs-on: ubuntu-latest
     concurrency:
       group: schedule-${{ github.event.issue.number }}
-      cancel-in-progress: true
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
