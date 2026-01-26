@@ -1,4 +1,5 @@
 nav:
+    - "Call for research: AI and LLM security": blog/call_for_ai_research/
     - "2025 Hacking the Cloud: Year in Review": blog/2025_wrap-up/
     - "2024 Cloud Security Highlights: Hacking the Cloud’s Year in Review": blog/2024_wrap-up/
     - 2023 Wrap-up: blog/2023_wrap-up/
