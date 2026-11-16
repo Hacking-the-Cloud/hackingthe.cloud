@@ -72,6 +72,8 @@ The same approach works for any condition key that supports `StringLike` with wi
 | `aws:ResourceTag/{key}` | Tag values (if you know the tag key name) |
 | `lambda:FunctionArn` | Lambda function ARN components |
 
+`aws:ResourceOrgPaths` is multivalued. AWS requires a set operator such as `ForAnyValue:StringLike`. This version of conditional-love sends plain `StringLike`. To enumerate it, change `get_policy()`.
+
 ## Supported Services
 
 The [conditional-love](https://github.com/plerionhq/conditional-love) tool supports enumeration through:
@@ -87,23 +89,24 @@ Any service where the attacker's principal has some access to the target resourc
 
 ## Using conditional-love
 
-Install and run the tool:
+Install and run the tool. You need an assumable role that can already perform the target action. If the role cannot, the tool exits before the search. For `s3:HeadObject`, the object key must exist and be known.
 
 ```bash
 git clone https://github.com/plerionhq/conditional-love.git
 cd conditional-love
 pip install -r requirements.txt
-python conditional_love.py \
-    --target-type s3 \
-    --target-value my-target-bucket \
-    --condition-key s3:ResourceAccount
+python conditional-love.py \
+    --role arn:aws:iam::123456789012:role/AssumableRole \
+    --action s3:HeadObject \
+    --target s3://my-target-bucket/known-object-key \
+    --condition s3:ResourceAccount
 ```
 
-The tool handles the binary search automatically and outputs the discovered value.
+The tool handles the character-by-character search automatically and outputs the discovered value.
 
 ## Security Implications
 
-The most dangerous application is **tag value exfiltration**. Organizations often store meaningful data in resource tags: cost center codes, owner email addresses, environment names, or project identifiers. If an attacker knows (or guesses) the tag key name, they can extract the value from any resource they can access.
+The most dangerous application is **tag value exfiltration**. Organizations often store meaningful data in resource tags: cost center codes, owner email addresses, environment names, or project identifiers. If an attacker knows (or guesses) the tag key name, they can extract the value, but only when the requested operation exposes that condition key. AWS includes `aws:ResourceTag` only for resources that support authorization based on tags. S3 evaluates bucket `aws:ResourceTag` conditions only when ABAC is enabled, which is off by default for general-purpose buckets.
 
 Account IDs and organization IDs are also valuable for reconnaissance. Knowing the account ID enables further attacks like [enumerating IAM principals](../enumeration/enum_iam_user_role.md) or crafting targeted phishing with knowledge of the internal org structure.
 
@@ -112,4 +115,4 @@ Account IDs and organization IDs are also valuable for reconnaissance. Knowing t
 - **Never store sensitive information in resource tags.** AWS [explicitly discourages](https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html) using tags for confidential data.
 - **Publish shared resources from isolated accounts.** If you share AMIs, Lambda layers, or S3 buckets publicly, use a purpose-built account separate from production.
 - **Restrict resource policies to authorized principals.** The technique requires the attacker to have some level of access to the target resource.
-- **Monitor for unusual IAM policy modifications.** Policies with `StringLike` conditions using wildcards against `ResourceAccount` or `ResourceTag` keys may indicate enumeration attempts.
+- **Monitor for unusual IAM policy modifications.** Policies with `StringLike` conditions using wildcards against `ResourceAccount` or `ResourceTag` keys may indicate enumeration attempts. That check misses conditional-love. The tool passes each probe as an STS session policy on `AssumeRole` and does not change attached IAM policies.
